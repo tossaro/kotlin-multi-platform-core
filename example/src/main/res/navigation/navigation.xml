@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.domain.example.modules.splash.SplashFragment"
+        android:label="SplashFragment">
+        <action
+            android:id="@+id/actionToStockListFragment"
+            app:destination="@id/stockListFragment" />
+        <deepLink app:uri="android-app://example.domain.com/splash" />
+    </fragment>
+    <fragment
+        android:id="@+id/stockListFragment"
+        android:name="com.domain.example.modules.stocklist.StockListFragment"
+        android:label="StockListFragment">
+        <deepLink app:uri="android-app://example.domain.com/stock" />
+    </fragment>
+</navigation>
