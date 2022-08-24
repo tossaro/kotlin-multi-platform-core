@@ -152,7 +152,7 @@ afterEvaluate {
         repositories {
             maven {
                 name = "GitLab"
-                url = uri("https://gitlab.com/api/v4/projects/38836549/packages/maven")
+                url = uri("https://gitlab.com/api/v4/projects/${localProps['gitlabProject']}/packages/maven")
                 credentials(HttpHeaderCredentials) {
                     name = 'Private-Token'
                     value = localProps['gitlabToken']
