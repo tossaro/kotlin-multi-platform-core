@@ -31,5 +31,10 @@
       <option name="name" value="maven2" />
       <option name="url" value="https://maven.pkg.github.com/tossaro/kotlin-android-core" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="GitLab" />
+      <option name="name" value="GitLab" />
+      <option name="url" value="https://gitlab.com/api/v4/projects/38836549/packages/maven" />
+    </remote-repository>
   </component>
 </project>

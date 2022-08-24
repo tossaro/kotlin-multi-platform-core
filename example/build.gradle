@@ -5,12 +5,6 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
 }
 
-def githubPropsFile = file('github.properties')
-Properties githubProps = new Properties()
-if (githubPropsFile.canRead()) {
-    githubProps.load(new FileInputStream(githubPropsFile))
-}
-
 android {
     compileSdkVersion 32
 
@@ -47,16 +41,6 @@ android {
     }
     buildFeatures {
         dataBinding = true
-    }
-}
-
-repositories {
-    maven {
-        url = uri("https://maven.pkg.github.com/tossaro/kotlin-android-core")
-        credentials {
-            username = githubProps['USER']
-            password = githubProps['KEY']
-        }
     }
 }
 
