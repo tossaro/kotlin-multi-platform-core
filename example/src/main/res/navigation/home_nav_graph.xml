@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="tossaro.android.core.example.app.stocklist.StockListFragment"
+        android:label="HomeFragment">
+        <deepLink app:uri="android-app://app.tossaro.dev/stocks" />
+    </fragment>
+    <dialog
+        android:id="@+id/stockDetailDialoFgragment"
+        android:name="tossaro.android.core.example.app.stockdetail.StockDetailDialogFragment"
+        android:label="StockDetailDialogFragment">
+        <deepLink app:uri="android-app://app.tossaro.dev/stock/{coin}/{value}" />
+    </dialog>
+</navigation>

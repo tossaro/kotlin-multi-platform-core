@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primaryVariant</item>
+        <item name="colorOnPrimary">@color/onPrimary</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/secondaryVariant</item>
+        <item name="colorOnSecondary">@color/onSecondary</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <!-- Customize your theme here. -->
+        <item name="backgroundColor">@color/background</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:navigationBarColor">@color/navBar</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="android:fitsSystemWindows">false</item>
+        <item name="android:windowTranslucentStatus">false</item>
+    </style>
+
+    <!--Toolbar-->
+    <style name="ToolBarStyle" parent="ToolBarStyle.Base" />
+
+    <style name="ToolBarStyle.Base" parent="">
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:background">@color/toolbarBackground</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?android:attr/actionBarSize</item>
+    </style>
+
+    <style name="ToolBarStyle.Event" parent="ToolBarStyle">
+        <item name="titleTextAppearance">@style/TextAppearance.Widget.Event.Toolbar.Title</item>
+    </style>
+
+    <style name="TextAppearance.Widget.Event.Toolbar.Title" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="FullScreenDialogTheme" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <!--Switch-->
+    <style name="Switch.DarkSkyBlue" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorControlActivated">@color/primary</item>
+    </style>
+
+    <!--TabLayout-->
+    <style name="TabDefaultTextAppearance">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!--App Button-->
+    <style name="Button" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Button.Poppins">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+    </style>
+
+    <style name="Button.Poppins.SolidPrimary">
+        <item name="android:background">@drawable/bg_button_primary_solid</item>
+        <item name="android:textColor">@color/onPrimary</item>
+    </style>
+
+    <style name="Button.Poppins.SolidPrimary.Rounded">
+        <item name="android:background">@drawable/bg_button_primary_solid_rounded</item>
+        <item name="android:textColor">@color/onPrimary</item>
+    </style>
+
+    <style name="Button.Poppins.StrokePrimary">
+        <item name="android:background">@drawable/bg_button_primary_stroke</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="Button.Poppins.StrokePrimary.Rounded">
+        <item name="android:background">@drawable/bg_button_primary_stroke_rounded</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <!--Material Button-->
+    <style name="MaterialOutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="MaterialOutlinedButton.Poppins">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+    </style>
+
+    <style name="MaterialOutlinedButton.Poppins.StrokeNegative">
+        <item name="strokeColor">@color/negative_button_text_selector</item>
+        <item name="android:textColor">@color/negative_button_text_selector</item>
+    </style>
+
+    <style name="MaterialOutlinedButton.Poppins.StrokeNegative.Rounded">
+        <item name="cornerRadius">1000dp</item>
+        <item name="rippleColor">@color/negative20</item>
+        <item name="iconTint">@color/negative</item>
+        <item name="strokeColor">@color/negative_button_text_selector</item>
+        <item name="android:textColor">@color/negative_button_text_selector</item>
+    </style>
+</resources>

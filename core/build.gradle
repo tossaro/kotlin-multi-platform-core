@@ -1,32 +1,36 @@
 plugins {
     id 'com.android.library'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.kapt'
+    id 'org.jetbrains.dokka' version "1.7.10"
     id 'maven-publish'
 }
 
-def localPropsFile = rootProject.file('local.properties')
-Properties localProps = new Properties()
-if (localPropsFile.canRead()) {
-    localProps.load(new FileInputStream(localPropsFile))
-}
+apply from: '../properties.gradle'
 
 android {
-    compileSdkVersion 32
+    namespace setup.appId
+    compileSdkVersion setup.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 32
-        versionCode 1
-        versionName "1.0.0"
+        minSdkVersion setup.minSdkVersion
+        targetSdkVersion setup.targetSdkVersion
+        versionCode buildVersionCode()
+        versionName buildVersionName()
 
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        multiDexEnabled true
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            testCoverageEnabled = true
         }
     }
 
@@ -43,119 +47,87 @@ android {
         dataBinding = true
     }
 
+    flavorDimensions 'api'
+    productFlavors {
+        dev {
+            dimension 'api'
+            resValue "string", "app_name", String.format("%s", setup.appName.dev)
+            buildConfigField 'String', 'DEEP_LINK_HOST', String.format("%s", deeplink.dev)
+        }
+        stage {
+            dimension 'api'
+            resValue "string", "app_name", String.format("%s", setup.appName.stage)
+            buildConfigField 'String', 'DEEP_LINK_HOST', String.format("%s", deeplink.stage)
+        }
+        beta {
+            dimension 'api'
+            resValue "string", "app_name", String.format("%s", setup.appName.beta)
+            buildConfigField 'String', 'DEEP_LINK_HOST', String.format("%s", deeplink.beta)
+        }
+        store {
+            dimension 'api'
+            resValue "string", "app_name", String.format("%s", setup.appName.store)
+            buildConfigField 'String', 'DEEP_LINK_HOST', String.format("%s", deeplink.store)
+        }
+    }
+
     publishing {
         singleVariant("release") {
             withSourcesJar()
             withJavadocJar()
         }
     }
+
+    task installLocalGitHook(type: Copy) {
+        from new File(rootProject.rootDir, 'scripts/pre-commit')
+        into { new File(rootProject.rootDir, '.git/hooks') }
+        fileMode 0775
+    }
+
+    build.dependsOn installLocalGitHook
+}
+
+dokkaGfm {
+    suppressInheritedMembers.set(true)
+    outputDirectory.set(file("${rootProject.rootDir}/docs/${project.name}"))
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.5.0'
-    implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-
-    def lifecycle_version = '2.5.1'
-    def arch_version = "2.1.0"
-
-    // Lifecycle
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
-    // ViewModel
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    // LiveData
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-    // Lifecycles only (without ViewModel or LiveData)
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
-
-    // Saved state module for ViewModel
-    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
-
-    // alternately - if using Java8, use the following instead of lifecycle-compiler
-    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
-
-    // optional - helpers for implementing LifecycleOwner in a Service
-    implementation "androidx.lifecycle:lifecycle-service:$lifecycle_version"
-
-    // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
-    implementation "androidx.lifecycle:lifecycle-process:$lifecycle_version"
-
-    // optional - ReactiveStreams support for LiveData
-    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycle_version"
-
-    // optional - Test helpers for LiveData
-    testImplementation "androidx.arch.core:core-testing:$arch_version"
-
-    // Network
-    implementation 'com.google.code.gson:gson:2.9.1'
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'com.github.bumptech.glide:glide:4.13.2'
-    // Skip this if you don't want to use integration libraries or configure Glide.
-    kapt 'com.github.bumptech.glide:compiler:4.13.2'
-
-    def retrofit_version = '2.9.0'
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
-
-    def okhttp_version = '5.0.0-alpha.10'
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
-    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
-
-    // NetworkResponse
-    implementation "com.github.haroldadmin:NetworkResponseAdapter:3.0.1"
-
-    // Logger & Debugger
-    implementation 'com.jakewharton.timber:timber:5.0.1'
-    debugImplementation "com.github.chuckerteam.chucker:library:3.5.2"
-    releaseImplementation "com.github.chuckerteam.chucker:library-no-op:3.5.2"
-    implementation 'com.facebook.stetho:stetho-okhttp3:1.6.0'
-
-    implementation 'androidx.multidex:multidex:2.0.1'
-
-    def koin_version = '3.2.0'
-    implementation "io.insert-koin:koin-android:$koin_version"
-    testImplementation "io.insert-koin:koin-test:$koin_version"
-    testImplementation "io.insert-koin:koin-test-junit4:$koin_version"
-
-    def navigation_version = '2.5.1'
-    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
-    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
-
-    implementation "com.github.castorflex.smoothprogressbar:library:1.1.0"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    dep.each {
+        if (it.configuration == "platform") {
+            add("implementation", platform(it.dependency))
+        } else {
+            add(it.configuration, it.dependency, it.options)
+        }
+    }
 }
 
 afterEvaluate {
+    def buildTypes = android.buildTypes.collect { type -> type.name }
+    def productFlavors = android.productFlavors.collect { flavor -> flavor.name }
     publishing {
         publications {
-            release(MavenPublication) {
-                from components.release
-                groupId 'kotlin.android'
-                artifactId 'core'
-                version '1.1.0'
-            }
-
-            debug(MavenPublication) {
-                from components.debug
-                groupId 'kotlin.android'
-                artifactId 'core'
-                version '1.1.0'
+            productFlavors.each { productFlavorName ->
+                buildTypes.each { buildTypeName ->
+                    def name = "${productFlavorName}${buildTypeName.capitalize()}"
+                    "$name"(MavenPublication) {
+                        from components."$name"
+                        groupId "tossaro.android.core"
+                        artifactId "$productFlavorName-$buildTypeName"
+                        version android.defaultConfig.versionName
+                    }
+                }
             }
         }
 
         repositories {
             maven {
-                name = "GitLab"
-                url = uri("https://gitlab.com/api/v4/projects/${localProps['gitlabProject']}/packages/maven")
+                name = "Core"
+                url = uri("https://gitlab.com/api/v4/projects/38836420/packages/maven")
                 credentials(HttpHeaderCredentials) {
                     name = 'Private-Token'
-                    value = localProps['gitlabToken']
+                    value = gitlab.publishToken
                 }
                 authentication {
                     header(HttpHeaderAuthentication)

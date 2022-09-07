@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tap_to_minimize">Please tap back again to exit</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_trip">My Trip</string>
+    <string name="menu_profile">Profile</string>
+</resources>

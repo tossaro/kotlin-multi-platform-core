@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="tap_to_minimize">Silahkan tap kembali untuk menutup aplikasi</string>
+    <string name="menu_home">Beranda</string>
+    <string name="menu_trip">Trip Saya</string>
+    <string name="menu_profile">Profil</string>
+</resources>
