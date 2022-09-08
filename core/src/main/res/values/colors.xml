@@ -33,6 +33,7 @@
     <color name="error">#D44000</color>
 
     <color name="white">#FFFFFF</color>
+    <color name="grey100">#4E5764</color>
     <color name="grey80">#66707A</color>
     <color name="grey60">#C4C9CE</color>
     <color name="grey20">#EDECF0</color>

@@ -8,6 +8,7 @@ import tossaro.android.core.example.R
 class MainActivity : BaseActivity<MainActivityBinding>(
     R.layout.main_activity
 ) {
+    override fun appVersion() = getString(R.string.app_version)
     override fun isDebugNavStack() = true
     override fun actionBar() = binding.toolbar
     override fun bottomNavBar() = binding.bottomNav

@@ -125,4 +125,48 @@
         <item name="strokeColor">@color/negative_button_text_selector</item>
         <item name="android:textColor">@color/negative_button_text_selector</item>
     </style>
+
+    <style name="Text" parent="TextAppearance.AppCompat"/>
+    <style name="Text.Poppins">
+        <item name="fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="Text.Poppins.Body2">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="Text.Poppins.Body2.Title">
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+    <style name="Text.Poppins.Body2.Regular">
+        <item name="android:textColor">@color/grey100</item>
+    </style>
+
+    <style name="Text.Poppins.Body3">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="Text.Poppins.Body3.Title">
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+    <style name="Text.Poppins.Body3.Regular">
+        <item name="android:textColor">@color/grey100</item>
+    </style>
+
+    <style name="Text.Poppins.Body4">
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="Text.Poppins.Body4.Title">
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="EditText" parent="Base.Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/bg_edittext</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:saveEnabled">false</item>
+        <item name="android:textColor">@color/grey100</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">top|start</item>
+    </style>
 </resources>

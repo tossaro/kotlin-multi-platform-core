@@ -44,6 +44,11 @@ abstract class BaseActivity<B : ViewDataBinding>(
     protected val sharedPreferences: SharedPreferences by inject()
 
     /**
+     * Open function for version of application
+     */
+    open fun appVersion(): String? = null
+
+    /**
      * Abstract function for container navigation host binding
      */
     abstract fun navHostFragment(): NavHostFragment
@@ -144,6 +149,7 @@ abstract class BaseActivity<B : ViewDataBinding>(
         _binding = DataBindingUtil.setContentView(this, layoutResId)
 
         val navController = navHostFragment().navController
+        @SuppressLint("RestrictedApi")
         if (BuildConfig.DEBUG && isDebugNavStack()) {
             navController.addOnDestinationChangedListener { controller, _, _ ->
                 val breadcrumb = controller

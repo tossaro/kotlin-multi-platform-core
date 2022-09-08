@@ -44,13 +44,13 @@ For the high level hierarchy, the project separate into 3 main modules, which ar
 > This module represent the Data layer. Consists of data sources; can be network call, mock data, disk data, and cache data.
 
 ## Getting started
-1. Create New `Deploy Token` -> [Tutorial](https://docs.gitlab.com/ee/user/project/deploy_tokens/index.html)
+1. Create New `Private Token` -> [Tutorial](https://docs.gitlab.com/ee/user/project/private_tokens/index.html)
 2. Check for `read_package_registry` role, then save your token
 3. Create `properties.gradle` in your root folder, add this content:
 ```groovy
 ext {
    gitlab = [
-        consumeToken: "<Generated Deploy Token>"
+        consumeToken: "<Generated Private Token>"
    ]
 }
 ```
@@ -60,10 +60,10 @@ dependencyResolutionManagement {
    repositories {
       //...
       maven {
-         name = "Traveler Group"
+         name = "Core"
          url = uri("https://gitlab.com/api/v4/projects/38836420/packages/maven")
          credentials(HttpHeaderCredentials) {
-            name = 'Deploy-Token'
+            name = 'Private-Token'
             value = gitlab.consumeToken
          }
          authentication {
