@@ -18,11 +18,11 @@ stages:
 .anchors:
   - &gen-props
       echo ext { >> properties.gradle
-      echo gitlab = [ publishToken:"'$TOKEN'",consumeToken:"'$TOKEN'" ] >> properties.gradle
-      echo deeplink = [ dev:'"\"'$DEEPLINK'\"",stage:"\"'$DEEPLINK'\"",beta:"\"'$DEEPLINK'\"",store:"\"'$DEEPLINK'\""' ] >> properties.gradle
-      echo server = [ dev :'"\"'$SERVER'\"",stage:"\"'$SERVER'\"",beta:"\"'$SERVER'\"",store:"\"'$SERVER'\""' ] >> properties.gradle
-      echo socket = [ dev :'"\"'$SOCKET'\"",stage:"\"'$SOCKET'\"",beta:"\"'$SOCKET'\"",store:"\"'$SOCKET'\""' ] >> properties.gradle
-      echo } >> properties.gradle
+      && echo gitlab = [ publishToken:"'$TOKEN'",consumeToken:"'$TOKEN'" ] >> properties.gradle
+      && echo deeplink = [ dev:'"\"'$DEEPLINK'\"",stage:"\"'$DEEPLINK'\"",beta:"\"'$DEEPLINK'\"",store:"\"'$DEEPLINK'\""' ] >> properties.gradle
+      && echo server = [ dev :'"\"'$SERVER'\"",stage:"\"'$SERVER'\"",beta:"\"'$SERVER'\"",store:"\"'$SERVER'\""' ] >> properties.gradle
+      && echo socket = [ dev :'"\"'$SOCKET'\"",stage:"\"'$SOCKET'\"",beta:"\"'$SOCKET'\"",store:"\"'$SOCKET'\""' ] >> properties.gradle
+      && echo } >> properties.gradle
 
 publishing:
   stage: publish
