@@ -1,20 +1,24 @@
 plugins {
     id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-    id 'androidx.navigation.safeargs.kotlin'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.kapt'
+    id 'org.jetbrains.dokka' version "1.7.10"
 }
 
+apply from: '../properties.gradle'
+
 android {
-    compileSdkVersion 32
+    namespace "${setup.appId}.example"
+    compileSdkVersion setup.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.example.app"
-        minSdkVersion 21
-        targetSdkVersion 32
-        versionCode 1
-        versionName "1.0"
+        applicationId "${setup.appId}.example"
+        minSdkVersion setup.minSdkVersion
+        targetSdkVersion setup.targetSdkVersion
+        versionCode buildVersionCode()
+        versionName buildVersionName()
 
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
         multiDexEnabled true
@@ -22,100 +26,93 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "SERVER", "\"https://min-api.cryptocompare.com\""
-            buildConfigField "String", "SOCKET", "\"wss://streamer.cryptocompare.com/v2?api_key=8509bc94fc1eadca8cba450b3778dc04f486cfd7d88d96a70996b4dfe3a534e2\""
         }
         debug {
-            buildConfigField "String", "SERVER", "\"https://min-api.cryptocompare.com\""
-            buildConfigField "String", "SOCKET", "\"wss://streamer.cryptocompare.com/v2?api_key=8509bc94fc1eadca8cba450b3778dc04f486cfd7d88d96a70996b4dfe3a534e2\""
+            testCoverageEnabled = true
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     buildFeatures {
         dataBinding = true
+    }
+
+    flavorDimensions 'api'
+    productFlavors {
+        dev {
+            dimension 'api'
+            applicationIdSuffix setup.suffix.appId.dev
+            versionNameSuffix setup.suffix.versionName.dev
+            resValue "string", "app_version", String.format("%s(%s)", "${defaultConfig.versionName}", "${versionNameSuffix}")
+            resValue "string", "app_name", String.format("%s", setup.appName.dev)
+            buildConfigField 'String', 'SERVER', String.format("%s", server.dev)
+            buildConfigField 'String', 'SOCKET', String.format("%s", socket.dev)
+        }
+        stage {
+            dimension 'api'
+            applicationIdSuffix setup.suffix.appId.stage
+            versionNameSuffix setup.suffix.versionName.stage
+            resValue "string", "app_version", String.format("%s(%s)", "${defaultConfig.versionName}", "${versionNameSuffix}")
+            resValue "string", "app_name", String.format("%s", setup.appName.stage)
+            buildConfigField 'String', 'SERVER', String.format("%s", server.stage)
+            buildConfigField 'String', 'SOCKET', String.format("%s", socket.stage)
+        }
+        beta {
+            dimension 'api'
+            applicationIdSuffix setup.suffix.appId.beta
+            versionNameSuffix setup.suffix.versionName.beta
+            resValue "string", "app_version", String.format("%s(%s)", "${defaultConfig.versionName}", "${versionNameSuffix}")
+            resValue "string", "app_name", String.format("%s", setup.appName.beta)
+            buildConfigField 'String', 'SERVER', String.format("%s", server.beta)
+            buildConfigField 'String', 'SOCKET', String.format("%s", socket.beta)
+        }
+        store {
+            dimension 'api'
+            resValue "string", "app_version", "${defaultConfig.versionName}"
+            resValue "string", "app_name", String.format("%s", setup.appName.store)
+            buildConfigField 'String', 'SERVER', String.format("%s", server.store)
+            buildConfigField 'String', 'SOCKET', String.format("%s", socket.store)
+        }
+    }
+}
+
+dokkaGfm {
+    suppressInheritedMembers.set(true)
+    outputDirectory.set(file("${rootProject.rootDir}/docs/${project.name}"))
+}
+
+afterEvaluate {
+    def buildTypes = android.buildTypes.collect { type -> type.name }
+    def productFlavors = android.productFlavors.collect { flavor -> flavor.name }
+    dependencies {
+        productFlavors.each { productFlavorName ->
+            buildTypes.each { buildTypeName ->
+                // comment this block if using local package
+                //"${productFlavorName}${buildTypeName.capitalize()}Implementation"("tossaro.android.core:${productFlavorName}-${buildTypeName}:${buildVersionName()}")
+            }
+        }
     }
 }
 
 dependencies {
-    implementation 'kotlin.android:core:1.1.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.appcompat:appcompat:1.5.0'
-    implementation 'com.google.android.material:material:1.6.1'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation project(":core") // uncomment below implementation if using local package
 
-    def room_version = '2.4.3'
-    implementation "androidx.room:room-ktx:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"
-
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-
-    def lifecycle_version = '2.5.1'
-    def arch_version = "2.1.0"
-
-    //Lifecycle
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
-    // ViewModel
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    // LiveData
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-    // Lifecycles only (without ViewModel or LiveData)
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
-
-    // Saved state module for ViewModel
-    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
-
-    // alternately - if using Java8, use the following instead of lifecycle-compiler
-    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
-
-    // optional - helpers for implementing LifecycleOwner in a Service
-    implementation "androidx.lifecycle:lifecycle-service:$lifecycle_version"
-
-    // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
-    implementation "androidx.lifecycle:lifecycle-process:$lifecycle_version"
-
-    // optional - ReactiveStreams support for LiveData
-    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycle_version"
-
-    // optional - Test helpers for LiveData
-    testImplementation "androidx.arch.core:core-testing:$arch_version"
-
-    implementation 'androidx.activity:activity-ktx:1.5.1'
-    implementation 'androidx.fragment:fragment-ktx:1.5.2'
-
-    //Network
-    implementation 'com.google.code.gson:gson:2.9.1'
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'com.github.bumptech.glide:glide:4.13.2'
-    // Skip this if you don't want to use integration libraries or configure Glide.
-    kapt 'com.github.bumptech.glide:compiler:4.13.2'
-
-    // NetworkResponse
-    implementation "com.github.haroldadmin:NetworkResponseAdapter:3.0.1"
-
-    // Logger & Debugger
-    implementation 'com.jakewharton.timber:timber:5.0.1'
-
-    def koin_version = '3.2.0'
-    implementation "io.insert-koin:koin-android:$koin_version"
-    testImplementation "io.insert-koin:koin-test:$koin_version"
-    testImplementation "io.insert-koin:koin-test-junit4:$koin_version"
-
-    def navigation_version = "2.5.1"
-    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
-    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
-
-    // WebSocket
-    implementation 'org.java-websocket:Java-WebSocket:1.5.3'
+    dep.each {
+        if (it.configuration == "platform") {
+            add("implementation", platform(it.dependency))
+        } else {
+            add(it.configuration, it.dependency, it.options)
+        }
+    }
 }

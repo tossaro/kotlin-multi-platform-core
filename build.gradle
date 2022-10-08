@@ -1,41 +1,112 @@
-buildscript {
-    ext.kotlin_version = "1.7.10"
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
+plugins {
+    id 'com.android.application' version '8.0.0-alpha02' apply false
+    id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
+    id 'androidx.navigation.safeargs' version '2.5.1' apply false
+    id 'org.sonarqube' version '3.4.0.2513'
+}
+
+ext {
+    version = [
+            major: 0,
+            minor: 0,
+            patch: 8
+    ]
+
+    buildVersionCode = {
+        return 1
     }
-    dependencies {
-        classpath "com.android.tools.build:gradle:7.2.2"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.5.1"
+
+    buildVersionName = {
+        return version.major + "." + version.minor + "." + version.patch
+    }
+
+    setup = [
+            compileSdkVersion: 32,
+            minSdkVersion    : 23,
+            targetSdkVersion : 32,
+
+            appId            : "tossaro.android.core",
+            appName          : [
+                    store: "Core",
+                    dev  : "Core (DEV)",
+                    stage: "Core (STAGE)",
+                    beta : "Core (BETA)",
+            ],
+            suffix           : [
+                    appId      : [
+                            dev  : ".dev",
+                            stage: ".stage",
+                            beta : ".beta",
+                    ],
+                    versionName: [
+                            dev  : "-dev",
+                            stage: "-stage",
+                            beta : "-beta",
+                    ],
+            ]
+    ]
+
+    dep = [
+            [configuration: "implementation", dependency: "org.jetbrains.kotlin:kotlin-stdlib:1.7.10"],
+            [configuration: "implementation", dependency: 'androidx.core:core-ktx:1.8.0'],
+            [configuration: "implementation", dependency: 'androidx.appcompat:appcompat:1.5.0'],
+            [configuration: "implementation", dependency: 'com.google.android.material:material:1.6.1'],
+            [configuration: "implementation", dependency: 'androidx.security:security-crypto-ktx:1.1.0-alpha03'],
+            [configuration: "implementation", dependency: "androidx.multidex:multidex:2.0.1"],
+            [configuration: "implementation", dependency: "androidx.preference:preference-ktx:1.2.0"],
+            [configuration: "dokkaGfmPlugin", dependency: "org.jetbrains.dokka:kotlin-as-java-plugin:1.7.10"],
+            [configuration: "implementation", dependency: "androidx.room:room-ktx:2.4.3"],
+            [configuration: "kapt", dependency: "androidx.room:room-compiler:2.4.3"],
+            [configuration: "implementation", dependency: 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'],
+            [configuration: "implementation", dependency: 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'],
+            [configuration: "implementation", dependency: "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"],
+            [configuration: "implementation", dependency: "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"],
+            [configuration: "implementation", dependency: "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"],
+            [configuration: "implementation", dependency: "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1"],
+            [configuration: "implementation", dependency: "androidx.lifecycle:lifecycle-common-java8:2.5.1"],
+            [configuration: "implementation", dependency: "androidx.lifecycle:lifecycle-service:2.5.1"],
+            [configuration: "implementation", dependency: "androidx.lifecycle:lifecycle-process:2.5.1"],
+            [configuration: "implementation", dependency: "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.5.1"],
+            [configuration: "testImplementation", dependency: "androidx.arch.core:core-testing:2.1.0"],
+            [configuration: "implementation", dependency: 'androidx.activity:activity-ktx:1.5.1'],
+            [configuration: "implementation", dependency: 'androidx.fragment:fragment-ktx:1.5.2'],
+            [configuration: "implementation", dependency: 'com.google.code.gson:gson:2.9.1'],
+            [configuration: "implementation", dependency: 'com.squareup.retrofit2:retrofit:2.9.0'],
+            [configuration: "implementation", dependency: 'com.squareup.retrofit2:converter-gson:2.9.0'],
+            [configuration: "implementation", dependency: "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.10"],
+            [configuration: "implementation", dependency: "com.squareup.okhttp3:okhttp:5.0.0-alpha.10"],
+            [configuration: "implementation", dependency: 'com.github.bumptech.glide:glide:4.13.2'],
+            [configuration: "kapt", dependency: 'com.github.bumptech.glide:compiler:4.13.2'],
+            [configuration: "implementation", dependency: "com.github.haroldadmin:NetworkResponseAdapter:3.0.1"],
+            [configuration: "implementation", dependency: 'com.jakewharton.timber:timber:5.0.1'],
+            [configuration: "debugImplementation", dependency: 'com.github.chuckerteam.chucker:library:3.5.2'],
+            [configuration: "releaseImplementation", dependency: 'com.github.chuckerteam.chucker:library-no-op:3.5.2'],
+            [configuration: "implementation", dependency: 'com.facebook.stetho:stetho-okhttp3:1.6.0'],
+            [configuration: "implementation", dependency: "io.insert-koin:koin-android:3.2.0"],
+            [configuration: "testImplementation", dependency: "io.insert-koin:koin-test:3.2.0"],
+            [configuration: "testImplementation", dependency: "io.insert-koin:koin-test-junit4:3.2.0"],
+            [configuration: "implementation", dependency: "androidx.navigation:navigation-fragment-ktx:2.5.1"],
+            [configuration: "implementation", dependency: "androidx.navigation:navigation-ui-ktx:2.5.1"],
+            [configuration: "implementation", dependency: 'org.java-websocket:Java-WebSocket:1.5.3'],
+            [configuration: "testImplementation", dependency: "org.mockito:mockito-core:3.1.0"],
+            [configuration: "testImplementation", dependency: "org.mockito:mockito-inline:3.1.0"],
+            [configuration: "testImplementation", dependency: 'junit:junit:4.13.2'],
+            [configuration: "testImplementation", dependency: "androidx.arch.core:core-testing:2.1.0"],
+            [configuration: "testImplementation", dependency: "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"],
+            [configuration: "androidTestImplementation", dependency: 'androidx.test.espresso:espresso-core:3.4.0'],
+            [configuration: "platform", dependency: 'com.google.firebase:firebase-bom:28.4.2'],
+            [configuration: "implementation", dependency: 'com.google.firebase:firebase-analytics-ktx'],
+    ]
+}
+
+sonarqube {
+    properties {
+        property "sonar.host.url", "http://127.0.0.1:9000"
     }
 }
 
-allprojects {
-    def localPropsFile = rootProject.file('local.properties')
-    Properties localProps = new Properties()
-    if (localPropsFile.canRead()) {
-        localProps.load(new FileInputStream(localPropsFile))
+subprojects {
+    afterEvaluate {
+        project.parent.tasks["sonarqube"].dependsOn project.name + ":createDevDebugCoverageReport"
     }
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
-        maven {
-            name = "GitLab"
-            url = uri("https://gitlab.com/api/v4/projects/38836549/packages/maven")
-            credentials(HttpHeaderCredentials) {
-                name = 'Private-Token'
-                value = localProps['gitlabToken']
-            }
-            authentication {
-                header(HttpHeaderAuthentication)
-            }
-        }
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
 }
