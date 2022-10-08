@@ -10,6 +10,7 @@
         android:paddingRight="24dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_dialog_root"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_white_round16">
@@ -37,15 +38,13 @@
             <LinearLayout
                 android:id="@+id/loadingCircle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@drawable/bg_progress_round16"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:visibility="gone">
 
                 <com.google.android.material.progressindicator.CircularProgressIndicator
                     android:layout_width="70dp"

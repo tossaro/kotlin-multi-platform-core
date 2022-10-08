@@ -3,7 +3,7 @@ package tossaro.android.core.example.app.stocklist
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import tossaro.android.core.example.databinding.StockRowBinding
+import tossaro.android.core.example.databinding.StockItemBinding
 import tossaro.android.core.example.domain.stock.entity.Stock
 
 class StockAdapter :
@@ -11,7 +11,8 @@ class StockAdapter :
     var onClick: ((String, String) -> Unit)? = null
     var stocks = mutableListOf<Stock>()
 
-    class ViewHolder(private val binding: StockRowBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(private val binding: StockItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(stock: Stock, onClick: ((String, String) -> Unit)?) {
             binding.tvName.text = stock.name
             binding.tvPrice.text = stock.price
@@ -28,7 +29,7 @@ class StockAdapter :
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val binding =
-            StockRowBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
+            StockItemBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
         return ViewHolder(binding)
     }
 

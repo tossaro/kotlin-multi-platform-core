@@ -11,7 +11,7 @@
     <color name="background">#F9FAFB</color>
     <color name="progressBackground">#BFFFFFFF</color>
     <color name="splashBackground">#33907C</color>
-    <color name="toolbarBackground">#F1F3F4</color>
+    <color name="toolbarBackground">#FFFFFF</color>
 
     <color name="toolbarText">#001A41</color>
     <color name="buttonText">#FFFFFF</color>
@@ -31,6 +31,7 @@
     <color name="success">#008E53</color>
     <color name="info">#FE6E00</color>
     <color name="error">#D44000</color>
+    <color name="love">#F800B2</color>
 
     <color name="white">#FFFFFF</color>
     <color name="grey100">#4E5764</color>
@@ -42,7 +43,11 @@
     <color name="blueSoft">#CDD6E7</color>
     <color name="blueLight">#EDF5FC</color>
     <color name="greenLight">#EEF9F4</color>
-    <color name="mustardLight">#4E5764</color>
+    <color name="mustardLight">#FFEED8</color>
     <color name="redLight">#FCF4F4</color>
     <color name="redDark">#F2E2E2</color>
+    <color name="purple">#5B06C9</color>
+    <color name="green">#7AB92A</color>
+    <color name="black100">#18191A</color>
+    <color name="black50">#5018191A</color>
 </resources>

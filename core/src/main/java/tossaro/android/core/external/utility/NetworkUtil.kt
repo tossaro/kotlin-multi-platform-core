@@ -1,7 +1,6 @@
 package tossaro.android.core.external.utility
 
 import android.content.Context
-import android.content.pm.PackageManager
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.chuckerteam.chucker.api.RetentionManager
@@ -27,12 +26,11 @@ object NetworkUtil {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level =
             if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
-        val builder = OkHttpClient.Builder()
-        try {
-            builder.connectTimeout(OKHTTP_CONNECTION_TIMEOUT, TimeUnit.SECONDS)
-            builder.readTimeout(OKHTTP_READ_TIMEOUT, TimeUnit.SECONDS)
-            builder.writeTimeout(OKHTTP_WRITE_TIMEOUT, TimeUnit.SECONDS)
-            builder.addInterceptor(httpLoggingInterceptor)
+        val builder = OkHttpClient.Builder().apply {
+            connectTimeout(OKHTTP_CONNECTION_TIMEOUT, TimeUnit.SECONDS)
+            readTimeout(OKHTTP_READ_TIMEOUT, TimeUnit.SECONDS)
+            writeTimeout(OKHTTP_WRITE_TIMEOUT, TimeUnit.SECONDS)
+            addInterceptor(httpLoggingInterceptor)
 
             val chuckerCollector = ChuckerCollector(
                 context = applicationContext,
@@ -45,12 +43,10 @@ object NetworkUtil {
                 .maxContentLength(250_000L)
                 .alwaysReadResponseBody(true)
                 .build()
-            builder.addInterceptor(chuckerInterceptor)
-            if (BuildConfig.DEBUG) builder.addNetworkInterceptor(StethoInterceptor())
-            builder.addNetworkInterceptor(requestInterceptor)
-            builder.connectionSpecs(listOf(ConnectionSpec.COMPATIBLE_TLS))
-        } catch (e: PackageManager.NameNotFoundException) {
-            e.printStackTrace()
+            addInterceptor(chuckerInterceptor)
+            if (BuildConfig.DEBUG) addNetworkInterceptor(StethoInterceptor())
+            connectionSpecs(listOf(ConnectionSpec.COMPATIBLE_TLS))
+            interceptors().add(requestInterceptor)
         }
         return builder.build()
     }

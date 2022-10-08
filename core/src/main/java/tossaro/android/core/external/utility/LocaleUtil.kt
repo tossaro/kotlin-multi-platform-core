@@ -5,23 +5,30 @@ import android.content.Context
 import android.os.Build
 import android.os.LocaleList
 import androidx.preference.PreferenceManager
-import java.util.*
+import java.util.Locale
 
 
+@Suppress("MemberVisibilityCanBePrivate")
 object LocaleUtil {
 
     private const val LOCALE_SELECTED = "LOCALE_SELECTED"
-    const val IN = "in"
-    const val ISO_3166_ID = "id"
-    const val EN = "en"
+    const val ID = "ID"
+    const val EN = "EN"
+    const val AUTO = "AUTO"
 
     @Suppress("DEPRECATION", "kotlin:S1874")
-    fun onAttach(context: Context): Context {
-        val systemLanguage = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            context.resources.configuration.locales.get(0).language
-        } else context.resources.configuration.locale.language
-        val appLanguage = retrieveAppLanguage(context, systemLanguage)
-        return setLocale(context, appLanguage)
+    fun onAttach(c: Context?, l: String? = ID): Context? {
+        var language = l
+        if (l == AUTO) {
+            language = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                c?.resources?.configuration?.locales?.get(0)?.language
+            } else c?.resources?.configuration?.locale?.language
+        }
+        if (c != null && language != null) {
+            val appLanguage = retrieveAppLanguage(c, language)
+            return setLocale(c, appLanguage)
+        }
+        return null
     }
 
     fun retrieveAppLanguage(context: Context, defaultLanguage: String): String {
@@ -31,7 +38,10 @@ object LocaleUtil {
     }
 
     fun setLocale(context: Context, language: String): Context {
-        storeAppLanguage(context, language)
+        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+        val editor = preferences.edit()
+        editor.putString(LOCALE_SELECTED, language)
+        editor.apply()
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             updateResources(context, language)
         } else {
@@ -39,14 +49,7 @@ object LocaleUtil {
         }
     }
 
-    private fun storeAppLanguage(context: Context, language: String) {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        val editor = preferences.edit()
-        editor.putString(LOCALE_SELECTED, language)
-        editor.apply()
-    }
-
-    @Suppress("kotlin:S1874")
+    @Suppress("kotlin:S1874", "AppBundleLocaleChanges")
     @TargetApi(Build.VERSION_CODES.N)
     private fun updateResources(context: Context, language: String): Context {
         val locale = Locale(language)

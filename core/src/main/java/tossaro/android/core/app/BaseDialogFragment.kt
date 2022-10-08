@@ -1,13 +1,20 @@
 package tossaro.android.core.app
 
 import android.app.Dialog
+import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.Window
+import android.view.WindowInsets
 import androidx.annotation.LayoutRes
+import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
@@ -15,15 +22,17 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import tossaro.android.core.R
 import tossaro.android.core.databinding.BaseDialogFragmentBinding
+import tossaro.android.core.external.extension.hideKeyboard
+import tossaro.android.core.external.utility.LocaleUtil
 
 open class BaseDialogFragment<B : ViewDataBinding>(
     @LayoutRes val layoutResId: Int
 ) : DialogFragment(), KoinComponent {
 
     lateinit var binding: B
-    protected var fragmentView: View? = null
+    private var fragmentView: View? = null
     private var _baseBinding: BaseDialogFragmentBinding? = null
-    protected val baseBinding get() = _baseBinding!!
+    private val baseBinding get() = _baseBinding!!
     protected val sharedPreferences: SharedPreferences by inject()
 
     /**
@@ -35,8 +44,13 @@ open class BaseDialogFragment<B : ViewDataBinding>(
     /**
      * Open function for override visibility loading binding
      */
+    @Suppress("SameParameterValue")
     protected open fun showFullLoading(isShow: Boolean = true) {
-        baseBinding.loadingCircle.visibility = if (isShow) View.VISIBLE else View.GONE
+        hideKeyboard()
+        baseBinding.loadingCircle.updateLayoutParams<ViewGroup.LayoutParams> {
+            height = baseBinding.clDialogRoot.height
+        }
+        baseBinding.loadingCircle.isVisible = isShow
     }
 
     /**
@@ -88,6 +102,11 @@ open class BaseDialogFragment<B : ViewDataBinding>(
     override fun onDestroyView() {
         super.onDestroyView()
         _baseBinding = null
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        LocaleUtil.onAttach(context)
     }
 
 }

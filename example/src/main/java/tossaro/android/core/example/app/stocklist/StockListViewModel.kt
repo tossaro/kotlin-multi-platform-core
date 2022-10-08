@@ -3,6 +3,7 @@ package tossaro.android.core.example.app.stocklist
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.haroldadmin.cnradapter.NetworkResponse
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import tossaro.android.core.app.BaseViewModel
 import tossaro.android.core.example.domain.stock.entity.Stock
@@ -18,9 +19,27 @@ class StockListViewModel(
 ) : BaseViewModel() {
     var stocks = MutableLiveData<MutableList<Stock>?>()
     var isFromNetwork = true
+    var notif = MutableLiveData<Int>()
+    var promo = MutableLiveData<Int>()
 
     init {
         loadingIndicator.value = true
+        getNotif()
+        getPromo()
+    }
+
+    private fun getNotif() {
+        viewModelScope.launch {
+            delay(1000)
+            notif.value = 12
+        }
+    }
+
+    private fun getPromo() {
+        viewModelScope.launch {
+            delay(1000)
+            promo.value = 12
+        }
     }
 
     fun getStocks(page: Int) {
@@ -49,10 +68,10 @@ class StockListViewModel(
                     response.body.data.let {
                         val stocksTemp = mutableListOf<Stock>()
                         it.forEach { coin ->
-                            val mCoin = coin.coin_info
-                            mCoin.price = String.format("%.5f", coin.raw?.USD?.TOPTIERVOLUME24HOUR)
-                            mCoin.status = String.format("%.2f", coin.raw?.USD?.CHANGE24HOUR)
-                            val m = String.format("%.2f", coin.raw?.USD?.CHANGEPCTHOUR)
+                            val mCoin = coin.coinInfo
+                            mCoin.price = String.format("%.5f", coin.raw?.usd?.topTierVolume24Hour)
+                            mCoin.status = String.format("%.2f", coin.raw?.usd?.change24Hour)
+                            val m = String.format("%.2f", coin.raw?.usd?.changePCTHour)
                             mCoin.status += " ($m%)"
                             stocksTemp.add(mCoin)
                         }
@@ -61,19 +80,21 @@ class StockListViewModel(
                         loadingIndicator.value = false
                     }
                 }
+
                 is NetworkResponse.ServerError -> {
                     isFromNetwork = true
                     stocks.value = null
                     getStocksLocal(1)
                     loadingIndicator.value = false
-                    alertMessage.value = response.body?.message.orEmpty()
+                    toastMessage.value = response.body?.message.orEmpty()
                 }
+
                 is NetworkResponse.NetworkError -> {
                     isFromNetwork = true
                     stocks.value = null
                     getStocksLocal(1)
                     loadingIndicator.value = false
-                    alertMessage.value = response.error.message.orEmpty()
+                    toastMessage.value = response.error.message.orEmpty()
                 }
             }
         }

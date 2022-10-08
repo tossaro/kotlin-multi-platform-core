@@ -5,4 +5,6 @@
     <string name="menu_trip">Trip Saya</string>
     <string name="menu_profile">Profil</string>
     <string name="version">Versi</string>
+    <string name="search_hint">Cari nama desa, provinsi, aktivitas</string>
+    <string name="promo" translatable="false">Promo</string>
 </resources>

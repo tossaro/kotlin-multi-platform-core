@@ -13,42 +13,51 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/primary</item>
         <item name="android:windowLightStatusBar">true</item>
+        <!-- Chip -->
+        <item name="chipStyle">@style/Chip</item>
         <!-- Customize your theme here. -->
-        <item name="backgroundColor">@color/background</item>
-        <item name="android:windowBackground">@color/background</item>
+        <item name="backgroundColor">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
         <item name="android:navigationBarColor">@color/navBar</item>
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <item name="android:fitsSystemWindows">false</item>
         <item name="android:windowTranslucentStatus">false</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialog</item>
+        <item name="android:actionButtonStyle">@style/ActionButtonStyle</item>
+    </style>
+
+    <style name="ActionButtonStyle" parent="Widget.AppCompat.ActionButton">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:maxWidth">48dp</item>
+    </style>
+
+    <!-- Chip -->
+    <style name="Chip" parent="@style/Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">@color/white</item>
+        <item name="chipStrokeColor">@color/chip_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="rippleColor">@color/greenLight</item>
+        <item name="chipMinHeight">28dp</item>
+        <item name="chipCornerRadius">16dp</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="android:textAppearance">@style/Text.Poppins.Body4.Title</item>
+        <item name="chipStartPadding">8dp</item>
+        <item name="chipEndPadding">8dp</item>
+    </style>
+
+    <!-- Bottom Sheet -->
+    <style name="BottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+
+    <style name="BottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="backgroundTint">@android:color/transparent</item>
     </style>
 
     <!--Toolbar-->
-    <style name="ToolBarStyle" parent="ToolBarStyle.Base" />
-
-    <style name="ToolBarStyle.Base" parent="">
-        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
-        <item name="theme">@style/ThemeOverlay.AppCompat.Light</item>
+    <style name="ToolBarStyle" parent="">
         <item name="android:background">@color/toolbarBackground</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">?android:attr/actionBarSize</item>
-    </style>
-
-    <style name="ToolBarStyle.Event" parent="ToolBarStyle">
-        <item name="titleTextAppearance">@style/TextAppearance.Widget.Event.Toolbar.Title</item>
-    </style>
-
-    <style name="TextAppearance.Widget.Event.Toolbar.Title" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textStyle">normal</item>
-        <item name="android:textSize">17sp</item>
-        <item name="android:fontFamily">@font/poppins_medium</item>
-        <item name="android:includeFontPadding">false</item>
-        <item name="android:gravity">center</item>
-    </style>
-
-    <style name="FullScreenDialogTheme" parent="AppTheme">
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowIsFloating">false</item>
+        <item name="titleTextAppearance">@style/Text.Poppins.Body1.Bold</item>
     </style>
 
     <!--Switch-->
@@ -99,6 +108,33 @@
     </style>
 
     <!--Material Button-->
+    <style name="MaterialButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="MaterialButton.Poppins">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+    </style>
+
+    <style name="MaterialButton.Poppins.SolidPrimary">
+        <item name="backgroundColor">@color/primary_button_text_selector</item>
+        <item name="android:textColor">@color/onPrimary</item>
+    </style>
+
+    <style name="MaterialButton.Poppins.SolidPrimary.Rounded">
+        <item name="cornerRadius">1000dp</item>
+        <item name="rippleColor">@color/greenLight</item>
+        <item name="iconTint">@color/onPrimary</item>
+        <item name="backgroundColor">@color/primary_button_text_selector</item>
+        <item name="android:textColor">@color/onPrimary</item>
+    </style>
+
     <style name="MaterialOutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="android:includeFontPadding">false</item>
         <item name="android:textAllCaps">false</item>
@@ -111,6 +147,19 @@
         <item name="android:paddingBottom">12dp</item>
         <item name="android:paddingStart">20dp</item>
         <item name="android:paddingEnd">20dp</item>
+    </style>
+
+    <style name="MaterialOutlinedButton.Poppins.StrokePrimary">
+        <item name="strokeColor">@color/primary_button_text_selector</item>
+        <item name="android:textColor">@color/primary_button_text_selector</item>
+    </style>
+
+    <style name="MaterialOutlinedButton.Poppins.StrokePrimary.Rounded">
+        <item name="cornerRadius">1000dp</item>
+        <item name="rippleColor">@color/primary</item>
+        <item name="iconTint">@color/primary</item>
+        <item name="strokeColor">@color/primary_button_text_selector</item>
+        <item name="android:textColor">@color/primary_button_text_selector</item>
     </style>
 
     <style name="MaterialOutlinedButton.Poppins.StrokeNegative">
@@ -126,38 +175,263 @@
         <item name="android:textColor">@color/negative_button_text_selector</item>
     </style>
 
-    <style name="Text" parent="TextAppearance.AppCompat"/>
+    <style name="Text" parent="TextAppearance.AppCompat" />
+
+    <!-- Text Poppins -->>
+
     <style name="Text.Poppins">
         <item name="fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="Text.Poppins.H1">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="Text.Poppins.H1.Title">
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Poppins.H1.Regular">
+        <item name="android:textColor">@color/grey100</item>
+    </style>
+
+    <style name="Text.Poppins.H2">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="Text.Poppins.H2.Title">
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Poppins.H2.Regular">
+        <item name="android:textColor">@color/grey100</item>
+    </style>
+
+    <style name="Text.Poppins.H3">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Text.Poppins.H3.Title">
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Poppins.H3.Regular">
+        <item name="android:textColor">@color/grey100</item>
+    </style>
+
+    <style name="Text.Poppins.H4">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Text.Poppins.H4.Title">
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Poppins.H4.Regular">
+        <item name="android:textColor">@color/grey100</item>
+    </style>
+
+    <style name="Text.Poppins.Body1">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Text.Poppins.Body1.Title">
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Poppins.Body1.Regular">
+        <item name="android:textColor">@color/grey100</item>
+    </style>
+
+    <style name="Text.Poppins.Body1.SemiBold">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Poppins.Body1.Bold">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/blue100</item>
     </style>
 
     <style name="Text.Poppins.Body2">
         <item name="android:textSize">14sp</item>
     </style>
+
     <style name="Text.Poppins.Body2.Title">
         <item name="android:textColor">@color/blue100</item>
     </style>
+
     <style name="Text.Poppins.Body2.Regular">
         <item name="android:textColor">@color/grey100</item>
+    </style>
+
+    <style name="Text.Poppins.Body2.SemiBold">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Poppins.Body2.Bold">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/blue100</item>
     </style>
 
     <style name="Text.Poppins.Body3">
         <item name="android:textSize">12sp</item>
     </style>
+
     <style name="Text.Poppins.Body3.Title">
         <item name="android:textColor">@color/blue100</item>
     </style>
+
     <style name="Text.Poppins.Body3.Regular">
         <item name="android:textColor">@color/grey100</item>
+    </style>
+
+    <style name="Text.Poppins.Body3.SemiBold">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Poppins.Body3.Bold">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/blue100</item>
     </style>
 
     <style name="Text.Poppins.Body4">
         <item name="android:textSize">10sp</item>
     </style>
+
     <style name="Text.Poppins.Body4.Title">
         <item name="android:textColor">@color/blue100</item>
     </style>
 
+    <style name="Text.Poppins.Body4.Regular">
+        <item name="android:textColor">@color/grey100</item>
+    </style>
+
+    <style name="Text.Poppins.Body4.SemiBold">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Poppins.Body4.Bold">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Poppins.Body5">
+        <item name="android:textSize">8sp</item>
+    </style>
+
+    <style name="Text.Poppins.Body5.Title">
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Poppins.Body5.Regular">
+        <item name="android:textColor">@color/grey100</item>
+    </style>
+
+    <style name="Text.Poppins.Body5.SemiBold">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Poppins.Body5.Bold">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Poppins.Body5.Italic">
+        <item name="android:fontFamily">@font/poppins_italic</item>
+    </style>
+
+    <!-- Text Rubik -->
+    <style name="Text.Rubik">
+        <item name="fontFamily">@font/rubik_regular</item>
+    </style>
+
+    <style name="Text.Rubik.Body5">
+        <item name="android:textSize">8sp</item>
+    </style>
+
+    <style name="Text.Rubik.Body5.Title">
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Rubik.Body5.Regular">
+        <item name="android:textColor">@color/grey100</item>
+    </style>
+
+    <style name="Text.Rubik.Body5.Black">
+        <item name="android:fontFamily">@font/rubik_black</item>
+    </style>
+
+    <style name="Text.Rubik.Body5.Bold">
+        <item name="android:fontFamily">@font/rubik_bold</item>
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Rubik.Category">
+        <item name="android:textSize">14sp</item>
+        <item name="fontWeight">500</item>
+    </style>
+
+    <style name="Text.Rubik.Category.Title">
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Rubik.Category.Regular">
+        <item name="android:textColor">@color/grey100</item>
+    </style>
+
+    <style name="Text.Rubik.Category.Black">
+        <item name="android:fontFamily">@font/rubik_black</item>
+    </style>
+
+    <style name="Text.Rubik.Category.Bold">
+        <item name="android:fontFamily">@font/rubik_bold</item>
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Rubik.Navigation">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Text.Rubik.Navigation.Title">
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Rubik.Navigation.Regular">
+        <item name="android:textColor">@color/grey100</item>
+    </style>
+
+    <style name="Text.Rubik.Navigation.Black">
+        <item name="android:fontFamily">@font/rubik_black</item>
+    </style>
+
+    <style name="Text.Rubik.Navigation.Bold">
+        <item name="android:fontFamily">@font/rubik_bold</item>
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Rubik.Header">
+        <item name="android:textSize">32sp</item>
+        <item name="android:fontFamily">@font/rubik_bold</item>
+    </style>
+
+    <style name="Text.Rubik.Header.Title">
+        <item name="android:textColor">@color/blue100</item>
+    </style>
+
+    <style name="Text.Rubik.Header.Regular">
+        <item name="android:textColor">@color/grey100</item>
+    </style>
+
+    <!--Edittext-->
     <style name="EditText" parent="Base.Widget.AppCompat.EditText">
         <item name="android:background">@drawable/bg_edittext</item>
         <item name="android:paddingTop">8dp</item>
@@ -166,7 +440,10 @@
         <item name="android:paddingRight">16dp</item>
         <item name="android:saveEnabled">false</item>
         <item name="android:textColor">@color/grey100</item>
+        <item name="android:textColorHint">@color/grey60</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
         <item name="android:textSize">16sp</item>
         <item name="android:gravity">top|start</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 </resources>

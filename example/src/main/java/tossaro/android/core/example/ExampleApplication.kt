@@ -8,7 +8,7 @@ import org.koin.core.module.dsl.bind
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 import tossaro.android.core.CoreApplication
-import tossaro.android.core.example.app.stockdetail.StockDetailDialogViewModel
+import tossaro.android.core.example.app.stockdetailsheet.StockDetailSheetViewModel
 import tossaro.android.core.example.app.stocklist.StockListViewModel
 import tossaro.android.core.example.data.StockRepositoryImpl
 import tossaro.android.core.example.data.disk.StockDatabase
@@ -45,7 +45,7 @@ class ExampleApplication : CoreApplication() {
             singleOf(::SetStocksLocalUseCase)
 
             viewModelOf(::StockListViewModel)
-            viewModelOf(::StockDetailDialogViewModel)
+            viewModelOf(::StockDetailSheetViewModel)
         }
     }
 }

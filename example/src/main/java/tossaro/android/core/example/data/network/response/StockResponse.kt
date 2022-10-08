@@ -15,16 +15,16 @@ data class MetaData(
 )
 
 data class Coin(
-    @SerializedName("CoinInfo") var coin_info: Stock,
+    @SerializedName("CoinInfo") var coinInfo: Stock,
     @SerializedName("RAW") var raw: RAW?,
 )
 
 data class RAW(
-    @SerializedName("USD") val USD: USD
+    @SerializedName("USD") val usd: USD
 )
 
 data class USD(
-    @SerializedName("TOPTIERVOLUME24HOUR") val TOPTIERVOLUME24HOUR: Double,
-    @SerializedName("CHANGE24HOUR") val CHANGE24HOUR: Double,
-    @SerializedName("CHANGEPCTHOUR") val CHANGEPCTHOUR: Double
+    @SerializedName("TOPTIERVOLUME24HOUR") val topTierVolume24Hour: Double,
+    @SerializedName("CHANGE24HOUR") val change24Hour: Double,
+    @SerializedName("CHANGEPCTHOUR") val changePCTHour: Double
 )

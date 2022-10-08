@@ -1,4 +1,4 @@
 #!/bin/sh
-./gradlew testDevDebugUnitTest createDevDebugCoverageReport dokkaGfm publish
+./gradlew testDevDebugUnitTest createDevDebugCoverageReport
 status=$?
 exit $status

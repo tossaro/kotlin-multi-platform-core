@@ -1,0 +1,57 @@
+default:
+  image: openjdk:11
+
+variables:
+  GIT_STRATEGY: clone
+  # Make sure that you get tags from git repository otherwise the release
+  # Gradle plugin will not be able to create the next version number:
+  GIT_FETCH_EXTRA_FLAGS: --tags
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+
+before_script:
+  - export GRADLE_USER_HOME=`pwd`/.gradle
+
+stages:
+  - build
+  - deploy
+
+build_job:
+  stage: build
+  script:
+    - ./gradlew build
+
+publish_job:
+  stage: deploy
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  script:
+    - ./gradlew createRelease -Prelease.disableChecks
+    - ./gradlew publish
+    - echo "TAG=$(./gradlew currentVersion -q -Prelease.quiet)" >> variables.env
+  artifacts:
+    reports:
+      dotenv: variables.env
+
+release_job:
+  stage: deploy
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  needs:
+    - job: publish_job
+      artifacts: true
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  script:
+    - echo "Releasing $TAG"
+  release:
+    name: 'Release $TAG'
+    description: $CI_COMMIT_MESSAGE
+    tag_name: v$TAG
+    ref: $CI_COMMIT_SHA
+    assets:
+      links:
+        - name: 'Installation zip'
+          url: "https://gitlab.com/tossaro/kotlin-android-core/-/package_files/52132859/download"

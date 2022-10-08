@@ -1,9 +1,15 @@
+@file:Suppress("unused")
+
 package tossaro.android.core.domain.entity
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
+@Keep
 data class Ticket(
-    @SerializedName("ticket_id") var ticketId: String,
-    @SerializedName("duration") var duration: Long,
-    @SerializedName("type") var type: Int?,
+    @SerializedName("timestamp") var timestamp: Long?,
+    @SerializedName("state") var state: String?,
+    @SerializedName("transaction_id") var transactionId: String?,
+    @SerializedName("otp") var otp: Otp?,
+    @SerializedName("session") var session: Session?,
 )

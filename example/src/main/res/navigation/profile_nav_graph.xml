@@ -9,4 +9,11 @@
         android:label="ProfileFragment">
         <deepLink app:uri="android-app://app.tossaro.dev/profile" />
     </fragment>
+    <include app:graph="@navigation/auth_nav_graph" />
+    <dialog
+        android:id="@+id/signOutDialogFragment"
+        android:name="tossaro.android.core.example.app.signoutdialog.SignOutBaseDialogFragment"
+        android:label="SignOutDialogFragment">
+        <deepLink app:uri="android-app://app.tossaro.dev/sign-out" />
+    </dialog>
 </navigation>

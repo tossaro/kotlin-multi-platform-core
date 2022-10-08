@@ -10,9 +10,15 @@
         <deepLink app:uri="android-app://app.tossaro.dev/stocks" />
     </fragment>
     <dialog
-        android:id="@+id/stockDetailDialoFgragment"
-        android:name="tossaro.android.core.example.app.stockdetail.StockDetailDialogFragment"
-        android:label="StockDetailDialogFragment">
+        android:id="@+id/stockDetailSheetFgragment"
+        android:name="tossaro.android.core.example.app.stockdetailsheet.StockDetailBaseSheetFragment"
+        android:label="StockDetailSheetFragment">
         <deepLink app:uri="android-app://app.tossaro.dev/stock/{coin}/{value}" />
     </dialog>
+    <fragment
+        android:id="@+id/stockEditFgragment"
+        android:name="tossaro.android.core.example.app.stockedit.StockEditFragment"
+        android:label="StockEditFragment">
+        <deepLink app:uri="android-app://app.tossaro.dev/stock/{coin}" />
+    </fragment>
 </navigation>

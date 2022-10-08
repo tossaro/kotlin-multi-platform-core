@@ -5,4 +5,5 @@
     <string name="menu_trip">My Trip</string>
     <string name="menu_profile">Profile</string>
     <string name="version">Version</string>
+    <string name="search_hint">Search name of village, province, activity</string>
 </resources>
