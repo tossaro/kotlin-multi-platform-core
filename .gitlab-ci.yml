@@ -12,45 +12,23 @@ before_script:
   - export GRADLE_USER_HOME=`pwd`/.gradle
 
 stages:
-  - build
-  - deploy
-    
-.anchors:
-  - &gen-props
-      echo ext { >> properties.gradle
-      echo gitlab = [ publishToken:"'$TOKEN'",consumeToken:"'$TOKEN'" ] >> properties.gradle
-      echo deeplink = [ dev:'"\"'$DEEPLINK'\"",stage:"\"'$DEEPLINK'\"",beta:"\"'$DEEPLINK'\"",store:"\"'$DEEPLINK'\""' ] >> properties.gradle
-      echo server = [ dev :'"\"'$SERVER'\"",stage:"\"'$SERVER'\"",beta:"\"'$SERVER'\"",store:"\"'$SERVER'\""' ] >> properties.gradle
-      echo socket = [ dev :'"\"'$SOCKET'\"",stage:"\"'$SOCKET'\"",beta:"\"'$SOCKET'\"",store:"\"'$SOCKET'\""' ] >> properties.gradle
-      echo } >> properties.gradle
+  - publish
+  - release
 
-build_job:
-  stage: build
+publishing:
+  stage: publish
   rules:
     - if: $CI_COMMIT_TAG
       when: never
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  before_script:
-    - *gen-props
-  script:
-    - ./gradlew build
-
-publish_job:
-  stage: deploy
-  rules:
-    - if: $CI_COMMIT_TAG
-      when: never
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  before_script:
-    - *gen-props
   script:
     - ./gradlew publish
 
-release_job:
-  stage: deploy
+releasing:
+  stage: release
   image: registry.gitlab.com/gitlab-org/release-cli:latest
   needs:
-    - job: publish_job
+    - job: publishing
   rules:
     - if: $CI_COMMIT_TAG
       when: never
