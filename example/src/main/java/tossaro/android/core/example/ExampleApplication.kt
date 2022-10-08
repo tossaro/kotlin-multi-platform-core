@@ -37,7 +37,7 @@ class ExampleApplication : CoreApplication() {
             singleOf(::provideStockDb)
             singleOf(::provideStockDao)
 
-            single { NetworkUtil.buildService<StockServiceV1>(BuildConfig.SERVER_V1, get()) }
+            single { NetworkUtil.buildService<StockServiceV1>(BuildConfig.SERVER, get()) }
 
             singleOf(::StockRepositoryImpl) { bind<StockRepository>() }
             singleOf(::GetStocksUseCase)

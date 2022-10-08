@@ -192,7 +192,7 @@ class StockListFragment : BaseFragment<StockListFragmentBinding>(
 
     @Suppress("kotlin:S1186")
     private fun createWebSocketClient() {
-        webSocketClient = object : WebSocketClient(URI(BuildConfig.SOCKET_V1)) {
+        webSocketClient = object : WebSocketClient(URI(BuildConfig.SOCKET)) {
             override fun onOpen(handshakedata: ServerHandshake?) {}
 
             override fun onMessage(message: String?) {
