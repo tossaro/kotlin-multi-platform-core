@@ -46,6 +46,7 @@ debugDevTests:
   rules:
     - if: $CI_COMMIT_TAG
       when: never
+    - when: always
   script:
     - ./gradlew testDevDebugUnitTest createDevDebugCoverageReport
 
@@ -54,6 +55,7 @@ assembleDevDebug:
   rules:
     - if: $CI_COMMIT_TAG
       when: never
+    - when: always
   script:
     - ./gradlew assembleDevDebug
   artifacts:
