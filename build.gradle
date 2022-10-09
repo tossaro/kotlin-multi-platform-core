@@ -110,3 +110,7 @@ subprojects {
         project.parent.tasks["sonarqube"].dependsOn project.name + ":createDevDebugCoverageReport"
     }
 }
+
+task buildVersionName {
+    println buildVersionName()
+}
