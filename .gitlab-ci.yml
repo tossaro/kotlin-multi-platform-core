@@ -38,11 +38,15 @@ stages:
 
 lintDebug:
   stage: build
+  before_script:
+    - *gen-props
   script:
     - ./gradlew -Pci --console=plain :app:lintDevDebug -PbuildDir=lint
 
 assembleDebug:
   stage: build
+  before_script:
+    - *gen-props
   script:
     - ./gradlew assembleDevDebug
   artifacts:
@@ -51,11 +55,15 @@ assembleDebug:
 
 debugTests:
   stage: test
+  before_script:
+    - *gen-props
   script:
     - ./gradlew -Pci --console=plain :app:testDevDebug
 
 coverageTests:
   stage: test
+  before_script:
+    - *gen-props
   script:
     - ./gradlew -Pci --console=plain jacocoTestReport coveralls
 
@@ -67,7 +75,6 @@ publishing:
 #    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   before_script:
     - *gen-props
-    - cat properties.gradle
   script:
     - ./gradlew publish
 
