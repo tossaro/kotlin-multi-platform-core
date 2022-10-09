@@ -28,7 +28,7 @@ before_script:
   - mkdir android-sdk-linux/cmdline-tools/latest
   - mv android-sdk-linux/cmdline-tools/bin android-sdk-linux/cmdline-tools/latest/
   - mv android-sdk-linux/cmdline-tools/lib android-sdk-linux/cmdline-tools/latest/
-  - mv android-sdk-linux/cmdline-tools/source android-sdk-linux/cmdline-tools/latest/
+  - mv android-sdk-linux/cmdline-tools/source.properties android-sdk-linux/cmdline-tools/latest/
   - echo y | android-sdk-linux/cmdline-tools/latest/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}" >/dev/null
   - echo y | android-sdk-linux/cmdline-tools/latest/bin/sdkmanager "platform-tools" >/dev/null
   - echo y | android-sdk-linux/cmdline-tools/latest/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS}" >/dev/null
