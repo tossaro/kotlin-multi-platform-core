@@ -6,8 +6,8 @@ variables:
   ANDROID_SDK_TOOLS:   "8512546"
 
 stages:
-  - build
   - test
+  - build
   - publish
   - release
 
@@ -41,10 +41,10 @@ before_script:
   - set -o pipefail
   - *gen-props
 
-lintDebug:
-  stage: build
+debugDevTests:
+  stage: test
   script:
-    - ./gradlew -Pci --console=plain :app:lintDevDebug -PbuildDir=lint
+    - ./gradlew testDevDebugUnitTest createDevDebugCoverageReport
 
 assembleDevDebug:
   stage: build
@@ -52,19 +52,14 @@ assembleDevDebug:
     - ./gradlew assembleDevDebug
   artifacts:
     paths:
-      - app/build/outputs/
-
-debugDevTests:
-  stage: test
-  script:
-    - ./gradlew testDevDebugUnitTest createDevDebugCoverageReport
+      - example/build/outputs/
 
 publishing:
   stage: publish
-#  rules:
-#    - if: $CI_COMMIT_TAG
-#      when: never
-#    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   script:
     - ./gradlew publish
 
