@@ -43,11 +43,17 @@ before_script:
 
 debugDevTests:
   stage: test
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
   script:
     - ./gradlew testDevDebugUnitTest createDevDebugCoverageReport
 
 assembleDevDebug:
   stage: build
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
   script:
     - ./gradlew assembleDevDebug
   artifacts:
@@ -74,6 +80,8 @@ releasing:
     - job: publishing
       artifacts: true
   rules:
+    - if: $CI_COMMIT_TAG
+      when: never
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   before_script:
     - echo "Preparing Release"
