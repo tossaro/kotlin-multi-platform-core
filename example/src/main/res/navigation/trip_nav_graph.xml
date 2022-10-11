@@ -9,4 +9,10 @@
         android:label="TripFragment">
         <deepLink app:uri="android-app://app.tossaro.dev/trip" />
     </fragment>
+    <dialog
+        android:id="@+id/dateSheetFragment"
+        android:name="tossaro.android.core.app.datesheet.DateSheetFragment"
+        android:label="DateSheetFragment">
+        <deepLink app:uri="android-app://app.tossaro.dev/select-date/{title}/{selected}/{min}/{max}" />
+    </dialog>
 </navigation>

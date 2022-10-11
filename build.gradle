@@ -8,8 +8,8 @@ plugins {
 ext {
     version = [
             major: 0,
-            minor: 0,
-            patch: 9
+            minor: 1,
+            patch: 0
     ]
 
     buildVersionCode = {
