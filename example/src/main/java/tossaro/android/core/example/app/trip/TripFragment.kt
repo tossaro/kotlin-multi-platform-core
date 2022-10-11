@@ -2,18 +2,32 @@ package tossaro.android.core.example.app.trip
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.setFragmentResultListener
 import tossaro.android.core.app.common.BaseFragment
 import tossaro.android.core.app.common.GenericAdapter
 import tossaro.android.core.domain.common.entity.GenericItem
+import tossaro.android.core.example.ExampleRouters
 import tossaro.android.core.example.R
 import tossaro.android.core.example.databinding.TripFragmentBinding
+import tossaro.android.core.external.constant.AppConstant
 import tossaro.android.core.external.extension.dpToPx
+import tossaro.android.core.external.extension.goTo
 
 class TripFragment : BaseFragment<TripFragmentBinding>(R.layout.trip_fragment) {
+    var selectedDate = "12-12-2012"
     override fun actionBarTitle() = getString(R.string.menu_trip)
     override fun showBottomNavBar() = true
     override fun showActionBarSearch() = true
     override fun showActionBarSearchFilter() = true
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setFragmentResultListener(AppConstant.SELECT_DATE) { _, b ->
+            b.getString(AppConstant.SELECT_DATE)?.let {
+                selectedDate = it
+            }
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -122,10 +136,23 @@ class TripFragment : BaseFragment<TripFragmentBinding>(R.layout.trip_fragment) {
         binding.rvTrip.adapter = tripAdapter
 
         val articleAdapter = GenericAdapter(0.9, 88, 8, 4)
+        articleAdapter.onClick = {
+            goTo(ExampleRouters.SELECT_DATE_SHEET
+                .replace("{title}", getString(R.string.title))
+                .replace("{selected}", selectedDate)
+                .replace("{min}", "07-12-2012")
+                .replace("{max}", "21-03-2013")
+            )
+        }
         articleAdapter.items = mutableListOf(
             GenericItem(
                 leftImage = imgStr,
-                title = "Desa Batulayang dengan view yang menarik",
+                title = "Desa Batulayang dengan view yang menarik 1",
+                moreInfo = "Baca selengkapnya"
+            ),
+            GenericItem(
+                leftImage = imgStr,
+                title = "Desa Batulayang dengan view yang menarik 2",
                 moreInfo = "Baca selengkapnya"
             )
         )

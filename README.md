@@ -1,5 +1,6 @@
 # Kotlin Android Core 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[![pipeline status](https://gitlab.com/tossaro/kotlin-android-core/badges/develop/pipeline.svg)](https://gitlab.com/tossaro/kotlin-android-core/-/commits/develop) [![coverage report](https://gitlab.com/tossaro/kotlin-android-core/badges/development/coverage.svg)](https://gitlab.com/tossaro/kotlin-android-core/-/commits/develop) [![Latest Release](https://gitlab.com/tossaro/kotlin-android-core/-/badges/release.svg)](https://gitlab.com/tossaro/kotlin-android-core/-/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![pipeline status](https://gitlab.com/tossaro/kotlin-android-core/badges/main/pipeline.svg)](https://gitlab.com/tossaro/kotlin-android-core/-/commits/main) [![coverage report](https://gitlab.com/tossaro/kotlin-android-core/badges/main/coverage.svg)](https://gitlab.com/tossaro/kotlin-android-core/-/commits/main) [![Latest Release](https://gitlab.com/tossaro/kotlin-android-core/-/badges/release.svg)](https://gitlab.com/tossaro/kotlin-android-core/-/releases)
+
 Provide base constructor / abstract for simplify code structure.
 Powered by KOIN for dependency injection and using MVVM pattern with clean architecture.
 
@@ -98,7 +99,7 @@ class ExampleApplication : CoreApplication() {
 2. Example on Activity:
 ```kotlin
 //...
-import tossaro.android.core.app.BaseActivity
+import tossaro.android.core.app.common.BaseActivity
 class ExampleActivity : BaseActivity() {
    //...
    override fun navHostFragment(): FragmentContainerView = your-content-fragment-view-binding
@@ -109,7 +110,7 @@ class ExampleActivity : BaseActivity() {
 3. Example on Fragment:
 ```kotlin
 //...
-import tossaro.android.core.app.BaseFragment
+import tossaro.android.core.app.common.BaseFragment
 class ExampleFragment: BaseFragment<ExampleFragmentBinding>(
     R.layout.example_fragment
 ) {
@@ -130,7 +131,7 @@ class ExampleFragment: BaseFragment<ExampleFragmentBinding>(
 4. Example on View Model :
 ```kotlin
 //...
-import tossaro.android.core.app.BaseViewModel
+import tossaro.android.core.app.common.BaseViewModel
 class ExampleViewModel : BaseViewModel() {
    //...
 } 
