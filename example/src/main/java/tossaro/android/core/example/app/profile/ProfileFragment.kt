@@ -10,7 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.fragment.app.setFragmentResultListener
 import timber.log.Timber
-import tossaro.android.core.app.BaseFragment
+import tossaro.android.core.app.common.BaseFragment
 import tossaro.android.core.example.ExampleRouters
 import tossaro.android.core.example.R
 import tossaro.android.core.example.databinding.ProfileFragmentBinding

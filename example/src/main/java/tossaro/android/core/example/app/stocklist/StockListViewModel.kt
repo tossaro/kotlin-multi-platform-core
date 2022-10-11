@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.haroldadmin.cnradapter.NetworkResponse
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import tossaro.android.core.app.BaseViewModel
+import tossaro.android.core.app.common.BaseViewModel
 import tossaro.android.core.example.domain.stock.entity.Stock
 import tossaro.android.core.example.domain.stock.usecase.GetStocksLocalUseCase
 import tossaro.android.core.example.domain.stock.usecase.GetStocksUseCase

@@ -3,7 +3,7 @@ package tossaro.android.core.example.app.signin
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
-import tossaro.android.core.app.BaseFragment
+import tossaro.android.core.app.common.BaseFragment
 import tossaro.android.core.example.R
 import tossaro.android.core.example.databinding.SigninFragmentBinding
 import tossaro.android.core.external.constant.AppConstant

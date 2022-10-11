@@ -8,4 +8,5 @@ object AppConstant {
     const val REFRESH_TOKEN = "REFRESH_TOKEN"
     const val FILTERED = "FILTERED"
     const val CURRENCY = "Rp "
+    const val LOADING = "loading..."
 }

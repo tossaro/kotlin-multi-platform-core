@@ -22,8 +22,8 @@ import org.java_websocket.client.WebSocketClient
 import org.java_websocket.handshake.ServerHandshake
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
-import tossaro.android.core.app.BaseActivity
-import tossaro.android.core.app.BaseFragment
+import tossaro.android.core.app.common.BaseActivity
+import tossaro.android.core.app.common.BaseFragment
 import tossaro.android.core.example.BuildConfig
 import tossaro.android.core.example.ExampleRouters
 import tossaro.android.core.example.R

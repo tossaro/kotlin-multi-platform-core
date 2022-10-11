@@ -1,4 +1,4 @@
-package tossaro.android.core.app
+package tossaro.android.core.app.common
 
 import android.app.Dialog
 import android.content.Context
