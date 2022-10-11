@@ -1,6 +1,6 @@
 @file:Suppress("EmptyMethod")
 
-package tossaro.android.core.app
+package tossaro.android.core.app.common
 
 import android.content.Context
 import android.content.SharedPreferences

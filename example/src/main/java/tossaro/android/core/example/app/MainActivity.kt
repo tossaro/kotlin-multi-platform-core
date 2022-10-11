@@ -1,6 +1,6 @@
 package tossaro.android.core.example.app
 
-import tossaro.android.core.app.BaseActivity
+import tossaro.android.core.app.common.BaseActivity
 import tossaro.android.core.example.R
 
 class MainActivity : BaseActivity() {

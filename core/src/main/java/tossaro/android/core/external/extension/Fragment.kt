@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import tossaro.android.core.BuildConfig
-import tossaro.android.core.app.BaseActivity
+import tossaro.android.core.app.common.BaseActivity
 
 
 @Suppress("UNUSED")

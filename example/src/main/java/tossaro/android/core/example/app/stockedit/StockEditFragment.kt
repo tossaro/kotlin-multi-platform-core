@@ -13,7 +13,7 @@ import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
-import tossaro.android.core.app.BaseFragment
+import tossaro.android.core.app.common.BaseFragment
 import tossaro.android.core.example.ExampleRouters
 import tossaro.android.core.example.R
 import tossaro.android.core.example.databinding.StockEditFragmentBinding

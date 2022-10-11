@@ -5,7 +5,7 @@ import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
-import tossaro.android.core.app.BaseDialogFragment
+import tossaro.android.core.app.common.BaseDialogFragment
 import tossaro.android.core.example.R
 import tossaro.android.core.example.databinding.SignoutDialogFragmentBinding
 import tossaro.android.core.example.external.constant.ExampleConstant

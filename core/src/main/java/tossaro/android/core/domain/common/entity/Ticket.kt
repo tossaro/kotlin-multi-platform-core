@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package tossaro.android.core.domain.entity
+package tossaro.android.core.domain.common.entity
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName

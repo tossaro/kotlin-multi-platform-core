@@ -3,7 +3,7 @@ package tossaro.android.core.example.app.stockdetailsheet
 import android.os.Bundle
 import android.view.View
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import tossaro.android.core.app.BaseSheetFragment
+import tossaro.android.core.app.common.BaseSheetFragment
 import tossaro.android.core.example.ExampleRouters
 import tossaro.android.core.example.R
 import tossaro.android.core.example.databinding.StockDetailSheetFragmentBinding
