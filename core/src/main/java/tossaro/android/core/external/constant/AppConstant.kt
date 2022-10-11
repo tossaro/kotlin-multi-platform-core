@@ -9,4 +9,5 @@ object AppConstant {
     const val FILTERED = "FILTERED"
     const val CURRENCY = "Rp "
     const val LOADING = "loading..."
+    const val SELECT_DATE = "select_date"
 }
