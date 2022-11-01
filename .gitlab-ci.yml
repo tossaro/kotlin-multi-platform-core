@@ -89,5 +89,7 @@ releasing:
     - if: $CI_COMMIT_TAG
       when: never
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  before_script:
+    - echo "preparing release"
   script:
     - release-cli create --name "Release v$TAG" --description "$CI_COMMIT_MESSAGE" --tag-name "v$TAG" --ref "$CI_COMMIT_SHA" || echo "Release v$TAG already exist"
