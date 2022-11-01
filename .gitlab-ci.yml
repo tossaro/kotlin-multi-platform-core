@@ -15,7 +15,7 @@ stages:
   - &gen-props
       echo ext { >> properties.gradle
       && echo gitlab = [ publishToken:"'$TOKEN'",consumeToken:"'$TOKEN'" ] >> properties.gradle
-      && echo deeplink = [ dev:'"\"'$DEEPLINK'\"",stage:"\"'$DEEPLINK'\"",beta:"\"'$DEEPLINK'\"",store:"\"'$DEEPLINK'\""' ] >> properties.gradle
+      && echo deeplink = "'$DEEPLINK'" >> properties.gradle
       && echo server = [ dev :'"\"'$SERVER'\"",stage:"\"'$SERVER'\"",beta:"\"'$SERVER'\"",store:"\"'$SERVER'\""' ] >> properties.gradle
       && echo socket = [ dev :'"\"'$SOCKET'\"",stage:"\"'$SOCKET'\"",beta:"\"'$SOCKET'\"",store:"\"'$SOCKET'\""' ] >> properties.gradle
       && echo } >> properties.gradle
@@ -64,7 +64,7 @@ assembleDevDebug:
     - ./gradlew assembleDevDebug
   artifacts:
     paths:
-      - example/build/outputs/
+      - exampleAndroid/build/outputs/
 
 publishing:
   stage: publish
@@ -89,12 +89,5 @@ releasing:
     - if: $CI_COMMIT_TAG
       when: never
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  before_script:
-    - echo "Preparing Release"
   script:
-    - echo "Releasing v$TAG"
-  release:
-    name: 'Release v$TAG'
-    description: $CI_COMMIT_MESSAGE
-    tag_name: v$TAG
-    ref: $CI_COMMIT_SHA
+    - release-cli create --name "Release v$TAG" --description "$CI_COMMIT_MESSAGE" --tag-name "v$TAG" --ref "$CI_COMMIT_SHA" || echo "Release v$TAG already exist"

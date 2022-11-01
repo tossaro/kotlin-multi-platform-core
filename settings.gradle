@@ -27,5 +27,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Core"
-include ':example'
-include ':core'
+include ':exampleAndroid'
+include ':shared'
