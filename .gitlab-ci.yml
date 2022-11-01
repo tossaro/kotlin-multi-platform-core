@@ -89,7 +89,5 @@ releasing:
     - if: $CI_COMMIT_TAG
       when: never
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  before_script:
-    - echo "Preparing Release"
   script:
-    - release-cli create --name "Release v$TAG" --description "$CI_COMMIT_MESSAGE" --tag-name "v$TAG" --ref "$CI_COMMIT_SHA" --assets-link "{\"name\":\"Firebase Distribution\",\"url\":\"https://appdistribution.firebase.dev/i/25d19f6e32949d28\",\"link_type\":\"other\"}" | echo "Release v$TAG exist"
+    - release-cli create --name "Release v$TAG" --description "$CI_COMMIT_MESSAGE" --tag-name "v$TAG" --ref "$CI_COMMIT_SHA" || echo "Release v$TAG already exist"
