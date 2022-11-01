@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application' version '8.0.0-alpha02' apply false
     id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
+    id 'org.jetbrains.kotlin.multiplatform' version '1.7.10' apply false
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.7.10' apply false
     id 'androidx.navigation.safeargs' version '2.5.1' apply false
     id 'org.sonarqube' version '3.4.0.2513'
 }
@@ -8,7 +10,7 @@ plugins {
 ext {
     version = [
             major: 0,
-            minor: 1,
+            minor: 2,
             patch: 0
     ]
 
@@ -25,7 +27,7 @@ ext {
             minSdkVersion    : 23,
             targetSdkVersion : 32,
 
-            appId            : "tossaro.android.core",
+            appId            : "multi.platform.core",
             appName          : [
                     store: "Core",
                     dev  : "Core (DEV)",
@@ -48,6 +50,7 @@ ext {
 
     dep = [
             [configuration: "implementation", dependency: "org.jetbrains.kotlin:kotlin-stdlib:1.7.10"],
+            [configuration: "implementation", dependency: "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"],
             [configuration: "implementation", dependency: 'androidx.core:core-ktx:1.8.0'],
             [configuration: "implementation", dependency: 'androidx.appcompat:appcompat:1.5.0'],
             [configuration: "implementation", dependency: 'com.google.android.material:material:1.6.1'],
@@ -70,18 +73,10 @@ ext {
             [configuration: "testImplementation", dependency: "androidx.arch.core:core-testing:2.1.0"],
             [configuration: "implementation", dependency: 'androidx.activity:activity-ktx:1.5.1'],
             [configuration: "implementation", dependency: 'androidx.fragment:fragment-ktx:1.5.2'],
-            [configuration: "implementation", dependency: 'com.google.code.gson:gson:2.9.1'],
-            [configuration: "implementation", dependency: 'com.squareup.retrofit2:retrofit:2.9.0'],
-            [configuration: "implementation", dependency: 'com.squareup.retrofit2:converter-gson:2.9.0'],
-            [configuration: "implementation", dependency: "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.10"],
-            [configuration: "implementation", dependency: "com.squareup.okhttp3:okhttp:5.0.0-alpha.10"],
             [configuration: "implementation", dependency: 'com.github.bumptech.glide:glide:4.13.2'],
             [configuration: "kapt", dependency: 'com.github.bumptech.glide:compiler:4.13.2'],
-            [configuration: "implementation", dependency: "com.github.haroldadmin:NetworkResponseAdapter:3.0.1"],
             [configuration: "implementation", dependency: 'com.jakewharton.timber:timber:5.0.1'],
-            [configuration: "debugImplementation", dependency: 'com.github.chuckerteam.chucker:library:3.5.2'],
-            [configuration: "releaseImplementation", dependency: 'com.github.chuckerteam.chucker:library-no-op:3.5.2'],
-            [configuration: "implementation", dependency: 'com.facebook.stetho:stetho-okhttp3:1.6.0'],
+            [configuration: "implementation", dependency: "io.ktor:ktor-client-core:2.1.2"],
             [configuration: "implementation", dependency: "io.insert-koin:koin-android:3.2.0"],
             [configuration: "testImplementation", dependency: "io.insert-koin:koin-test:3.2.0"],
             [configuration: "testImplementation", dependency: "io.insert-koin:koin-test-junit4:3.2.0"],
@@ -94,8 +89,15 @@ ext {
             [configuration: "testImplementation", dependency: "androidx.arch.core:core-testing:2.1.0"],
             [configuration: "testImplementation", dependency: "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"],
             [configuration: "androidTestImplementation", dependency: 'androidx.test.espresso:espresso-core:3.4.0'],
-            [configuration: "platform", dependency: 'com.google.firebase:firebase-bom:28.4.2'],
+            [configuration: "platform", dependency: 'com.google.firebase:firebase-bom:31.0.1'],
             [configuration: "implementation", dependency: 'com.google.firebase:firebase-analytics-ktx'],
+            [configuration: "implementation", dependency: 'com.facebook.shimmer:shimmer:0.5.0'],
+            [configuration: "implementation", dependency: 'com.google.android.flexbox:flexbox:3.0.0'],
+            [configuration: "implementation", dependency: "com.github.bumptech.glide:glide:4.12.0"],
+            [configuration: "implementation", dependency: "com.github.bumptech.glide:compiler:4.12.0"],
+            [configuration: "implementation", dependency: "com.github.bumptech.glide:annotations:4.12.0"],
+            [configuration: "implementation", dependency: "com.github.bumptech.glide:okhttp3-integration:4.12.0"],
+            [configuration: "kapt", dependency: 'com.github.bumptech.glide:compiler:4.12.0'],
     ]
 }
 

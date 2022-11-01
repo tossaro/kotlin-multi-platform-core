@@ -1,70 +1,90 @@
-# Kotlin Android Core 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![pipeline status](https://gitlab.com/tossaro/kotlin-android-core/badges/main/pipeline.svg)](https://gitlab.com/tossaro/kotlin-android-core/-/commits/main) [![coverage report](https://gitlab.com/tossaro/kotlin-android-core/badges/main/coverage.svg)](https://gitlab.com/tossaro/kotlin-android-core/-/commits/main) [![Latest Release](https://gitlab.com/tossaro/kotlin-android-core/-/badges/release.svg)](https://gitlab.com/tossaro/kotlin-android-core/-/releases)
+# Traveler Core
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![pipeline status](https://gitlab.com/tossaro/kotlin-multi-platform-core/badges/main/pipeline.svg)](https://gitlab.com/tossaro/kotlin-multi-platform-core/-/commits/main) [![coverage report](https://gitlab.com/tossaro/kotlin-multi-platform-core/badges/main/coverage.svg)](https://gitlab.com/tossaro/kotlin-multi-platform-core/-/commits/main) [![Latest Release](https://gitlab.com/tossaro/kotlin-multi-platform-core/-/badges/release.svg)](https://gitlab.com/tossaro/kotlin-multi-platform-core/-/releases)
 
 Provide base constructor / abstract for simplify code structure.
 Powered by KOIN for dependency injection and using MVVM pattern with clean architecture.
 
 ## Contents
+
 - [Requirements](#requirements)
 - [Architectural Pattern](#architectural-pattern)
 - [Project Structure](#project-structure)
 - [Getting started](#getting-started)
 - [Usage](#usage)
-- [Example](https://gitlab.com/tossaro/kotlin-android-core/tree/main/example)
-- [Documentation](https://gitlab.com/tossaro/kotlin-android-core/tree/main/docs)
+- [Example](https://gitlab.com/tossaro/kotlin-multi-platform-core/tree/main/example)
+- [Documentation](https://gitlab.com/tossaro/kotlin-multi-platform-core/tree/main/docs)
 - [Development](#development)
 
 ## Requirements
+
 1. Minimum Android/SDK Version: Nougat/23
 2. Target Android/SDK Version: Snow Cone/32
 3. Compile Android/SDK Version: Snow Cone/32
 4. This project is built using Android Studio version 2022.1.1 and Android Gradle 7.5
 
 ## Architectural Pattern
-This project implement Clean [Architecture by Fernando Cejas](https://github.com/android10/Android-CleanArchitecture)
+
+This project implement
+Clean [Architecture by Fernando Cejas](https://github.com/android10/Android-CleanArchitecture)
 
 ### Clean architecture
+
 ![Image Clean architecture](/resources/clean_architecture.png)
 
 ### Architectural approach
+
 ![Image Architectural approach](/resources/clean_architecture_layers.png)
 
 ### Architectural reactive approach
+
 ![Image Architectural reactive approach](/resources/clean_architecture_layers_details.png)
 
 ## Project Structure
+
 For the high level hierarchy, the project separate into 3 main modules, which are :
 
 ### App
-> This module represent the Presentation layer. Consists of activities, fragments, views, etc. The classes are separated based on features, for examples : auth, booking, easyride, etc.
+
+> This module represent the Presentation layer. Consists of activities, fragments, views, etc. The
+> classes are separated based on features, for examples : auth, booking, easyride, etc.
 
 ### Domain
-> This module represent the Domain layer. Consists of interactors/use cases and models and doesn’t know anything outside.
+
+> This module represent the Domain layer. Consists of interactors/use cases and models and doesn’t
+> know anything outside.
 
 ### Data
-> This module represent the Data layer. Consists of data sources; can be network call, mock data, disk data, and cache data.
+
+> This module represent the Data layer. Consists of data sources; can be network call, mock data,
+> disk data, and cache data.
 
 ## Getting started
-1. Create New `Private Token` -> [Tutorial](https://docs.gitlab.com/ee/user/project/private_tokens/index.html)
+
+1. Create New `Deploy Token`
+   -> [Tutorial](https://docs.gitlab.com/ee/user/project/deploy_tokens/index.html)
 2. Check for `read_package_registry` role, then save your token
 3. Create `properties.gradle` in your root folder, add this content:
+
 ```groovy
 ext {
    gitlab = [
-        consumeToken: "<Generated Private Token>"
+        consumeToken: "<Generated Deploy Token>"
    ]
 }
 ```
+
 4. Edit settings.gradle in your root folder:
+
 ```groovy
 dependencyResolutionManagement {
    repositories {
       //...
       maven {
-         name = "Core"
-         url = uri("https://gitlab.com/api/v4/projects/38836420/packages/maven")
+         name = "Traveler Group"
+         url = uri("https://gitlab.com/api/v4/groups/57044869/-/packages/maven")
          credentials(HttpHeaderCredentials) {
-            name = 'Private-Token'
+            name = 'Deploy-Token'
             value = gitlab.consumeToken
          }
          authentication {
@@ -74,14 +94,18 @@ dependencyResolutionManagement {
    }
 }
 ```
-5. Last, add 'implementation "tossaro.android.core:${variant}-${buildType}:${version}"' inside tag dependencies { . . . } of build.gradle app
+
+5. Last, add 'implementation "multi.platform.core:${variant}-${buildType}:${version}"' inside tag
+   dependencies { . . . } of build.gradle app
 
 ## Usage
+
 1. Example on Application:
+
 ```kotlin
 //...
-import tossaro.android.core.external.utils.NetworkUtil
-import tossaro.android.core.CoreApplication
+import multi.platform.core.external.utils.NetworkUtil
+import multi.platform.core.CoreApplication
 class ExampleApplication : CoreApplication() {
    //...
    override fun module() = module {
@@ -96,10 +120,12 @@ class ExampleApplication : CoreApplication() {
    //...
 } 
 ```
+
 2. Example on Activity:
+
 ```kotlin
 //...
-import tossaro.android.core.app.common.BaseActivity
+import multi.platform.core.app.common.BaseActivity
 class ExampleActivity : BaseActivity() {
    //...
    override fun navHostFragment(): FragmentContainerView = your-content-fragment-view-binding
@@ -107,10 +133,12 @@ class ExampleActivity : BaseActivity() {
    //...
 } 
 ```
+
 3. Example on Fragment:
+
 ```kotlin
 //...
-import tossaro.android.core.app.common.BaseFragment
+import multi.platform.core.app.common.BaseFragment
 class ExampleFragment: BaseFragment<ExampleFragmentBinding>(
     R.layout.example_fragment
 ) {
@@ -128,21 +156,25 @@ class ExampleFragment: BaseFragment<ExampleFragmentBinding>(
    //...
 } 
 ```
+
 4. Example on View Model :
+
 ```kotlin
 //...
-import tossaro.android.core.app.common.BaseViewModel
+import multi.platform.core.app.common.BaseViewModel
 class ExampleViewModel : BaseViewModel() {
    //...
 } 
 ```
 
 ## Development
+
 Here are some useful gradle/adb commands for executing this example:
 
-* ./gradlew clean build - Build the entire project and execute unit tests 
+* ./gradlew clean build - Build the entire project and execute unit tests
 * ./gradlew clean sonarqube - Execute sonarqube coverage report
 * ./gradlew dokkaGfm - Generate documentation
 * ./gradlew test[flavor][buildType]UnitTest - Execute unit tests e.g., testDevDebugUnitTest
-* ./gradlew test[flavor][buildType]UnitTest create[flavor][buildType]CoverageReport - Execute unit tests and create coverage report e.g., createDevDebugCoverageReport
+* ./gradlew test[flavor][buildType]UnitTest create[flavor][buildType]CoverageReport - Execute unit
+  tests and create coverage report e.g., createDevDebugCoverageReport
 * ./gradlew assemble[flavor][buildType] - Create apk file e.g., assembleDevDebug
