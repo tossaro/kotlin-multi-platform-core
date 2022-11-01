@@ -1,0 +1,31 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url 'https://jitpack.io' }
+    }
+}
+apply from: 'properties.gradle'
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        maven {
+            name = "Core"
+            url = uri("https://gitlab.com/api/v4/projects/38836420/packages/maven")
+            credentials(HttpHeaderCredentials) {
+                name = 'Private-Token'
+                value = gitlab.consumeToken
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+    }
+}
+rootProject.name = "Core"
+include ':exampleAndroid'
+include ':shared'
