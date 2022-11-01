@@ -1,0 +1,138 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.kapt'
+    id 'org.jetbrains.dokka' version "1.7.10"
+    id 'maven-publish'
+}
+
+apply from: '../properties.gradle'
+
+android {
+    namespace setup.appId
+    compileSdkVersion setup.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion setup.minSdkVersion
+        targetSdkVersion setup.targetSdkVersion
+        versionCode buildVersionCode()
+        versionName buildVersionName()
+
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            testCoverageEnabled = true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    flavorDimensions 'api'
+    productFlavors {
+        dev {
+            dimension 'api'
+            resValue "string", "app_name", String.format("%s", setup.appName.dev)
+            buildConfigField 'String', 'DEEP_LINK_HOST', String.format("%s", deeplink.dev)
+        }
+        stage {
+            dimension 'api'
+            resValue "string", "app_name", String.format("%s", setup.appName.stage)
+            buildConfigField 'String', 'DEEP_LINK_HOST', String.format("%s", deeplink.stage)
+        }
+        beta {
+            dimension 'api'
+            resValue "string", "app_name", String.format("%s", setup.appName.beta)
+            buildConfigField 'String', 'DEEP_LINK_HOST', String.format("%s", deeplink.beta)
+        }
+        store {
+            dimension 'api'
+            resValue "string", "app_name", String.format("%s", setup.appName.store)
+            buildConfigField 'String', 'DEEP_LINK_HOST', String.format("%s", deeplink.store)
+        }
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+
+    task installLocalGitHook(type: Copy) {
+        from new File(rootProject.rootDir, 'scripts/pre-commit')
+        into { new File(rootProject.rootDir, '.git/hooks') }
+        fileMode 0775
+    }
+
+    build.dependsOn installLocalGitHook
+}
+
+dokkaGfm {
+    suppressInheritedMembers.set(true)
+    outputDirectory.set(file("${rootProject.rootDir}/docs/${project.name}"))
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    dep.each {
+        if (it.configuration == "platform") {
+            add("implementation", platform(it.dependency))
+        } else {
+            add(it.configuration, it.dependency, it.options)
+        }
+    }
+}
+
+afterEvaluate {
+    def buildTypes = android.buildTypes.collect { type -> type.name }
+    def productFlavors = android.productFlavors.collect { flavor -> flavor.name }
+    publishing {
+        publications {
+            productFlavors.each { productFlavorName ->
+                buildTypes.each { buildTypeName ->
+                    def name = "${productFlavorName}${buildTypeName.capitalize()}"
+                    "$name"(MavenPublication) {
+                        from components."$name"
+                        groupId "tossaro.android.core"
+                        artifactId "$productFlavorName-$buildTypeName"
+                        version android.defaultConfig.versionName
+                    }
+                }
+            }
+        }
+
+        repositories {
+            maven {
+                name = "Core"
+                url = uri("https://gitlab.com/api/v4/projects/38836420/packages/maven")
+                credentials(HttpHeaderCredentials) {
+                    name = 'Private-Token'
+                    value = gitlab.publishToken
+                }
+                authentication {
+                    header(HttpHeaderAuthentication)
+                }
+            }
+        }
+    }
+}
