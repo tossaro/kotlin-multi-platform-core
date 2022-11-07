@@ -61,15 +61,15 @@ For the high level hierarchy, the project separate into 3 main modules, which ar
 
 ## Getting started
 
-1. Create New `Deploy Token`
-   -> [Tutorial](https://docs.gitlab.com/ee/user/project/deploy_tokens/index.html)
+1. Create New `Private Token`
+   -> [Tutorial](https://docs.gitlab.com/ee/user/project/private_tokens/index.html)
 2. Check for `read_package_registry` role, then save your token
 3. Create `properties.gradle` in your root folder, add this content:
 
 ```groovy
 ext {
    gitlab = [
-        consumeToken: "<Generated Deploy Token>"
+        consumeToken: "<Generated Private Token>"
    ]
 }
 ```
@@ -81,21 +81,21 @@ dependencyResolutionManagement {
    repositories {
       //...
       maven {
-         name = "Traveler Group"
-         url = uri("https://gitlab.com/api/v4/groups/57044869/-/packages/maven")
-         credentials(HttpHeaderCredentials) {
-            name = 'Deploy-Token'
-            value = gitlab.consumeToken
-         }
-         authentication {
-            header(HttpHeaderAuthentication)
-         }
+          name = "Core"
+          url = uri("https://gitlab.com/api/v4/projects/38836420/packages/maven")
+          credentials(HttpHeaderCredentials) {
+              name = 'Private-Token'
+              value = gitlab.consumeToken
+          }
+          authentication {
+              header(HttpHeaderAuthentication)
+          }
       }
    }
 }
 ```
 
-5. Last, add 'implementation "multi.platform.core:${variant}-${buildType}:${version}"' inside tag
+5. Last, add 'implementation "multi.platform.core:${buildType}:${version}"' inside tag
    dependencies { . . . } of build.gradle app
 
 ## Usage
