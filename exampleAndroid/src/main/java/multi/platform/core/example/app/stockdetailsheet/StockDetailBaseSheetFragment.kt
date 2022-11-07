@@ -2,11 +2,12 @@ package multi.platform.core.example.app.stockdetailsheet
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.Lifecycle
 import multi.platform.core.example.R
 import multi.platform.core.example.databinding.StockDetailSheetFragmentBinding
 import multi.platform.core.shared.app.common.BaseSheetFragment
 import multi.platform.core.shared.external.extension.goTo
+import multi.platform.core.shared.external.extension.launchAndCollectIn
 import multi.platform.core.shared.external.extension.showErrorSnackbar
 import multi.platform.core.shared.external.extension.showSuccessSnackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -25,10 +26,16 @@ class StockDetailBaseSheetFragment : BaseSheetFragment<StockDetailSheetFragmentB
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
-        binding.vm = vm
-        val scope = viewLifecycleOwner.lifecycleScope
-        scope.launchWhenResumed { vm.successMessage.collect { showSuccessSnackbar(it) } }
-        scope.launchWhenResumed { vm.errorMessage.collect { showErrorSnackbar(it) } }
+        binding.vm = vm.also {
+            it.successMessage.launchAndCollectIn(
+                this,
+                Lifecycle.State.STARTED
+            ) { m -> showSuccessSnackbar(m) }
+            it.errorMessage.launchAndCollectIn(
+                this,
+                Lifecycle.State.STARTED
+            ) { m -> showErrorSnackbar(m) }
+        }
 
         arguments?.let {
             vm.coin.value = it.getString("coin")

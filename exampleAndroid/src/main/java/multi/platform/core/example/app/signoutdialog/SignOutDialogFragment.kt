@@ -11,7 +11,7 @@ import multi.platform.core.example.external.constant.ExampleConstant
 import multi.platform.core.shared.app.common.BaseDialogFragment
 import multi.platform.core.shared.external.constant.AppConstant
 
-class SignOutBaseDialogFragment :
+class SignOutDialogFragment :
     BaseDialogFragment<SignoutDialogFragmentBinding>(R.layout.signout_dialog_fragment) {
     override fun isCancelable() = false
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

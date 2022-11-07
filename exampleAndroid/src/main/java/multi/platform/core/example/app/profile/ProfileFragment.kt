@@ -8,13 +8,14 @@ import android.provider.MediaStore
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.setFragmentResultListener
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.Lifecycle
 import multi.platform.core.example.R
 import multi.platform.core.example.databinding.ProfileFragmentBinding
 import multi.platform.core.example.external.constant.ExampleConstant
 import multi.platform.core.shared.app.common.BaseFragment
 import multi.platform.core.shared.external.constant.AppConstant
 import multi.platform.core.shared.external.extension.goTo
+import multi.platform.core.shared.external.extension.launchAndCollectIn
 import multi.platform.core.shared.external.extension.loadImage
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
@@ -36,10 +37,11 @@ class ProfileFragment : BaseFragment<ProfileFragmentBinding>(R.layout.profile_fr
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = viewLifecycleOwner
-        binding.vm = vm
-
-        val scope = viewLifecycleOwner.lifecycleScope
-        scope.launchWhenResumed { vm.user.collect { binding.ivProfile.loadImage(it?.picture.toString()) } }
+        binding.vm = vm.also {
+            it.user.launchAndCollectIn(this, Lifecycle.State.STARTED) { p ->
+                binding.ivProfile.loadImage(p?.picture.toString())
+            }
+        }
 
         binding.ivProfile.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
@@ -51,13 +53,14 @@ class ProfileFragment : BaseFragment<ProfileFragmentBinding>(R.layout.profile_fr
         }
 
         sharedPreferences.edit()
+            .putString(AppConstant.ACCESS_TOKEN, getString(R.string.sample_access_token))
             .putString(AppConstant.REFRESH_TOKEN, getString(R.string.sample_refresh_token))
             .putString(AppConstant.PHONE, getString(R.string.sample_phone)).apply()
     }
 
     override fun onResume() {
         super.onResume()
-        vm.accessToken = getString(R.string.sample_access_token)
+        vm.accessToken = sharedPreferences.getString(AppConstant.ACCESS_TOKEN, null)
         vm.checkToken()
     }
 

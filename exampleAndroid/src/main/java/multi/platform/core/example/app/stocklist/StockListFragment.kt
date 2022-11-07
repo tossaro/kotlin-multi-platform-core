@@ -13,7 +13,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.badge.BadgeDrawable
@@ -33,6 +32,7 @@ import multi.platform.core.shared.external.extension.showToast
 import multi.platform.core.shared.external.utility.LocaleUtil
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
+import multi.platform.core.shared.external.extension.launchAndCollectIn
 import org.java_websocket.client.WebSocketClient
 import org.java_websocket.handshake.ServerHandshake
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -118,13 +118,23 @@ class StockListFragment : BaseFragment<StockListFragmentBinding>(
             it.stocks.observe(viewLifecycleOwner, ::notifyStocksAdapter)
             it.notif.observe(viewLifecycleOwner, ::showNotifBadge)
             it.promo.observe(viewLifecycleOwner, ::showPromoBadge)
+            it.loadingIndicator.launchAndCollectIn(
+                this,
+                Lifecycle.State.STARTED
+            ) { l -> showFullLoading(l) }
+            it.successMessage.launchAndCollectIn(
+                this,
+                Lifecycle.State.STARTED
+            ) { m -> showSuccessSnackbar(m) }
+            it.errorMessage.launchAndCollectIn(
+                this,
+                Lifecycle.State.STARTED
+            ) { m -> showErrorSnackbar(m) }
+            it.toastMessage.launchAndCollectIn(
+                this,
+                Lifecycle.State.STARTED
+            ) { m -> showToast(m) }
         }
-
-        val scope = viewLifecycleOwner.lifecycleScope
-        scope.launchWhenResumed { vm.loadingIndicator.collect { showFullLoading(it) } }
-        scope.launchWhenResumed { vm.toastMessage.collect { showToast(it) } }
-        scope.launchWhenResumed { vm.successMessage.collect { showSuccessSnackbar(it) } }
-        scope.launchWhenResumed { vm.errorMessage.collect { showErrorSnackbar(it) } }
 
         binding.swipeContainer.setOnRefreshListener {
             vm.stocks.value = mutableListOf()
