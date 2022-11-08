@@ -9,7 +9,7 @@ import multi.platform.core.example.domain.stock.entity.Stock
 class StockAdapter :
     RecyclerView.Adapter<StockAdapter.ViewHolder>() {
     var onClick: ((String, String) -> Unit)? = null
-    var stocks = mutableListOf<Stock>()
+    var items = mutableListOf<Stock>()
 
     class ViewHolder(private val binding: StockItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -34,8 +34,14 @@ class StockAdapter :
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.bind(stocks[position], onClick)
+        viewHolder.bind(items[position], onClick)
     }
 
-    override fun getItemCount() = stocks.size
+    override fun getItemCount() = items.size
+
+    fun clear() {
+        val size = items.size
+        items = mutableListOf()
+        notifyItemRangeRemoved(0, size)
+    }
 }

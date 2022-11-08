@@ -288,7 +288,6 @@ class GenericAdapter(
 
     override fun getItemCount() = items.size
 
-    @Suppress("UNUSED")
     fun clear() {
         val size = items.size
         items = mutableListOf()

@@ -11,5 +11,7 @@ expect abstract class BaseViewModel() {
     val successMessage: MutableStateFlow<String?>
     val errorMessage: MutableStateFlow<String?>
     val onSignedIn: MutableStateFlow<Ticket?>
+    val forceSignout: MutableStateFlow<Boolean>
+    val onServerError: MutableStateFlow<Boolean>
     val scope: CoroutineScope
 }

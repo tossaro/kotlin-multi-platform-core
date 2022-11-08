@@ -431,14 +431,16 @@ open class BaseFragment<B : ViewDataBinding>(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _baseBinding = BaseFragmentBinding.inflate(inflater, container, false)
-        (fragmentView?.parent as? ViewGroup)?.removeAllViews()
-        fragmentView = inflater.inflate(getRootLayoutRes(), container, false).apply {
-            binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
-            baseBinding.fragmentContent.removeAllViews()
-            baseBinding.fragmentContent.addView(binding.root)
+        if (_baseBinding == null) {
+            _baseBinding = BaseFragmentBinding.inflate(inflater, container, false)
+            (fragmentView?.parent as? ViewGroup)?.removeAllViews()
+            fragmentView = inflater.inflate(getRootLayoutRes(), container, false).apply {
+                binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
+                baseBinding.fragmentContent.removeAllViews()
+                baseBinding.fragmentContent.addView(binding.root)
+            }
         }
-        return binding.root.rootView
+        return baseBinding.root.rootView
     }
 
     override fun onDestroy() {
