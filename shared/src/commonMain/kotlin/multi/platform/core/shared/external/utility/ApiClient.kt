@@ -1,15 +1,5 @@
 package multi.platform.core.shared.external.utility
 
-import multi.platform.core.shared.Context
-import multi.platform.core.shared.domain.common.usecase.RefreshTokenUseCase
-import multi.platform.core.shared.external.constant.AppConstant
-import multi.platform.core.shared.external.constant.HttpHeaderConstant
-import multi.platform.core.shared.external.extension.toMD5
-import multi.platform.core.shared.getLanguage
-import multi.platform.core.shared.getPlatform
-import multi.platform.core.shared.getStringPref
-import multi.platform.core.shared.putStringPref
-import multi.platform.core.shared.removePref
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.HttpRequestRetry
@@ -23,10 +13,21 @@ import io.ktor.client.request.header
 import io.ktor.client.request.headers
 import io.ktor.http.HttpHeaders
 import io.ktor.http.URLProtocol
+import io.ktor.http.fullPath
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
+import multi.platform.core.shared.Context
+import multi.platform.core.shared.domain.common.usecase.RefreshTokenUseCase
+import multi.platform.core.shared.external.constant.AppConstant
+import multi.platform.core.shared.external.constant.HttpHeaderConstant
+import multi.platform.core.shared.external.extension.toMD5
+import multi.platform.core.shared.getLanguage
+import multi.platform.core.shared.getPlatform
+import multi.platform.core.shared.getStringPref
+import multi.platform.core.shared.putStringPref
+import multi.platform.core.shared.removePref
 
 @OptIn(ExperimentalSerializationApi::class)
 class ApiClient(
@@ -64,8 +65,8 @@ class ApiClient(
         }
         expectSuccess = true
         install(HttpRequestRetry) {
-            retryIf { _, response ->
-                response.status.value == 401
+            retryIf { httpRequest, httpResponse ->
+                httpResponse.status.value == 401 && !httpRequest.url.fullPath.contains("/v1/token", ignoreCase = true)
             }
             modifyRequest { request ->
                 runBlocking {

@@ -13,10 +13,11 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.badge.BadgeUtils
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 import multi.platform.core.example.BuildConfig
 import multi.platform.core.example.R
 import multi.platform.core.example.data.stock.network.response.StockSocket
@@ -26,13 +27,11 @@ import multi.platform.core.shared.app.common.BaseActivity
 import multi.platform.core.shared.app.common.BaseFragment
 import multi.platform.core.shared.external.extension.dpToPx
 import multi.platform.core.shared.external.extension.goTo
+import multi.platform.core.shared.external.extension.launchAndCollectIn
 import multi.platform.core.shared.external.extension.showErrorSnackbar
 import multi.platform.core.shared.external.extension.showSuccessSnackbar
 import multi.platform.core.shared.external.extension.showToast
 import multi.platform.core.shared.external.utility.LocaleUtil
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
-import multi.platform.core.shared.external.extension.launchAndCollectIn
 import org.java_websocket.client.WebSocketClient
 import org.java_websocket.handshake.ServerHandshake
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -46,7 +45,7 @@ class StockListFragment : BaseFragment<StockListFragmentBinding>(
 ), MenuProvider {
     private lateinit var webSocketClient: WebSocketClient
     private val vm: StockListViewModel by viewModel()
-    var mAdapter: StockAdapter? = null
+    var stockAdapter: StockAdapter? = null
     var page = 1
     private var badgeNotification: BadgeDrawable? = null
     private var badgePromo: BadgeDrawable? = null
@@ -97,6 +96,7 @@ class StockListFragment : BaseFragment<StockListFragmentBinding>(
     @Suppress("UnsafeOptInUsageError")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         actionBar().apply {
             setPadding(dpToPx(24f), 0, 0, 0)
         }
@@ -113,52 +113,54 @@ class StockListFragment : BaseFragment<StockListFragmentBinding>(
             val icSearch = ContextCompat.getDrawable(requireContext(), cR.drawable.ic_search_12)
             setCompoundDrawablesWithIntrinsicBounds(icSearch, null, null, null)
         }
+
         binding.lifecycleOwner = viewLifecycleOwner
         binding.vm = vm.also {
-            it.stocks.observe(viewLifecycleOwner, ::notifyStocksAdapter)
+            it.stocks.observe(viewLifecycleOwner, ::onLoadedStocks)
             it.notif.observe(viewLifecycleOwner, ::showNotifBadge)
             it.promo.observe(viewLifecycleOwner, ::showPromoBadge)
-            it.loadingIndicator.launchAndCollectIn(
-                this,
-                Lifecycle.State.STARTED
-            ) { l -> showFullLoading(l) }
-            it.successMessage.launchAndCollectIn(
-                this,
-                Lifecycle.State.STARTED
-            ) { m -> showSuccessSnackbar(m) }
-            it.errorMessage.launchAndCollectIn(
-                this,
-                Lifecycle.State.STARTED
-            ) { m -> showErrorSnackbar(m) }
-            it.toastMessage.launchAndCollectIn(
-                this,
-                Lifecycle.State.STARTED
-            ) { m -> showToast(m) }
+            it.loadingIndicator.launchAndCollectIn(this, Lifecycle.State.STARTED) { l ->
+                showFullLoading(l)
+            }
+            it.successMessage.launchAndCollectIn(this, Lifecycle.State.STARTED) { m ->
+                showSuccessSnackbar(m)
+                it.successMessage.value = null
+            }
+            it.errorMessage.launchAndCollectIn(this, Lifecycle.State.STARTED) { m ->
+                showErrorSnackbar(m)
+                it.errorMessage.value = null
+            }
+            it.toastMessage.launchAndCollectIn(this, Lifecycle.State.STARTED) { m ->
+                showToast(m)
+                it.toastMessage.value = null
+            }
         }
 
         binding.swipeContainer.setOnRefreshListener {
-            vm.stocks.value = mutableListOf()
-            getStocks(1)
+            clear()
+            load(1)
         }
-        mAdapter = StockAdapter()
-        mAdapter?.onClick = { c, v ->
-            goTo(getString(R.string.route_stock_detail_sheet).replace("{coin}", c).replace("{value}", v))
+        stockAdapter = StockAdapter()
+        stockAdapter?.onClick = { c, v ->
+            goTo(
+                getString(R.string.route_stock_detail_sheet).replace("{coin}", c)
+                    .replace("{value}", v)
+            )
         }
-        val mLayoutManager = LinearLayoutManager(activity)
-        binding.rvStock.layoutManager = mLayoutManager
-        binding.rvStock.adapter = mAdapter
+        binding.rvStock.adapter = stockAdapter
         binding.rvStock.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 Timber.d("scroll ${recyclerView.canScrollVertically(1)}")
                 if (!recyclerView.canScrollVertically(1)) {
                     page++
-                    getStocks(page)
+                    load(page)
                 }
             }
         })
 
         createWebSocketClient()
-        getStocks(1)
+        clear()
+        load(1)
     }
 
     @Suppress("UnsafeOptInUsageError")
@@ -177,15 +179,14 @@ class StockListFragment : BaseFragment<StockListFragmentBinding>(
         badgePromo?.isVisible = true
     }
 
-    private fun getStocks(p: Int) {
+    private fun load(p: Int) {
         page = p
         val isFromNetwork = (requireActivity() as BaseActivity).isInternetAvailable()
         if (vm.isFromNetwork != isFromNetwork) {
             page = 1
-            mAdapter?.stocks?.let { ss ->
+            stockAdapter?.items?.let { ss ->
                 ss.forEach { s -> unsubscribe(s.name.toString()) }
-                mAdapter?.notifyItemRangeRemoved(0, ss.size)
-                ss.clear()
+                clear()
             }
         }
         vm.isFromNetwork = isFromNetwork
@@ -193,13 +194,18 @@ class StockListFragment : BaseFragment<StockListFragmentBinding>(
         vm.getStocks(page)
     }
 
-    private fun notifyStocksAdapter(stocks: List<Stock>?) {
+    private fun clear() {
+        stockAdapter?.clear()
+        vm.stocks.value = mutableListOf()
+    }
+
+    private fun onLoadedStocks(stocks: List<Stock>?) {
         stocks?.let { ss ->
-            mAdapter?.stocks?.let { s ->
+            stockAdapter?.items?.let { s ->
                 val sizeBefore = s.size
                 s.addAll(ss)
                 val sizeAfter = s.size - 1
-                mAdapter?.notifyItemRangeChanged(sizeBefore, sizeAfter)
+                stockAdapter?.notifyItemRangeChanged(sizeBefore, sizeAfter)
             }
             binding.swipeContainer.isRefreshing = false
             ss.forEach { s -> if (webSocketClient.isOpen) subscribe(s.name.toString()) }
@@ -216,7 +222,7 @@ class StockListFragment : BaseFragment<StockListFragmentBinding>(
             }
 
             override fun onClose(code: Int, reason: String?, remote: Boolean) {
-                mAdapter?.stocks?.let { ss ->
+                stockAdapter?.items?.let { ss ->
                     ss.forEach { s -> unsubscribe(s.name.toString()) }
                 }
             }
@@ -233,13 +239,13 @@ class StockListFragment : BaseFragment<StockListFragmentBinding>(
         activity?.runOnUiThread {
             val usd = json.decodeFromString<StockSocket?>(message.toString())
             if (usd?.topTierFullVolume != null && vm.loadingIndicator.value == false) {
-                mAdapter?.stocks?.let { ss ->
+                stockAdapter?.items?.let { ss ->
                     ss.forEach { s ->
                         if (s.name == usd.symbol) {
                             s.price = String.format("%.5f", usd.topTierFullVolume.toDouble())
                             val i = ss.indexOf(s)
                             try {
-                                mAdapter?.notifyItemChanged(i)
+                                stockAdapter?.notifyItemChanged(i)
                             } catch (e: Exception) {
                                 Timber.d("Notify $i Exception", e)
                             }

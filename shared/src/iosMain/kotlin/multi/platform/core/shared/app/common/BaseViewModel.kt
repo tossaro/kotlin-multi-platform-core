@@ -10,5 +10,7 @@ actual abstract class BaseViewModel {
     actual val successMessage = MutableStateFlow<String?>(null)
     actual val errorMessage = MutableStateFlow<String?>(null)
     actual val onSignedIn = MutableStateFlow<Ticket?>(null)
+    actual val forceSignout = MutableStateFlow(false)
+    actual val onServerError = MutableStateFlow(false)
     actual val scope = viewModelScope
 }
