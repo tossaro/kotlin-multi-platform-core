@@ -19,9 +19,10 @@ Powered by KOIN for dependency injection and using MVVM pattern with clean archi
 ## Requirements
 
 1. Minimum Android/SDK Version: Nougat/23
-2. Target Android/SDK Version: Snow Cone/32
-3. Compile Android/SDK Version: Snow Cone/32
-4. This project is built using Android Studio version 2022.1.1 and Android Gradle 7.5
+2. Deployment Target iOS/SDK Version: 14.1
+3. Target Android/SDK Version: Snow Cone/32
+4. Compile Android/SDK Version: Snow Cone/32
+5. This project is built using Android Studio version 2022.1.1 and Android Gradle 7.5
 
 ## Architectural Pattern
 
@@ -61,10 +62,12 @@ For the high level hierarchy, the project separate into 3 main modules, which ar
 
 ## Getting started
 
-1. Create New `Private Token`
+1. Fork this repository to your account
+2. Copy forked repository ID, paste for step 4
+3. Create new `Private Token`
    -> [Tutorial](https://docs.gitlab.com/ee/user/project/private_tokens/index.html)
-2. Check for `read_package_registry` role, then save your token
-3. Create `properties.gradle` in your root folder, add this content:
+4. Check for `read_package_registry` role, then save your token
+5. Create `properties.gradle` in your root folder, add this content:
 
 ```groovy
 ext {
@@ -82,7 +85,7 @@ dependencyResolutionManagement {
         //...
         maven {
             name = "Core"
-            url = uri("https://gitlab.com/api/v4/projects/38836420/packages/maven")
+            url = uri("https://gitlab.com/api/v4/projects/<FORKED_REPOSITORY_ID>/packages/maven")
             credentials(HttpHeaderCredentials) {
                 name = 'Private-Token'
                 value = gitlab.consumeToken
