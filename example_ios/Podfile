@@ -1,0 +1,9 @@
+platform :ios, '14.1'
+install! 'cocoapods', :disable_input_output_paths => true
+
+target 'example_ios' do
+  use_frameworks!
+  pod 'core_shared', :path => '../'
+  pod 'core', :path => '../'
+  pod 'example_lib', :path => '../example_lib'
+end

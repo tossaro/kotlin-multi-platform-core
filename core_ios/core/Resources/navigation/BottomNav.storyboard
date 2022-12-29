@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wdi-hf-b2F">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--HomeNavController-->
+        <scene sceneID="c3d-kJ-NXG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeNav" bundleIdentifier="multi.platform.core" referencedIdentifier="HomeNavController" id="7t0-WQ-Yt5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="EA1-e0-HRf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1pg-Fq-1ce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-550" y="518"/>
+        </scene>
+        <!--ProfileNav-->
+        <scene sceneID="O2s-Uk-LUQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProfileNav" bundleIdentifier="multi.platform.core" id="Mhu-M2-Kcc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="4Ea-0b-a0e"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IMx-lH-n6y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="563" y="518"/>
+        </scene>
+        <!--OrderNav-->
+        <scene sceneID="8tm-8j-20U">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OrderNav" bundleIdentifier="multi.platform.core" id="Mpk-gC-jeD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Order" image="cart" catalog="system" id="9pG-NH-dpt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8YR-2q-Sfo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="634"/>
+        </scene>
+        <!--Bottom Nav Controller-->
+        <scene sceneID="Wxq-Zc-p3S">
+            <objects>
+                <tabBarController storyboardIdentifier="BottomNavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wdi-hf-b2F" customClass="BottomNavController" customModule="core" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="giP-eJ-YMG">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.20000000000000001" green="0.56470588239999997" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.20000000000000001" green="0.56470588239999997" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7t0-WQ-Yt5" kind="relationship" relationship="viewControllers" id="E7e-vV-rCV"/>
+                        <segue destination="Mpk-gC-jeD" kind="relationship" relationship="viewControllers" id="gpm-CO-cDf"/>
+                        <segue destination="Mhu-M2-Kcc" kind="relationship" relationship="viewControllers" id="ade-AI-QOa"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ug1-e3-aj6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="97.767857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
+    </resources>
+</document>

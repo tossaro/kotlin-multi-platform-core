@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="24dp">
+
+        <TextView
+            android:id="@+id/tv_error_connection_title"
+            style="@style/Text.Poppins.H4.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/error_connection_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_error_connection_subtitle"
+            style="@style/Text.Poppins.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/error_connection_subtitle"
+            android:textColor="@color/grey80"
+            app:layout_constraintTop_toBottomOf="@id/tv_error_connection_title" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mb_error_connection_retry"
+            style="@style/MaterialButton.Poppins.SolidPrimary.Rounded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/retry"
+            app:layout_constraintTop_toBottomOf="@id/tv_error_connection_subtitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

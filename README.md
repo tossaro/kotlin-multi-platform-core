@@ -68,9 +68,9 @@ For the high level hierarchy, the project separate into 3 main modules, which ar
 
 ```groovy
 ext {
-   gitlab = [
-        consumeToken: "<Generated Private Token>"
-   ]
+    gitlab = [
+            consumeToken: "<Generated Private Token>"
+    ]
 }
 ```
 
@@ -78,20 +78,20 @@ ext {
 
 ```groovy
 dependencyResolutionManagement {
-   repositories {
-      //...
-      maven {
-          name = "Core"
-          url = uri("https://gitlab.com/api/v4/projects/38836420/packages/maven")
-          credentials(HttpHeaderCredentials) {
-              name = 'Private-Token'
-              value = gitlab.consumeToken
-          }
-          authentication {
-              header(HttpHeaderAuthentication)
-          }
-      }
-   }
+    repositories {
+        //...
+        maven {
+            name = "Core"
+            url = uri("https://gitlab.com/api/v4/projects/38836420/packages/maven")
+            credentials(HttpHeaderCredentials) {
+                name = 'Private-Token'
+                value = gitlab.consumeToken
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+    }
 }
 ```
 
@@ -106,18 +106,19 @@ dependencyResolutionManagement {
 //...
 import multi.platform.core.external.utils.NetworkUtil
 import multi.platform.core.CoreApplication
-class ExampleApplication : CoreApplication() {
-   //...
-   override fun module() = module {
-      single { NetworkUtil.buildClient(get()) }
-      single { NetworkUtil.buildService<ExampleServiceV1>(BuildConfig.SERVER, get()) }
 
-      singleOf(::ExampleRepositoryImpl) { bind<ExampleRepository>() }
-      singleOf(::GetExamplesUseCase)
-      
-      viewModelOf(::ExampleViewModel)
-   }
-   //...
+class ExampleApplication : CoreApplication() {
+    //...
+    override fun module() = module {
+        single { NetworkUtil.buildClient(get()) }
+        single { NetworkUtil.buildService<ExampleServiceV1>(BuildConfig.SERVER, get()) }
+
+        singleOf(::ExampleRepositoryImpl) { bind<ExampleRepository>() }
+        singleOf(::GetExamplesUseCase)
+
+        viewModelOf(::ExampleViewModel)
+    }
+    //...
 } 
 ```
 
@@ -126,11 +127,13 @@ class ExampleApplication : CoreApplication() {
 ```kotlin
 //...
 import multi.platform.core.app.common.BaseActivity
+
 class ExampleActivity : BaseActivity() {
-   //...
-   override fun navHostFragment(): FragmentContainerView = your-content-fragment-view-binding
-   override fun getNavGraphResource(): Int = R.navigation.navigation
-   //...
+    //...
+    override fun navHostFragment(): FragmentContainerView =
+        your - content - fragment - view - binding
+    override fun getNavGraphResource(): Int = R.navigation.navigation
+    //...
 } 
 ```
 
@@ -139,12 +142,13 @@ class ExampleActivity : BaseActivity() {
 ```kotlin
 //...
 import multi.platform.core.app.common.BaseFragment
-class ExampleFragment: BaseFragment<ExampleFragmentBinding>(
+
+class ExampleFragment : BaseFragment<ExampleFragmentBinding>(
     R.layout.example_fragment
 ) {
-   //...
-   private val viewModel: ExampleViewModel by viewModel()
-   override fun bind() {
+    //...
+    private val viewModel: ExampleViewModel by viewModel()
+    override fun bind() {
         super.bind()
         binding.viewModel = viewModel.also {
             it.loadingIndicator.observe(this, ::loadingIndicator)
@@ -152,8 +156,8 @@ class ExampleFragment: BaseFragment<ExampleFragmentBinding>(
             //...
         }
         //...
-   }
-   //...
+    }
+    //...
 } 
 ```
 
@@ -162,8 +166,9 @@ class ExampleFragment: BaseFragment<ExampleFragmentBinding>(
 ```kotlin
 //...
 import multi.platform.core.app.common.BaseViewModel
+
 class ExampleViewModel : BaseViewModel() {
-   //...
+    //...
 } 
 ```
 
