@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/order"
+    app:startDestination="@id/orderFragment">
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="multi.platform.core.example.app.order.OrderFragment"
+        android:label="OrderFragment">
+        <deepLink app:uri="@string/route_order" />
+    </fragment>
+    <dialog
+        android:id="@+id/dateSheetFragment"
+        android:name="multi.platform.core.shared.app.datesheet.DateSheetFragment"
+        android:label="DateSheetFragment">
+        <deepLink app:uri="@string/route_date_sheet" />
+    </dialog>
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="multi.platform.core.shared.app.gallery.GalleryFragment"
+        android:label="GalleryFragment">
+        <deepLink app:uri="@string/route_gallery" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="multi.platform.core.shared.app.webview.WebViewFragment"
+        android:label="WebViewFragment">
+        <deepLink app:uri="@string/route_webview" />
+    </fragment>
+</navigation>

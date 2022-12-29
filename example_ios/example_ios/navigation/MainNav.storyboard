@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Nav Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="MainNavController" customModule="example_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIi-Bq-ghT">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <connections>
+                                    <segue destination="lLb-L7-idY" kind="embed" id="2EG-yn-pdh"/>
+                                </connections>
+                            </containerView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="6GC-Lg-mZm" userLabel="pagination">
+                                <rect key="frame" x="149" y="692" width="116" height="26"/>
+                                <color key="pageIndicatorTintColor" red="0.76862745098039209" green="0.78823529411764703" blue="0.80784313725490198" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.20000000000000001" green="0.56470588239999997" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcd-zr-e4q">
+                                <rect key="frame" x="329" y="797" width="54" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Next"/>
+                                <connections>
+                                    <action selector="nextAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Kli-FA-G0o"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCR-ew-Uwn">
+                                <rect key="frame" x="31" y="797" width="52" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Skip"/>
+                                <connections>
+                                    <segue destination="vNj-2e-OCx" kind="presentation" identifier="BottomNavSegue" customClass="SegueFromRight" customModule="core" modalPresentationStyle="fullScreen" id="Sg5-eX-aef"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="iCR-ew-Uwn" secondAttribute="bottom" constant="34" id="Ace-tX-KkS"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Zcd-zr-e4q" secondAttribute="trailing" constant="31" id="ErT-xB-Pk9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Zcd-zr-e4q" secondAttribute="bottom" constant="34" id="KCK-ec-9OR"/>
+                            <constraint firstItem="jIi-Bq-ghT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Nhf-gh-OJ3"/>
+                            <constraint firstItem="6GC-Lg-mZm" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Ymp-3z-6Dh"/>
+                            <constraint firstItem="iCR-ew-Uwn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="31" id="eSp-G8-9p7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="jIi-Bq-ghT" secondAttribute="bottom" id="fT8-vq-4ct"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="6GC-Lg-mZm" secondAttribute="bottom" constant="144" id="imf-FO-nSm"/>
+                            <constraint firstItem="jIi-Bq-ghT" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="kuV-92-41c"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jIi-Bq-ghT" secondAttribute="trailing" id="vd3-NQ-m0O"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nextBtn" destination="Zcd-zr-e4q" id="aOE-70-rib"/>
+                        <outlet property="pageControl" destination="6GC-Lg-mZm" id="XRN-Fg-hSH"/>
+                        <outlet property="skipBtn" destination="iCR-ew-Uwn" id="2vn-1u-QNi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74" y="63"/>
+        </scene>
+        <!--BottomNavController-->
+        <scene sceneID="a5K-rw-ASq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BottomNav" bundleIdentifier="multi.platform.core" referencedIdentifier="BottomNavController" id="vNj-2e-OCx" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="fVQ-cx-H9b"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G7G-NM-yGJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="485"/>
+        </scene>
+        <!--Generic Page Adapter-->
+        <scene sceneID="Lra-Ln-6Cw">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="lLb-L7-idY" customClass="GenericPageAdapter" customModule="core" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SpQ-90-AyK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="880" y="63"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

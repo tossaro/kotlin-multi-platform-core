@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title" translatable="false">Judul</string>
+    <string name="hello" translatable="false">Halo</string>
+    <string name="signin" translatable="false">Masuk</string>
+    <string name="signout" translatable="false">Keluar</string>
+    <string name="signout_title" translatable="false">Yakin Keluar?</string>
+    <string name="notif" translatable="false">Notif</string>
+    <string name="love" translatable="false">Love</string>
+    <string name="share" translatable="false">Share</string>
+    <string name="edit" translatable="false">Edit</string>
+    <string name="cancel" translatable="false">Cancel</string>
+    <string name="home_see_all" translatable="false">See all</string>
+    <string name="home_greet" translatable="false">Halo</string>
+    <string name="home_subgreet" translatable="false">Mau beli apa?</string>
+    <string name="home_village" translatable="false">Coin</string>
+    <string name="home_village_count" translatable="false">%1$d Coin</string>
+    <string name="home_village_info" translatable="false">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet.</string>
+    <string name="stock_edit_image_info" translatable="false">%1$d foto</string>
+    <string name="stock_edit_not_blank" translatable="false">not blank</string>
+    <string name="stock_edit_min_8" translatable="false">min 8</string>
+    <string name="stock_edit_email_format" translatable="false">email format</string>
+    <string name="stock_edit_phone_format" translatable="false">phone format</string>
+    <string name="sample_phone" translatable="false">+6285222852221</string>
+    <string name="sample_access_token" translatable="false">eyJraWQiOiI2alMyenRcL3lrVGVVRHozREpLMnEwWWlsclc4N3RsWHp3T1wvdnF5bU1hdjA9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI0ZWRiNTg0Yy01MzEyLTRkZjgtODlkNi0wMDllYjQ1OGIxYjkiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoZWFzdC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoZWFzdC0xX1hmYWFxU3NqeCIsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY29nbml0bzp1c2VybmFtZSI6IjRlZGI1ODRjLTUzMTItNGRmOC04OWQ2LTAwOWViNDU4YjFiOSIsIm9yaWdpbl9qdGkiOiJlYTM3ODk3YS1jMWMxLTRkNDYtOWQ2NS0xODY4OWFiNjM4Y2MiLCJhdWQiOiIycmFkc2htMm92MmFraXJocjA1bHU5ZmhkZyIsImV2ZW50X2lkIjoiOTMyMTY0ZTQtMzc1ZS00YWQ1LTkzZDktOTdlNjM0M2Y0MjZmIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NjcyMjkyMzgsInBob25lX251bWJlciI6Iis2Mjg1MjIyODUyMjIxIiwiZXhwIjoxNjY3MjM2NDM4LCJpYXQiOjE2NjcyMjkyMzgsImp0aSI6IjllYmIxNzNmLWI3MjAtNDc0NS1hMzM4LWY4MTk0MmRmZDVjYiIsImVtYWlsIjoiaGFtemFoLnRvc3Nhcm9AZ21haWwuY29tIn0.R33y7YDpw20QYlnZ2g--Ar9v6uVIc3Gp1D60BNowjthgbcQuzjy9av5B97LgXSKYj7EsbbopeQjbJlWWqDbpGrT5zFGzHfz6ad8WWAIrpc_obUiLRfn-j3Wc9QAh_Ranfx3ErhWFsl8Il6wMSmS_tE5dWzQLaDV4V_BLQbP4HOK6LOHacZMlx7IhVulToW9qmJ2Uzrjnw4Qodwj6T1msWeugJ0j6aEKe_UJTWC95PQc8d8CH27EkuHB09LW1OIr1B-fx1SZxY4aUyQaSh2eKwqYmdeg0_zUBudEjrlctbGZgR1WdF8oWPFarl4-sxVF2s2wPW3xrtUponTjYPahehg</string>
+    <string name="sample_refresh_token" translatable="false">eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.iiAKMq7OvrD0XO8go52lEir4vgqQQKegESjmNtKZkfVCCFCD6_SAK1xG_g0lRNg_WZw-zFT0WwfD1JS1By5I33iECXcll9vqc1fgQna_xFUdOfDKOWApIbmSp3zNuGob3KmL93529fP0P0F4qehOaVmJBo-UxQteHUZwbkzMmItamS7SQYILjqWjq6S240-QNC8ZaNfrwtPZmUqu-8tJvvP8fA9JypCut2bOnSv1HW5CpblrDedOu6rS2Ztn7XzJda4fuvbgAPQlKiPZBQXroj9Ry3d9nHXxQRtSLV_Oj7kUksxjwRBRW5V47EALy1i_m5ARt7WIjJ1U8tpEZCJIpg.HQ8t6btxw2oMTg0q.bhfg10UhQQKTCsVUbZfPkXtrVOe4T8vPRnvvOP0YBdNiRNR2O-XWry1Nwv-0H9MXEITXhekw1CsRyDN7pdZSPAHFhTKPZ_uR6IKeROYoHLKlypNBBsTlDNrLKqDL20IeGzje5t1_AL-7wUrJemN5S852tWWp6zK4V0Uliv5kywoS9VweO7VZLXQOb6S30Q73nZSYrIpP0K8wX8zn55BhcgGC-ra7AXo_4hqUXvlgw3tejxEYuRzethtbdRQwGbU_ZYVo4oLERJhS7PPvY5qTYIEdK7EhGjV2bfzrNq36myQ-r14eWIKlKw9Qn-zX-jjuy8zKw23QTwkffKzOAAMicuWPW_JgxJ5ogO69QVkSP2NxGfqTksMnkJfaxhbleCrsaNtOg7MYr48JmpKdPKALVYzoCxJZwlulBTVpQ-lp7_-NP8fDKZX3Y0qNfsNKQyNAz9Avf4t_CsPeiXFXNAxvLhp-NHEOq0nMQgnPTJrBGjQuz1blL7MMmXG6nArOQityUSIXUTFqmKz4pcsrk7sUf6_3gteSlZDkwLUX-O4Px6n8HBVb7Sehrus7eyg96oGO8zc8MAKEru6bd6Lo6eKpmdCdWVn1CKXvCPbN6FRUxYr5e1hLZTnDTa_E7ulRmS3E0Q_XA4XgUTFqocSVwRNDRH1oU6d-cSD1IjAeaoKG9fJm51Je9h3vGzvnxfO8UQUVNUSDoFZ33b3vDD8cTnGuWuu6ysuO7vc0Fyy5XvQqmNSwkRzv63pwAJpeA6Vb-38saPr3-ZOHumb8heksRDFA56Cl-mLePd4ypWWC8eQmOYGya-drgDTbU4MA8nBfxm2roWTVNi3TXrf12V4o6JZw7sBgv3SOkLbh4sm7gemWcx3ytY50GhLieCw0HFtcMadtxc6b4V-VzL8Fx0bmk59PzA6u0J0BFC0TIgJuvk8d8haIdMYREia2QXAQTftaZVyoHYV-LRxMTf8spa96zQwX_lFdEM0RXH187L5Ib0f79_bHkdONTqg0rTDsjva0_4nkRf6FStblUyQI5Lt7MJfT3Y_QqGuGYZ24qzmcF2VfHL_xO0U2_OsplDjLY7ILr6HJ-U4bpL_9F8RHYejUovZxt-oiF_VE37Kj5ZrGGOBn08frbskqEUqDP4OrxfImH_jY_B0PuQzXauEGg-upkPppcRJ8nZzBJj46Bq9oxqffAaTc6BeYGpEMHFf1Es_-XvevRuONu8aPSMhnxUWuI54zj9N2juC4KwIeaFKtME4Y6IBT4GGf1sNRJEE5lM5GnvEJJoO5mgDxoW36arjYZYVt5ITyN-S0YHt6U2PIhDqEGInT_faJyjvu7Nc_2xHhtVksmwygPneOcncD.i7JJSnxh31E5uzmJOKUqQg</string>
+</resources>

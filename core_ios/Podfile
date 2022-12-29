@@ -1,0 +1,8 @@
+target 'core' do
+  use_frameworks!
+  platform :ios, '14.1'
+  pod 'core_shared', :path => '../core_shared'
+
+#  target 'coreTests' do
+#  end
+end

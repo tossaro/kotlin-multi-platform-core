@@ -1,0 +1,134 @@
+plugins {
+    id "org.jetbrains.kotlin.multiplatform"
+    id "org.jetbrains.kotlin.native.cocoapods"
+    id "com.android.library"
+    id 'org.jetbrains.dokka' version "1.7.20"
+    id 'kotlin-parcelize'
+    id "kotlin-kapt"
+    id "kotlinx-serialization"
+    id "io.realm.kotlin"
+}
+
+apply from: '../properties.gradle'
+
+group = "${setup.appId}"
+version = "${buildVersionName()}"
+
+android {
+    namespace = "multi.platform.example_lib.shared"
+    compileSdk = setup.android.compileSdkVersion
+    defaultConfig {
+        minSdk = setup.android.minSdkVersion
+        targetSdk = setup.android.targetSdkVersion
+        versionCode buildVersionCode()
+        versionName buildVersionName()
+
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            testCoverageEnabled = true
+        }
+    }
+    sourceSets {
+        main {
+            res {
+                srcDirs = ["./res"]
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        dataBinding = true
+    }
+    packagingOptions {
+        exclude "META-INF/INDEX.LIST"
+    }
+}
+
+dokkaGfm {
+    suppressInheritedMembers.set(true)
+    outputDirectory.set(file("${rootProject.rootDir}/docs/${project.name}"))
+}
+
+kotlin {
+    android {
+        publishAllLibraryVariants()
+        publishLibraryVariantsGroupedByFlavor = true
+    }
+
+    if (System.getenv("AVAILABLE_PLATFORMS")?.contains("iphoneos") == true) {
+        iosX64 {}
+        iosArm64 {}
+        iosSimulatorArm64 {}
+    }
+
+    cocoapods {
+        summary = "Example Library"
+        homepage = "https://gitlab.com/tossaro/kotlin-multi-platform-core"
+        version = buildVersionName()
+        ios.deploymentTarget = setup.ios.deploymentTarget
+        framework {
+            isStatic = false
+        }
+    }
+
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation project(":core_shared")
+                implementation "org.jetbrains.kotlin:kotlin-stdlib-common"
+                implementation "com.russhwolf:multiplatform-settings:1.0.0-RC"
+                implementation "io.insert-koin:koin-core:3.2.0"
+                implementation "io.insert-koin:koin-test:3.2.0"
+                implementation "io.ktor:ktor-client-core:2.1.2"
+                implementation "io.ktor:ktor-client-content-negotiation:2.1.2"
+                implementation "io.ktor:ktor-client-logging:2.1.2"
+                implementation "io.ktor:ktor-serialization-kotlinx-json:2.1.2"
+                implementation "org.slf4j:slf4j-simple:1.7.26"
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"
+                implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+                implementation "io.realm.kotlin:library-base:1.5.0"
+            }
+        }
+        androidMain {
+            dependsOn(commonMain)
+            dependencies {
+                implementation "org.jetbrains.kotlin:kotlin-stdlib"
+                implementation "io.ktor:ktor-client-okhttp:2.1.2"
+            }
+        }
+        iosX64Main
+        iosArm64Main
+        iosSimulatorArm64Main
+        iosMain {
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(it)
+            iosArm64Main.dependsOn(it)
+            iosSimulatorArm64Main.dependsOn(it)
+            dependencies {
+                implementation "io.ktor:ktor-client-darwin:2.1.2"
+            }
+        }
+    }
+}
+
+dependencies {
+    dep.each {
+        if (it.configuration == "platform") {
+            add("implementation", platform(it.dependency))
+        } else {
+            add(it.configuration, it.dependency, it.options)
+        }
+    }
+}
