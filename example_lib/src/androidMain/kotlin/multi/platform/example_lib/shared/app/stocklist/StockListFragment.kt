@@ -301,7 +301,7 @@ class StockListFragment : BaseFragment<StockListFragmentBinding>(
     @Suppress("UnsafeOptInUsageError")
     private fun showPromoBadge(size: Int?) {
         if (size != null && size > 0) {
-            val promoView = promoContainer?.findViewById<TextView>(cR.id.tv_icon_text_menu)
+            val promoView = promoContainer?.findViewById<TextView>(R.id.tv_icon_text_menu)
             promoView?.viewTreeObserver?.addOnGlobalLayoutListener(object :
                 ViewTreeObserver.OnGlobalLayoutListener {
                 override fun onGlobalLayout() {
@@ -313,7 +313,7 @@ class StockListFragment : BaseFragment<StockListFragmentBinding>(
                         BadgeUtils.attachBadgeDrawable(
                             this,
                             promoView,
-                            promoView.findViewById(cR.id.fl_icon_text_menu)
+                            promoView.findViewById(R.id.fl_icon_text_menu)
                         )
                     }
                     promoView.viewTreeObserver.removeOnGlobalLayoutListener(this)
