@@ -12,8 +12,8 @@ plugins {
 ext {
     version = [
             major: 0,
-            minor: 6,
-            patch: 5
+            minor: 8,
+            patch: 0
     ]
 
     buildVersionCode = {
@@ -79,8 +79,6 @@ ext {
             [configuration: "testImplementation", dependency: "androidx.arch.core:core-testing:2.1.0"],
             [configuration: "implementation", dependency: 'androidx.activity:activity-ktx:1.5.1'],
             [configuration: "implementation", dependency: 'androidx.fragment:fragment-ktx:1.5.2'],
-            [configuration: "implementation", dependency: 'com.github.bumptech.glide:glide:4.13.2'],
-            [configuration: "kapt", dependency: 'com.github.bumptech.glide:compiler:4.13.2'],
             [configuration: "implementation", dependency: 'com.jakewharton.timber:timber:5.0.1'],
             [configuration: "implementation", dependency: "io.ktor:ktor-client-core:2.1.2"],
             [configuration: "implementation", dependency: "io.insert-koin:koin-android:3.2.0"],
@@ -97,11 +95,11 @@ ext {
             [configuration: "androidTestImplementation", dependency: 'androidx.test.espresso:espresso-core:3.4.0'],
             [configuration: "implementation", dependency: 'io.realm.kotlin:library-base:1.5.0'],
             [configuration: "implementation", dependency: 'com.google.android.flexbox:flexbox:3.0.0'],
-            [configuration: "implementation", dependency: "com.github.bumptech.glide:glide:4.12.0"],
-            [configuration: "implementation", dependency: "com.github.bumptech.glide:compiler:4.12.0"],
-            [configuration: "implementation", dependency: "com.github.bumptech.glide:annotations:4.12.0"],
-            [configuration: "implementation", dependency: "com.github.bumptech.glide:okhttp3-integration:4.12.0"],
-            [configuration: "kapt", dependency: 'com.github.bumptech.glide:compiler:4.12.0'],
+            [configuration: "implementation", dependency: "com.github.bumptech.glide:glide:4.13.2"],
+            [configuration: "implementation", dependency: "com.github.bumptech.glide:compiler:4.13.2"],
+            [configuration: "implementation", dependency: "com.github.bumptech.glide:annotations:4.13.2"],
+            [configuration: "implementation", dependency: "com.github.bumptech.glide:okhttp3-integration:4.13.2"],
+            [configuration: "kapt", dependency: 'com.github.bumptech.glide:compiler:4.13.2'],
     ]
 }
 

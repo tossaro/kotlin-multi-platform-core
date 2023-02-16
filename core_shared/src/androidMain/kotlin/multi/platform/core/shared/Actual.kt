@@ -16,7 +16,7 @@ class AndroidPlatform : Platform {
 actual fun getPlatform(): Platform = AndroidPlatform()
 actual fun getLanguage(context: Context?): String {
     return context?.let {
-        LocaleUtil.retrieveAppLanguage(it, LocaleUtil.ID)
+        LocaleUtil.retrieveAppLanguage(it)
     } ?: run { "ID" }
 }
 

@@ -1,0 +1,18 @@
+//[core_shared](../../../../index.md)/[multi.platform.core.shared.app.common](../../index.md)/[GenericAdapter](../index.md)/[ViewHolder](index.md)
+
+# ViewHolder
+
+[android]\
+public final class [ViewHolder](index.md) extends [RecyclerView.ViewHolder](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.ViewHolder.html)
+
+## Constructors
+
+| | |
+|---|---|
+| [GenericAdapter.ViewHolder](-generic-adapter.-view-holder.md) | [android]<br>public [GenericAdapter.ViewHolder](index.md)[GenericAdapter.ViewHolder](-generic-adapter.-view-holder.md)(&lt;Error class: unknown class&gt;binding, [Integer](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html)radius, [Integer](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html)elevation, Function1&lt;GenericItem, [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)&gt;onClick) |
+
+## Functions
+
+| Name | Summary |
+|---|---|
+| [bind](bind.md) | [android]<br>public final [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)[bind](bind.md)(GenericItemitem) |

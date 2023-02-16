@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item
-        android:width="5.25dp"
-        android:height="10.5dp"
-        android:drawable="@drawable/ic_caret_left" />
-
-</layer-list>

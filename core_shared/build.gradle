@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFrameworkConfig
+
 plugins {
     id "org.jetbrains.kotlin.multiplatform"
     id "org.jetbrains.kotlin.native.cocoapods"
@@ -73,6 +75,7 @@ kotlin {
         iosSimulatorArm64 {}
     }
 
+    def xcf = new XCFrameworkConfig(project)
     cocoapods {
         summary = "Provide base constructor / abstract for simplify code structure"
         homepage = "https://gitlab.com/tossaro/kotlin-multi-platform-core"
@@ -80,6 +83,7 @@ kotlin {
         ios.deploymentTarget = setup.ios.deploymentTarget
         framework {
             isStatic = false
+            xcf.add(it)
         }
     }
 
@@ -118,13 +122,6 @@ kotlin {
                 implementation "io.ktor:ktor-client-darwin:2.1.2"
             }
         }
-    }
-
-    gradle.buildFinished {
-        String contents = project.file("core_shared.podspec").getText("UTF-8")
-        contents = contents.replaceAll("build/cocoapods", "core_shared/build/cocoapods")
-        contents = contents.replaceAll("../gradlew", "gradlew")
-        project.file("../core_shared.podspec").write(contents, "UTF-8")
     }
 }
 

@@ -27,6 +27,20 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
         multiDexEnabled true
+
+        buildConfigField 'String', 'SOCKET', String.format("%s", socket)
+
+        //routes
+        resValue "string", "route_stocks", String.format("%s%s", deeplink, "/stocks")
+        resValue "string", "route_stock_detail_sheet", String.format("%s%s", deeplink, "/stock/{coin}/{value}")
+        resValue "string", "route_stock_edit", String.format("%s%s", deeplink, "/stock/{coin}")
+        resValue "string", "route_order", String.format("%s%s", deeplink, "/order")
+        resValue "string", "route_date_sheet", String.format("%s%s", deeplink, "/select-date/{title}/{selected}/{min}/{max}")
+        resValue "string", "route_profile", String.format("%s%s", deeplink, "/profile")
+        resValue "string", "route_signout_dialog", String.format("%s%s", deeplink, "/sign-out")
+        resValue "string", "route_gallery", String.format("%s%s", deeplink, "/gallery/{title}/{images}")
+        resValue "string", "route_webview", String.format("%s%s", deeplink, "/webview/{type}/{title}/{url}")
+        resValue "string", "route_error_connection_dialog", String.format("%s%s", deeplink, "/error/connection/{key}")
     }
     buildTypes {
         release {

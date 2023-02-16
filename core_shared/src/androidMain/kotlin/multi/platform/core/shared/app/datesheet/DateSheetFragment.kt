@@ -48,8 +48,8 @@ class DateSheetFragment :
                     Locale(LocaleUtil.retrieveAppLanguage(requireContext(), LocaleUtil.ID))
                 ).format(it)
                 setFragmentResult(
-                    AppConstant.SELECT_DATE,
-                    bundleOf(AppConstant.SELECT_DATE to dateStr)
+                    AppConstant.SELECT_DATE_KEY,
+                    bundleOf(AppConstant.SELECT_DATE_KEY to dateStr)
                 )
                 findNavController().navigateUp()
             }

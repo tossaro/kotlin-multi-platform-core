@@ -18,8 +18,8 @@ class ErrorConnectionDialogFragment :
         super.onViewCreated(view, savedInstanceState)
         binding.mbErrorConnectionRetry.setOnClickListener {
             setFragmentResult(
-                AppConstant.RETRY_REQ,
-                bundleOf(AppConstant.RETRY_REQ to arguments?.getString("key", null))
+                AppConstant.RETRY_KEY,
+                bundleOf(AppConstant.RETRY_KEY to arguments?.getString("key", null))
             )
             dismiss()
         }

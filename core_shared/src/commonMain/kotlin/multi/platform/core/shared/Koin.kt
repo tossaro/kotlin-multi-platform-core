@@ -29,7 +29,17 @@ fun initKoin(
                 single<CommonRepository> { CommonRepositoryImpl(get()) }
                 singleOf(::RefreshTokenUseCase)
                 single {
-                    ApiClient(context, get(), get(), get(), server, serverProtocol, sharedPrefsKey, deviceId, version)
+                    ApiClient(
+                        context,
+                        get(),
+                        get(),
+                        get(),
+                        server,
+                        serverProtocol,
+                        sharedPrefsKey,
+                        deviceId,
+                        version
+                    )
                 }
             },
             platformModule(),

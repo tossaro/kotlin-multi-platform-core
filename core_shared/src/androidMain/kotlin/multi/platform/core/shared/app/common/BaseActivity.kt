@@ -110,34 +110,40 @@ abstract class BaseActivity : AppCompatActivity(), KoinComponent {
     open fun actionBarCollapsingLayout() = binding?.ctlToolbar
 
     /**
+     * Open function for override action bar description binding
+     * Default: null
+     */
+    open fun actionBarExpandedDescription() = binding?.tvToolbarExpanded
+
+    /**
+     * Open function for override action bar auto complete binding
+     * Default: null
+     */
+    open fun actionBarExpandedAutoComplete() = binding?.actvToolbarExpanded
+
+    /**
      * Open function for override action bar viewpager binding
      * Default: null
      */
-    open fun actionBarViewPager() = binding?.vpToolbar
+    open fun actionBarExpandedViewPager() = binding?.vpToolbar
 
     /**
      * Open function for override action bar tab layout for dot indicator binding
      * Default: null
      */
-    open fun actionBarDotIndicator() = binding?.tlToolbar
-
-    /**
-     * Open function for override action bar info layout binding
-     * Default: null
-     */
-    open fun actionBarInfoLayout() = binding?.clToolbarInfo
+    open fun actionBarExpandedDotIndicator() = binding?.tlToolbar
 
     /**
      * Open function for override action bar info icon binding
      * Default: null
      */
-    open fun actionBarInfoIcon() = binding?.ivToolbarInfo
+    open fun actionBarExpandedInfoIcon() = binding?.ivToolbarInfo
 
     /**
      * Open function for override action bar info text binding
      * Default: null
      */
-    open fun actionBarInfoText() = binding?.tvToolbarInfo
+    open fun actionBarExpandedInfoText() = binding?.tvToolbarInfo
 
     /**
      * Open function for override bottom navigation bar binding

@@ -18,7 +18,6 @@ fun provideStockDb(): Realm {
     return Realm.open(config)
 }
 
-
 @Suppress("UnUsed")
 fun initKoin(
     context: Context?,

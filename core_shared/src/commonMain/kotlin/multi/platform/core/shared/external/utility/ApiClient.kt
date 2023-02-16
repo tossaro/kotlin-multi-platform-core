@@ -74,17 +74,17 @@ class ApiClient(
                 runBlocking {
                     try {
                         var refreshToken =
-                            getStringPref(context, sharedPrefsKey, AppConstant.REFRESH_TOKEN, null)
-                        val phone = getStringPref(context, sharedPrefsKey, AppConstant.PHONE, null)
+                            getStringPref(context, sharedPrefsKey, AppConstant.REFRESH_TOKEN_KEY, null)
+                        val phone = getStringPref(context, sharedPrefsKey, AppConstant.PHONE_KEY, null)
                         if (refreshToken != null && phone != null) {
                             val response = refreshTokenUseCase(refreshToken, phone)
                             val token = response?.data?.session?.token
                             refreshToken = response?.data?.session?.refreshToken
-                            putStringPref(context, sharedPrefsKey, AppConstant.ACCESS_TOKEN, token)
+                            putStringPref(context, sharedPrefsKey, AppConstant.ACCESS_TOKEN_KEY, token)
                             putStringPref(
                                 context,
                                 sharedPrefsKey,
-                                AppConstant.REFRESH_TOKEN,
+                                AppConstant.REFRESH_TOKEN_KEY,
                                 refreshToken
                             )
                             request.headers { remove(HttpHeaders.Authorization) }
@@ -92,9 +92,9 @@ class ApiClient(
                         }
                     } catch (e: Exception) {
                         e.printStackTrace()
-                        removePref(context, sharedPrefsKey, AppConstant.ACCESS_TOKEN)
-                        removePref(context, sharedPrefsKey, AppConstant.REFRESH_TOKEN)
-                        removePref(context, sharedPrefsKey, AppConstant.PHONE)
+                        removePref(context, sharedPrefsKey, AppConstant.ACCESS_TOKEN_KEY)
+                        removePref(context, sharedPrefsKey, AppConstant.REFRESH_TOKEN_KEY)
+                        removePref(context, sharedPrefsKey, AppConstant.PHONE_KEY)
                     }
                 }
             }
