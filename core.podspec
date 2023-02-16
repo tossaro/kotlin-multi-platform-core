@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                  = 'core'
-    spec.version               = '0.8.0'
+    spec.version               = '0.8.1'
     spec.homepage              = 'https://gitlab.com/tossaro/kotlin-multi-platform-core'
     spec.source                = { :git => 'https://gitlab.com/tossaro/kotlin-multi-platform-core.git', :tag => spec.version.to_s }
     spec.license               = { :type => 'MIT', :file => 'LICENSE' }
