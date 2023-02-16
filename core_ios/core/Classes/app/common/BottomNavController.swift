@@ -22,5 +22,6 @@ public class BottomNavController: UITabBarController {
         tabBar.layer.shadowColor = UIColor.lightGray.cgColor
         tabBar.layer.shadowOpacity = 0.3
         tabBar.layer.shadowRadius = 5
+        tabBar.tintColor = .primary
     }
 }

@@ -1,0 +1,20 @@
+$dokka.format:gfm-v1
+$dokka.linkExtension:md
+$dokka.location:multi.platform.core.example.app////PointingToDeclaration/example_android/multi.platform.core.example.app/index.md
+$dokka.location:multi.platform.core.example.app/MainActivity///PointingToDeclaration/example_android/multi.platform.core.example.app/-main-activity/index.md
+$dokka.location:multi.platform.core.example.app/MainActivity/MainActivity/#/PointingToDeclaration/example_android/multi.platform.core.example.app/-main-activity/-main-activity.md
+$dokka.location:multi.platform.core.example.app/MainActivity/appVersion/#/PointingToDeclaration/example_android/multi.platform.core.example.app/-main-activity/app-version.md
+$dokka.location:multi.platform.core.example.app/MainActivity/navGraph/#/PointingToDeclaration/example_android/multi.platform.core.example.app/-main-activity/nav-graph.md
+$dokka.location:multi.platform.core.example.app/MainActivity/topLevelDestinations/#/PointingToDeclaration/example_android/multi.platform.core.example.app/-main-activity/top-level-destinations.md
+$dokka.location:multi.platform.core.example////PointingToDeclaration/example_android/multi.platform.core.example/index.md
+$dokka.location:multi.platform.core.example/ExampleApplication///PointingToDeclaration/example_android/multi.platform.core.example/-example-application/index.md
+$dokka.location:multi.platform.core.example/ExampleApplication/ExampleApplication/#/PointingToDeclaration/example_android/multi.platform.core.example/-example-application/-example-application.md
+$dokka.location:multi.platform.core.example/ExampleApplication/appVersion/#/PointingToDeclaration/example_android/multi.platform.core.example/-example-application/app-version.md
+$dokka.location:multi.platform.core.example/ExampleApplication/deviceId/#/PointingToDeclaration/example_android/multi.platform.core.example/-example-application/device-id.md
+$dokka.location:multi.platform.core.example/ExampleApplication/host/#/PointingToDeclaration/example_android/multi.platform.core.example/-example-application/host.md
+$dokka.location:multi.platform.core.example/ExampleApplication/koinModule/#/PointingToDeclaration/example_android/multi.platform.core.example/-example-application/koin-module.md
+$dokka.location:multi.platform.core.example/ExampleApplication/protocol/#/PointingToDeclaration/example_android/multi.platform.core.example/-example-application/protocol.md
+$dokka.location:multi.platform.core.example/ExampleApplication/sharedPrefsName/#/PointingToDeclaration/example_android/multi.platform.core.example/-example-application/shared-prefs-name.md
+multi.platform.core.example
+multi.platform.core.example.app
+

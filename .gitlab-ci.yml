@@ -17,7 +17,7 @@ stages:
       && echo gitlab = [ publishToken:"'$TOKEN'",consumeToken:"'$TOKEN'" ] >> properties.gradle
       && echo deeplink = "'$DEEPLINK'" >> properties.gradle
       && echo server = [ dev :'"\"'$SERVER'\"",stage:"\"'$SERVER'\"",beta:"\"'$SERVER'\"",store:"\"'$SERVER'\""' ] >> properties.gradle
-      && echo socket = [ dev :'"\"'$SOCKET'\"",stage:"\"'$SOCKET'\"",beta:"\"'$SOCKET'\"",store:"\"'$SOCKET'\""' ] >> properties.gradle
+      && echo socket = '"\"'$SOCKET'\""' >> properties.gradle
       && echo } >> properties.gradle
 
 before_script:

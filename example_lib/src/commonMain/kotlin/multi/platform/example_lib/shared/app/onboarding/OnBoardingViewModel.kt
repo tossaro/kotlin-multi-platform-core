@@ -11,7 +11,7 @@ class OnBoardingViewModel : BaseViewModel() {
     fun next() {
         scope.launch {
             loadingIndicator.value = true
-            delay(750)
+            delay(1000)
             loadingIndicator.value = false
             onNext.value = true
         }

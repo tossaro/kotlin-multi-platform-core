@@ -100,8 +100,8 @@ class WebViewFragment : BaseFragment<WebviewFragmentBinding>(R.layout.webview_fr
                     uriStr.contains("transaction/finish") -> {
                         val orderId = Uri.parse(uriStr).getQueryParameter("order_id").toString()
                         setFragmentResult(
-                            AppConstant.PAYMENT_REQ,
-                            bundleOf(AppConstant.PAYMENT_REQ to orderId)
+                            AppConstant.PAYMENT_KEY,
+                            bundleOf(AppConstant.PAYMENT_KEY to orderId)
                         )
                         findNavController().navigateUp()
                         true

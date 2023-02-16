@@ -1,0 +1,7 @@
+//[core_shared](../../../index.md)/[multi.platform.core.shared.domain.common.entity](../index.md)/[Session](index.md)/[Session](-session.md)
+
+# Session
+
+[common]\
+
+public [Session](index.md)[Session](-session.md)([String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)username, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)msisdn, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)role, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)id, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)email, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)fullname, [Integer](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html)expired, [Integer](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html)status, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)token, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)refreshToken, [Boolean](https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html)isMsisdnVerified, [Boolean](https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html)isEmailVerified, [Boolean](https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html)isAccountVerified, [List](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)&lt;[String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)&gt;permissions)

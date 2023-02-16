@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'core_shared'
-    spec.version                  = '0.6.5'
+    spec.version                  = '0.8.0'
     spec.homepage                 = 'https://gitlab.com/tossaro/kotlin-multi-platform-core'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''

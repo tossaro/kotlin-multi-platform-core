@@ -167,18 +167,32 @@ open class BaseFragment<B : ViewDataBinding>(
         (requireActivity() as BaseActivity).actionBarCollapsingLayout()
 
     /**
-     * Open function for override action bar viewpager binding
+     * Open function for override action bar auto complete binding
      * Default: baseActivity.actionBarViewPager
      */
-    protected open fun actionBarViewPager() =
-        (requireActivity() as BaseActivity).actionBarViewPager()
+    protected open fun actionBarExpandedDescription() =
+        (requireActivity() as BaseActivity).actionBarExpandedDescription()
+
+    /**
+     * Open function for override action bar auto complete binding
+     * Default: baseActivity.actionBarViewPager
+     */
+    protected open fun actionBarExpandedAutoComplete() =
+        (requireActivity() as BaseActivity).actionBarExpandedAutoComplete()
+
+    /**
+     * Open function for override action bar viewpager binding
+     * Default: baseActivity.actionBarExpandedViewPager
+     */
+    protected open fun actionBarExpandedViewPager() =
+        (requireActivity() as BaseActivity).actionBarExpandedViewPager()
 
     /**
      * Open function for override action bar tab layout for dot indicator binding
-     * Default: baseActivity.actionBarDotIndicator
+     * Default: baseActivity.actionBarExpandedDotIndicator
      */
-    protected open fun actionBarDotIndicator() =
-        (requireActivity() as BaseActivity).actionBarDotIndicator()
+    protected open fun actionBarExpandedDotIndicator() =
+        (requireActivity() as BaseActivity).actionBarExpandedDotIndicator()
 
     /**
      * Open function for override action bar info visibility
@@ -193,25 +207,18 @@ open class BaseFragment<B : ViewDataBinding>(
     protected open fun showActionBarSearchFilter() = false
 
     /**
-     * Open function for override action bar info layout binding
-     * Default: baseActivity.actionBarInfoLayout
-     */
-    protected open fun actionBarInfoLayout() =
-        (requireActivity() as BaseActivity).actionBarInfoLayout()
-
-    /**
      * Open function for override action bar info icon binding
-     * Default: baseActivity.actionBarInfoIcon
+     * Default: baseActivity.actionBarExpandedInfoIcon
      */
-    protected open fun actionBarInfoIcon() =
-        (requireActivity() as BaseActivity).actionBarInfoIcon()
+    protected open fun actionBarExpandedInfoIcon() =
+        (requireActivity() as BaseActivity).actionBarExpandedInfoIcon()
 
     /**
      * Open function for override action bar info text binding
      * Default: baseActivity.actionBarInfoText
      */
-    protected open fun actionBarInfoText() =
-        (requireActivity() as BaseActivity).actionBarInfoText()
+    protected open fun actionBarExpandedInfoText() =
+        (requireActivity() as BaseActivity).actionBarExpandedInfoText()
 
     /**
      * Open function for override bottom navigation bar binding
@@ -325,7 +332,7 @@ open class BaseFragment<B : ViewDataBinding>(
             var icFilter: Drawable? = null
             if (showActionBarSearchFilter()) {
                 icFilter = ContextCompat.getDrawable(requireContext(), R.drawable.ic_filter)
-                val isFiltered = sharedPreferences.getBoolean(AppConstant.FILTERED, false)
+                val isFiltered = sharedPreferences.getBoolean(AppConstant.FILTERED_KEY, false)
                 val tintColor = if (isFiltered) R.color.primary else R.color.blue100
                 icFilter?.let {
                     DrawableCompat.setTint(it, ContextCompat.getColor(requireContext(), tintColor))
@@ -381,7 +388,7 @@ open class BaseFragment<B : ViewDataBinding>(
                 false
             }
         }
-        actionBarInfoLayout()?.isVisible = showActionBarInfo()
+        actionBarExpandedInfoText()?.isVisible = showActionBarInfo()
         bottomNavBar()?.isVisible = showBottomNavBar()
     }
 
@@ -441,8 +448,8 @@ open class BaseFragment<B : ViewDataBinding>(
     @Suppress("ClickableViewAccessibility")
     override fun onStop() {
         super.onStop()
-        actionBarDotIndicator()?.removeAllTabs()
-        actionBarViewPager()?.adapter = null
+        actionBarExpandedDotIndicator()?.removeAllTabs()
+        actionBarExpandedViewPager()?.adapter = null
         actionBarSearch()?.setOnTouchListener(null)
         if (!showActionBarTitleOnExpanded()) {
             actionBarLayout()?.removeOnOffsetChangedListener(onActionOffsetChanged)

@@ -30,7 +30,7 @@ object LocaleUtil {
         return null
     }
 
-    fun retrieveAppLanguage(context: Context, defaultLanguage: String): String {
+    fun retrieveAppLanguage(context: Context, defaultLanguage: String = ID): String {
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
         return preferences.getString(LOCALE_SELECTED, defaultLanguage)
             ?: defaultLanguage

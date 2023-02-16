@@ -1,0 +1,6 @@
+framework module core_shared {
+    umbrella header "core_shared.h"
+
+    export *
+    module * { export * }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="multi.platform.example_lib.shared.app.stocklist.StockListFragment"
+        android:label="HomeFragment">
+        <deepLink app:uri="@string/route_stocks" />
+    </fragment>
+    <dialog
+        android:id="@+id/stockDetailSheetFgragment"
+        android:name="multi.platform.example_lib.shared.app.stockdetailsheet.StockDetailSheetFragment"
+        android:label="StockDetailSheetFragment">
+        <deepLink app:uri="@string/route_stock_detail_sheet" />
+    </dialog>
+    <fragment
+        android:id="@+id/stockEditFgragment"
+        android:name="multi.platform.example_lib.shared.app.stockedit.StockEditFragment"
+        android:label="StockEditFragment">
+        <deepLink app:uri="@string/route_stock_edit" />
+    </fragment>
+</navigation>

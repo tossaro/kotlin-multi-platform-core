@@ -23,18 +23,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
         multiDexEnabled true
-
-        //routes
-        resValue "string", "route_stocks", String.format("%s%s", deeplink, "/stocks")
-        resValue "string", "route_stock_detail_sheet", String.format("%s%s", deeplink, "/stock/{coin}/{value}")
-        resValue "string", "route_stock_edit", String.format("%s%s", deeplink, "/stock/{coin}")
-        resValue "string", "route_order", String.format("%s%s", deeplink, "/order")
-        resValue "string", "route_date_sheet", String.format("%s%s", deeplink, "/select-date/{title}/{selected}/{min}/{max}")
-        resValue "string", "route_profile", String.format("%s%s", deeplink, "/profile")
-        resValue "string", "route_signout_dialog", String.format("%s%s", deeplink, "/sign-out")
-        resValue "string", "route_gallery", String.format("%s%s", deeplink, "/gallery/{title}/{images}")
-        resValue "string", "route_webview", String.format("%s%s", deeplink, "/webview/{type}/{title}/{url}")
-        resValue "string", "route_error_connection_dialog", String.format("%s%s", deeplink, "/error/connection/{key}")
     }
 
     buildTypes {
@@ -70,7 +58,6 @@ android {
             resValue "string", "app_version", String.format("%s%s", "${defaultConfig.versionName}", "${versionNameSuffix}")
             resValue "string", "app_name", String.format("%s", setup.appName.dev)
             buildConfigField 'String', 'SERVER', String.format("%s", server.dev)
-            buildConfigField 'String', 'SOCKET', String.format("%s", socket.dev)
         }
         stage {
             dimension 'api'
@@ -79,7 +66,6 @@ android {
             resValue "string", "app_version", String.format("%s%s", "${defaultConfig.versionName}", "${versionNameSuffix}")
             resValue "string", "app_name", String.format("%s", setup.appName.stage)
             buildConfigField 'String', 'SERVER', String.format("%s", server.stage)
-            buildConfigField 'String', 'SOCKET', String.format("%s", socket.stage)
         }
         beta {
             dimension 'api'
@@ -88,14 +74,12 @@ android {
             resValue "string", "app_version", String.format("%s%s", "${defaultConfig.versionName}", "${versionNameSuffix}")
             resValue "string", "app_name", String.format("%s", setup.appName.beta)
             buildConfigField 'String', 'SERVER', String.format("%s", server.beta)
-            buildConfigField 'String', 'SOCKET', String.format("%s", socket.beta)
         }
         store {
             dimension 'api'
             resValue "string", "app_version", "${defaultConfig.versionName}"
             resValue "string", "app_name", String.format("%s", setup.appName.store)
             buildConfigField 'String', 'SERVER', String.format("%s", server.store)
-            buildConfigField 'String', 'SOCKET', String.format("%s", socket.store)
         }
     }
 

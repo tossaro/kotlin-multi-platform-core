@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="love" translatable="false">Love</string>
-    <string name="share" translatable="false">Share</string>
-    <string name="promo" translatable="false">Promo</string>
     <string name="filter" translatable="false">Filter</string>
     <string name="min_prefix" translatable="false">- %1$s</string>
 
     <string name="tap_to_minimize">Silahkan tap kembali untuk menutup aplikasi</string>
-    <string name="menu_home">Beranda</string>
-    <string name="menu_trip">Trip Saya</string>
-    <string name="menu_profile">Profil</string>
     <string name="version">Versi</string>
-    <string name="search_hint">Cari nama desa, provinsi, aktivitas</string>
     <string name="tap_back">Tekan dimana saja untuk kembali</string>
     <string name="not_found">Data tidak ditemukan</string>
     <string name="see_all">Lihat semua</string>
