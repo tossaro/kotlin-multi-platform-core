@@ -55,7 +55,6 @@
                         android:drawableStart="@drawable/ic_search"
                         android:drawablePadding="10dp"
                         android:gravity="start|center_vertical"
-                        android:hint="@string/search_hint"
                         android:imeOptions="actionSearch"
                         android:importantForAutofill="no"
                         android:inputType="textNoSuggestions"
@@ -148,7 +147,6 @@
                         android:drawableStart="@drawable/ic_search"
                         android:drawablePadding="10dp"
                         android:gravity="start|center_vertical"
-                        android:hint="@string/search_hint"
                         android:imeOptions="actionSearch"
                         android:importantForAutofill="no"
                         android:inputType="textNoSuggestions"
@@ -177,8 +175,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:background="@color/navBar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/menu_bottom" />
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

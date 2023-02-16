@@ -3,7 +3,7 @@
     <string name="menu_home">Beranda</string>
     <string name="menu_order">Pesanan Saya</string>
     <string name="menu_profile">Profil</string>
-    <string name="search_hint">Cari nama desa, provinsi, aktivitas</string>
+    <string name="search_hint">Cari nama koin</string>
 
     <string name="title" translatable="false">Judul</string>
     <string name="hello" translatable="false">Halo</string>

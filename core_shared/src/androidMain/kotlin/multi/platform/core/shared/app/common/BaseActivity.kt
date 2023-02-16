@@ -98,6 +98,12 @@ abstract class BaseActivity : AppCompatActivity(), KoinComponent {
     open fun actionBarSearch() = binding?.etToolbarSearch
 
     /**
+     * Open function for override action bar search hint
+     * Default: null
+     */
+    open fun actionBarSearchHint() = 0
+
+    /**
      * Open function for override action bar layout binding
      * Default: null
      */
@@ -120,6 +126,12 @@ abstract class BaseActivity : AppCompatActivity(), KoinComponent {
      * Default: null
      */
     open fun actionBarExpandedAutoComplete() = binding?.actvToolbarExpanded
+
+    /**
+     * Open function for override action bar auto complete hint
+     * Default: null
+     */
+    open fun actionBarExpandedAutoCompleteHint() = 0
 
     /**
      * Open function for override action bar viewpager binding
@@ -150,6 +162,12 @@ abstract class BaseActivity : AppCompatActivity(), KoinComponent {
      * Default: null
      */
     open fun bottomNavBar() = binding?.bottomNav
+
+    /**
+     * Open function for override bottom navigation menu
+     * Default: 0
+     */
+    open fun bottomNavBarMenu() = 0
 
     /**
      * Open function for override night mode
@@ -267,9 +285,18 @@ abstract class BaseActivity : AppCompatActivity(), KoinComponent {
 
         actionBar().apply {
             setSupportActionBar(this)
+            if (actionBarExpandedAutoCompleteHint() != 0) actionBarExpandedAutoComplete()?.apply {
+                hint = getString(actionBarExpandedAutoCompleteHint())
+            }
+            if (actionBarSearchHint() != 0) actionBarSearch()?.apply {
+                hint = getString(actionBarSearchHint())
+            }
         }
         bottomNavBar()?.apply {
-            setupWithNavController(navController)
+            if (bottomNavBarMenu() != 0 ) {
+                inflateMenu(bottomNavBarMenu())
+                setupWithNavController(navController)
+            }
         }
 
         lifecycleScope.launch {
