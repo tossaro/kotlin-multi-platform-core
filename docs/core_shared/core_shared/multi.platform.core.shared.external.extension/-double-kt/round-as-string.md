@@ -4,4 +4,4 @@
 
 [android]\
 
-public final static [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[roundAsString](round-as-string.md)([Double](https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html)$self, [Integer](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html)maxFractionDigits)
+public final static [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[roundAsString](round-as-string.md)([Double](https://developer.android.com/reference/kotlin/java/lang/Double.html)$self, [Integer](https://developer.android.com/reference/kotlin/java/lang/Integer.html)maxFractionDigits)

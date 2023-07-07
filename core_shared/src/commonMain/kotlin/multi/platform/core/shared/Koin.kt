@@ -3,8 +3,6 @@ package multi.platform.core.shared
 import io.ktor.http.*
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
-import multi.platform.core.shared.data.common.CommonRepositoryImpl
-import multi.platform.core.shared.domain.common.CommonRepository
 import multi.platform.core.shared.domain.common.usecase.RefreshTokenUseCase
 import multi.platform.core.shared.external.utility.ApiClient
 import org.koin.core.KoinApplication
@@ -26,7 +24,6 @@ fun initKoin(
         modules(
             module {
                 single { createJson() }
-                single<CommonRepository> { CommonRepositoryImpl(get()) }
                 singleOf(::RefreshTokenUseCase)
                 single {
                     ApiClient(

@@ -4,4 +4,4 @@
 
 [android]\
 
-public final [Context](https://developer.android.com/reference/kotlin/android/content/Context.html)[setLocale](set-locale.md)([Context](https://developer.android.com/reference/kotlin/android/content/Context.html)context, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)language)
+public final [Context](https://developer.android.com/reference/kotlin/android/content/Context.html)[setLocale](set-locale.md)([Context](https://developer.android.com/reference/kotlin/android/content/Context.html)context, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)language)

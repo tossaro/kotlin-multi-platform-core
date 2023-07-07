@@ -15,10 +15,10 @@ public final class [IOSPlatform](index.md) implements Platform
 
 | Name | Summary |
 |---|---|
-| [getName](get-name.md) | [ios]<br>public [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[getName](get-name.md)() |
+| [getName](get-name.md) | [ios]<br>public [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[getName](get-name.md)() |
 
 ## Properties
 
 | Name | Summary |
 |---|---|
-| [name](index.md#1667850914%2FProperties%2F1702294400) | [ios]<br>private final [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[name](index.md#1667850914%2FProperties%2F1702294400) |
+| [name](index.md#1667850914%2FProperties%2F1702294400) | [ios]<br>private final [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[name](index.md#1667850914%2FProperties%2F1702294400) |

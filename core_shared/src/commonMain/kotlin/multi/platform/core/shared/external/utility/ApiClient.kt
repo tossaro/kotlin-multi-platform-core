@@ -1,3 +1,4 @@
+@file:Suppress("UnUsed")
 package multi.platform.core.shared.external.utility
 
 import io.ktor.client.*
@@ -64,11 +65,8 @@ class ApiClient(
         install(HttpRequestRetry) {
             retryIf { httpRequest, httpResponse ->
                 httpResponse.status.value == 401
-                        && !httpRequest.url.fullPath.contains("/v1/token", ignoreCase = true)
-                        && !httpRequest.url.fullPath.contains(
-                    "/v1/authorization",
-                    ignoreCase = true
-                )
+                        && !httpRequest.url.fullPath.contains(AppConstant.Oauth.API_REFRESH, ignoreCase = true)
+                        && !httpRequest.url.fullPath.contains(AppConstant.Oauth.API_AUTH, ignoreCase = true)
             }
             modifyRequest { request ->
                 runBlocking {

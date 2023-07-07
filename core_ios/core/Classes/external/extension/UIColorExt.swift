@@ -18,7 +18,4 @@ public extension UIColor {
         }
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
-    static var primary: UIColor { return UIColor(hex: "#33907C") }
-    static var title: UIColor { return UIColor(hex: "#001A41") }
-    static var grey20: UIColor { return UIColor(hex: "#EDECF0") }
 }

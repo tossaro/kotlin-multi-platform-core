@@ -4,4 +4,4 @@
 
 [android]\
 
-public final static [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[toCurrency](to-currency.md)([Double](https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html)$self, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)symbol, [Integer](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html)maxFractionDigits)
+public final static [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[toCurrency](to-currency.md)([Double](https://developer.android.com/reference/kotlin/java/lang/Double.html)$self, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)symbol, [Integer](https://developer.android.com/reference/kotlin/java/lang/Integer.html)maxFractionDigits)

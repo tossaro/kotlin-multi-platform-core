@@ -12,8 +12,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/core_shared" />
-            <option value="$PROJECT_DIR$/example_android" />
-            <option value="$PROJECT_DIR$/example_lib" />
           </set>
         </option>
       </GradleProjectSettings>

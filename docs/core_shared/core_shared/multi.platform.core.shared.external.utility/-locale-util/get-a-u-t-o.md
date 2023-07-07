@@ -4,4 +4,4 @@
 
 [android]\
 
-public final [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[getAUTO](get-a-u-t-o.md)()
+public final [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[getAUTO](get-a-u-t-o.md)()

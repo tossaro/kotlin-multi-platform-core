@@ -22,4 +22,10 @@ object AppConstant {
     // Date Format
     const val NORMAL_DATE_FORMAT = "dd-MM-yyyy"
     const val API_DATE_FORMAT = "yyyy-MM-dd"
+
+    // Oauth
+    object Oauth {
+        var API_AUTH = "/v1/authorization"
+        var API_REFRESH = "/v1/token"
+    }
 }

@@ -4,6 +4,6 @@
 
 [android]\
 
-public final static [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[getPathFromURI](get-path-from-u-r-i.md)([Fragment](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html)$self, [Uri](https://developer.android.com/reference/kotlin/android/net/Uri.html)contentUri)
+public final static [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[getPathFromURI](get-path-from-u-r-i.md)([Fragment](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html)$self, [Uri](https://developer.android.com/reference/kotlin/android/net/Uri.html)contentUri)
 
 Extension for get path file from URI

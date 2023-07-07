@@ -4,4 +4,4 @@
 
 [common]\
 
-public final static [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[getLanguage](get-language.md)([Context](../-context/index.md)context)
+public final static [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[getLanguage](get-language.md)([Context](../-context/index.md)context)

@@ -4,4 +4,4 @@
 
 [common]\
 
-public final [Long](https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html)[getDuration](get-duration.md)()
+public final [Long](https://developer.android.com/reference/kotlin/java/lang/Long.html)[getDuration](get-duration.md)()

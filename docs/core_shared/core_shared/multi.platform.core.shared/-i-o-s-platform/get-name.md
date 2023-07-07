@@ -4,4 +4,4 @@
 
 [ios]\
 
-public [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[getName](get-name.md)()
+public [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[getName](get-name.md)()

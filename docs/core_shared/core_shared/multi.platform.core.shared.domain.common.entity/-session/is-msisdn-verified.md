@@ -4,4 +4,4 @@
 
 [common]\
 
-public final [Boolean](https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html)[isMsisdnVerified](is-msisdn-verified.md)()
+public final [Boolean](https://developer.android.com/reference/kotlin/java/lang/Boolean.html)[isMsisdnVerified](is-msisdn-verified.md)()

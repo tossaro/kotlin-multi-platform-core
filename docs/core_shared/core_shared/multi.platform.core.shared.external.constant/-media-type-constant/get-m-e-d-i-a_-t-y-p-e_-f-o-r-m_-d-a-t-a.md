@@ -4,4 +4,4 @@
 
 [common]\
 
-public final [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[getMEDIA_TYPE_FORM_DATA](get-m-e-d-i-a_-t-y-p-e_-f-o-r-m_-d-a-t-a.md)()
+public final [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[getMEDIA_TYPE_FORM_DATA](get-m-e-d-i-a_-t-y-p-e_-f-o-r-m_-d-a-t-a.md)()

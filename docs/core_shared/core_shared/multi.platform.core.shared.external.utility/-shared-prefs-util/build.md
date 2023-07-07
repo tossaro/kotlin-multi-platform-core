@@ -4,4 +4,4 @@
 
 [android]\
 
-public final [SharedPreferences](https://developer.android.com/reference/kotlin/android/content/SharedPreferences.html)[build](build.md)([Context](https://developer.android.com/reference/kotlin/android/content/Context.html)context, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)name)
+public final [SharedPreferences](https://developer.android.com/reference/kotlin/android/content/SharedPreferences.html)[build](build.md)([Context](https://developer.android.com/reference/kotlin/android/content/Context.html)context, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)name)

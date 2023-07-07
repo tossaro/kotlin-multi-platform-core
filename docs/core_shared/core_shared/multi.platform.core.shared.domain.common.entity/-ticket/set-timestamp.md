@@ -4,4 +4,4 @@
 
 [common]\
 
-public final [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)[setTimestamp](set-timestamp.md)([Long](https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html)timestamp)
+public final [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)[setTimestamp](set-timestamp.md)([Long](https://developer.android.com/reference/kotlin/java/lang/Long.html)timestamp)

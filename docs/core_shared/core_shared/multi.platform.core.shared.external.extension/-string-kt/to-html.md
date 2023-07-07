@@ -4,4 +4,4 @@
 
 [android]\
 
-public final static [Spanned](https://developer.android.com/reference/kotlin/android/text/Spanned.html)[toHtml](to-html.md)([String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)$self)
+public final static [Spanned](https://developer.android.com/reference/kotlin/android/text/Spanned.html)[toHtml](to-html.md)([String](https://developer.android.com/reference/kotlin/java/lang/String.html)$self)

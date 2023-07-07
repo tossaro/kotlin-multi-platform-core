@@ -6,7 +6,6 @@
 
 | Name | Summary |
 |---|---|
-| [GenericItem](-generic-item/index.md) | [common]<br>public final class [GenericItem](-generic-item/index.md) |
 | [Meta](-meta/index.md) | [common]<br>@Serializable()<br>public final class [Meta](-meta/index.md) |
 | [Otp](-otp/index.md) | [common]<br>@Serializable()<br>public final class [Otp](-otp/index.md) |
 | [Session](-session/index.md) | [common]<br>@Serializable()<br>public final class [Session](-session/index.md) |

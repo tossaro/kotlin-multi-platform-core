@@ -4,4 +4,4 @@
 
 [android]\
 
-public final static [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[substringBetween](substring-between.md)([String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)$self, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)startDelimiter, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)endDelimiter)
+public final static [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[substringBetween](substring-between.md)([String](https://developer.android.com/reference/kotlin/java/lang/String.html)$self, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)startDelimiter, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)endDelimiter)

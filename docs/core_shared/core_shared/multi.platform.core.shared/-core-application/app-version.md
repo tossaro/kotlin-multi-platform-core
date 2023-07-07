@@ -4,6 +4,6 @@
 
 [android]\
 
-public abstract [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[appVersion](app-version.md)()
+public abstract [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[appVersion](app-version.md)()
 
 Abstract function must override app version

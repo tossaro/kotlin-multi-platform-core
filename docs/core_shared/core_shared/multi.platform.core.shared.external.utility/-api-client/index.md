@@ -9,7 +9,7 @@ public final class [ApiClient](index.md)
 
 | | |
 |---|---|
-| [ApiClient](-api-client.md) | [common]<br>public [ApiClient](index.md)[ApiClient](-api-client.md)([Context](../../multi.platform.core.shared/-context/index.md)context, HttpClientEnginehttpClientEngine, [RefreshTokenUseCase](../../multi.platform.core.shared.domain.common.usecase/-refresh-token-use-case/index.md)refreshTokenUseCase, Jsonjson, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)server, URLProtocolserverProtocol, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)sharedPrefsKey, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)deviceId, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)version, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)channel) |
+| [ApiClient](-api-client.md) | [common]<br>public [ApiClient](index.md)[ApiClient](-api-client.md)([Context](../../multi.platform.core.shared/-context/index.md)context, HttpClientEnginehttpClientEngine, [RefreshTokenUseCase](../../multi.platform.core.shared.domain.common.usecase/-refresh-token-use-case/index.md)refreshTokenUseCase, Jsonjson, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)server, URLProtocolserverProtocol, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)sharedPrefsKey, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)deviceId, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)version, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)channel) |
 
 ## Functions
 

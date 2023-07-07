@@ -4,4 +4,4 @@
 
 [common]\
 
-public [Meta](index.md)[Meta](-meta.md)([String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)code, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)message, [ErrorEnum](../../multi.platform.core.shared.external.enum/-error-enum/index.md)errorType, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)error)
+public [Meta](index.md)[Meta](-meta.md)([String](https://developer.android.com/reference/kotlin/java/lang/String.html)code, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)message, [ErrorEnum](../../multi.platform.core.shared.external.enum/-error-enum/index.md)errorType, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)error)
