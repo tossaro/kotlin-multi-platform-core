@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                  = 'core'
-    spec.version               = '0.8.1'
+    spec.version               = '0.9.2'
     spec.homepage              = 'https://gitlab.com/tossaro/kotlin-multi-platform-core'
     spec.source                = { :git => 'https://gitlab.com/tossaro/kotlin-multi-platform-core.git', :tag => spec.version.to_s }
     spec.license               = { :type => 'MIT', :file => 'LICENSE' }
@@ -12,5 +12,4 @@ Pod::Spec.new do |spec|
     spec.ios.deployment_target = '14.1'
     spec.static_framework      = true
     spec.dependency 'core_shared'
-    spec.dependency 'SDWebImage'
 end

@@ -4,4 +4,4 @@
 
 [android]\
 
-public final static [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[getAlphaNumericDashAfterColon](get-alpha-numeric-dash-after-colon.md)([String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)$self)
+public final static [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[getAlphaNumericDashAfterColon](get-alpha-numeric-dash-after-colon.md)([String](https://developer.android.com/reference/kotlin/java/lang/String.html)$self)

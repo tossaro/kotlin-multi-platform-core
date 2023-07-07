@@ -4,4 +4,4 @@
 
 [common]\
 
-public final [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[getRETRY_KEY](get-r-e-t-r-y_-k-e-y.md)()
+public final [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[getRETRY_KEY](get-r-e-t-r-y_-k-e-y.md)()

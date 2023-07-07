@@ -4,4 +4,4 @@
 
 [android]\
 
-public final static [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)[showErrorMessage](show-error-message.md)(TextInputLayoutview, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)errorMessage)
+public final static [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)[showErrorMessage](show-error-message.md)(TextInputLayoutview, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)errorMessage)

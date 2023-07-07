@@ -32,25 +32,11 @@ ext {
             publishToken: "$yourPublishToken",
             consumeToken: "$yourConsumeToken"
     ]
-
-    deeplink = "android-app://example.app.id"
-
-    //example app purpose
-    server = [
-            dev  : "\"$yourAuthServer\"",
-            stage: "\"$yourAuthServer\"",
-            beta : "\"$yourAuthServer\"",
-            prod : "\"$yourAuthServer\"",
-    ]
-    //example app purpose
-    socket = "\"wss://streamer.cryptocompare.com/v2?api_key=$yourCryptoCompareKey\""
 }
 ```
 > ***note:***
 >- replace ***$yourPublishToken*** with your private token if you forked to your private project, otherwise leave it blank if only wanted to run.
 >- replace ***$yourConsumeToken*** with your private token if you forked to your private project, otherwise leave it blank if only wanted to run.
->- replace ***$yourAuthServer*** with your auth server if you want to trial oauth api communication, otherwise leave it blank if only wanted to run.
->- replace ***$yourCryptoCompareKey*** with your cryptocompare key if you show list data on example app, otherwise leave it blank if only wanted to run.
 
 ## Usage
 
@@ -60,45 +46,20 @@ ext {
 dependencyResolutionManagement {
     repositories {
         //...
-        maven { url 'https://gitlab.com/api/v4/projects/<FORKED_REPOSITORY_ID>/packages/maven' }
+        maven { url 'https://gitlab.com/api/v4/projects/38836420/packages/maven' }
     }
 }
 ```
 
-2. Last, add 'implementation "multi.platform.core:${platform}:${version}"' inside tag
+2. Last, add 'implementation "multi.platform.core:core_shared:${version}"' inside tag
    dependencies { . . . } of build.gradle app
 
-## Project Structure
+For the high level hierarchy, the project separate into 2 main modules, which are :
 
-```plantuml
-:core_shared;
-fork
-    :example_lib;
-    :example_android;
-fork again
-    :core_ios;
-    :example_ios;
-end fork
-end
-```
-For the high level hierarchy, the project separate into 4 main modules, which are :
-
-### 1. [Example Android](https://gitlab.com/tossaro/kotlin-multi-platform-core/tree/main/example_lib)
-
-This module contains the android library's example usage of this project.
-
-### 2. [Example Android](https://gitlab.com/tossaro/kotlin-multi-platform-core/tree/main/example_android)
-
-This module contains the android application's example usage of this project.
-
-### 3. [Example iOS](https://gitlab.com/tossaro/kotlin-multi-platform-core/tree/main/example_ios)
-
-This module contains the iOS application's example usage of this project.
-
-### 4. [Core iOS](https://gitlab.com/tossaro/kotlin-multi-platform-core/tree/main/core_ios)
+### 1. [Core iOS](https://gitlab.com/tossaro/kotlin-multi-platform-core/tree/main/core_ios)
 This module contains iOS code that holds the iOS library, that can be injected to iOS app.
 
-### 5. [Core Shared](https://gitlab.com/tossaro/kotlin-multi-platform-core/tree/main/core_shared)
+### 2. [Core Shared](https://gitlab.com/tossaro/kotlin-multi-platform-core/tree/main/core_shared)
 This module contains shared code that holds the domain and data layers and some part of the presentation logic ie.shared viewmodels.
 
 ## Architecture
@@ -125,9 +86,5 @@ Here are some useful gradle/adb commands for executing this example:
 * ./gradlew clean build - Build the entire project and execute unit tests
 * ./gradlew clean sonarqube - Execute sonarqube coverage report
 * ./gradlew dokkaGfm - Generate documentation
-* ./gradlew test[flavor][buildType]UnitTest - Execute unit tests e.g., testDevDebugUnitTest
-* ./gradlew test[flavor][buildType]UnitTest create[flavor][buildType]CoverageReport - Execute unit
-  tests and create coverage report e.g., createDevDebugCoverageReport
-* ./gradlew assemble[flavor][buildType] - Create apk file e.g., assembleDevDebug
 * ./gradlew :core_shared:assembleXCFramework - Generate XCFramework for iOS
 * ./gradlew publish - Publish - Publish to repository packages (MAVEN)

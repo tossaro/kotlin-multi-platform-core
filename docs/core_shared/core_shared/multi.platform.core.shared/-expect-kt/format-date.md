@@ -5,4 +5,4 @@
 [common, android, ios]\
 [common, android, ios]\
 
-public final static [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[formatDate](format-date.md)([String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)dateString, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)fromFormat, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)toFormat)
+public final static [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[formatDate](format-date.md)([String](https://developer.android.com/reference/kotlin/java/lang/String.html)dateString, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)fromFormat, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)toFormat)

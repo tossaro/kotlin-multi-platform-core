@@ -4,4 +4,4 @@
 
 [common]\
 
-public final static [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)[putStringPref](put-string-pref.md)([Context](../-context/index.md)context, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)name, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)key, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)value)
+public final static [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)[putStringPref](put-string-pref.md)([Context](../-context/index.md)context, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)name, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)key, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)value)

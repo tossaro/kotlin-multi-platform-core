@@ -4,4 +4,4 @@
 
 [common]\
 
-public final [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[getId](get-id.md)()
+public final [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[getId](get-id.md)()

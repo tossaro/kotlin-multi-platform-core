@@ -4,4 +4,4 @@
 
 [common]\
 
-public final [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)[setMsisdnVerified](set-msisdn-verified.md)([Boolean](https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html)isMsisdnVerified)
+public final [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)[setMsisdnVerified](set-msisdn-verified.md)([Boolean](https://developer.android.com/reference/kotlin/java/lang/Boolean.html)isMsisdnVerified)

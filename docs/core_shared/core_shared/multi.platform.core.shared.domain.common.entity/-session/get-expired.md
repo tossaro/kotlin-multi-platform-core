@@ -4,4 +4,4 @@
 
 [common]\
 
-public final [Integer](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html)[getExpired](get-expired.md)()
+public final [Integer](https://developer.android.com/reference/kotlin/java/lang/Integer.html)[getExpired](get-expired.md)()

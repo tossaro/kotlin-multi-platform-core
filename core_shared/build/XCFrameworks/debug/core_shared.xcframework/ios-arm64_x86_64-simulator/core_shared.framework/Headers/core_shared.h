@@ -6,9 +6,9 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class Core_sharedTicket, Core_sharedApiResponse<D>, Core_sharedGenericItem, Core_sharedErrorEnum, Core_sharedMetaCompanion, Core_sharedMeta, Core_sharedOtpCompanion, Core_sharedOtp, Core_sharedSessionCompanion, Core_sharedSession, Core_sharedTicketCompanion, Core_sharedKoin_coreKoin, Core_sharedKotlinException, Core_sharedApiClient, Core_sharedApiResponseCompanion, Core_sharedKotlinArray<T>, Core_sharedPhoneReqCompanion, Core_sharedPhoneReq, Core_sharedAppConstant, Core_sharedContentTypeConstant, Core_sharedHttpHeaderConstant, Core_sharedMediaTypeConstant, Core_sharedTimeoutConstant, NSObject, Core_sharedRefreshTokenUseCase, Core_sharedKotlinx_serialization_jsonJson, Core_sharedKtor_httpURLProtocol, Core_sharedKtor_client_coreHttpClient, Core_sharedValidation, Core_sharedKotlinEnumCompanion, Core_sharedKotlinEnum<E>, Core_sharedKoin_coreKoinApplication, Core_sharedKoin_coreModule, Core_sharedKotlinThrowable, Core_sharedKotlinRuntimeException, Core_sharedKotlinIllegalStateException, Core_sharedKoin_coreScope, Core_sharedKoin_coreParametersHolder, Core_sharedKotlinLazyThreadSafetyMode, Core_sharedKoin_coreLogger, Core_sharedKoin_coreInstanceRegistry, Core_sharedKoin_corePropertyRegistry, Core_sharedKoin_coreScopeRegistry, Core_sharedKtor_client_coreHttpRequestData, Core_sharedKtor_client_coreHttpResponseData, Core_sharedKtor_client_coreHttpClientEngineConfig, Core_sharedKotlinx_coroutines_coreCoroutineDispatcher, Core_sharedKotlinx_serialization_coreSerializersModule, Core_sharedKotlinx_serialization_jsonJsonDefault, Core_sharedKotlinx_serialization_jsonJsonElement, Core_sharedKotlinx_serialization_jsonJsonConfiguration, Core_sharedKtor_httpURLProtocolCompanion, Core_sharedKtor_client_coreHttpClientConfig<T>, Core_sharedKtor_eventsEvents, Core_sharedKtor_client_coreHttpReceivePipeline, Core_sharedKtor_client_coreHttpRequestPipeline, Core_sharedKtor_client_coreHttpResponsePipeline, Core_sharedKtor_client_coreHttpSendPipeline, Core_sharedKoin_coreKoinApplicationCompanion, Core_sharedKoin_coreLevel, Core_sharedKoin_coreInstanceFactory<T>, Core_sharedKotlinPair<__covariant A, __covariant B>, Core_sharedKoin_coreScopeDSL, Core_sharedKoin_coreSingleInstanceFactory<T>, Core_sharedKotlinx_serialization_coreSerialKind, Core_sharedKotlinNothing, Core_sharedKoin_coreLockable, Core_sharedKoin_coreParametersHolderCompanion, Core_sharedKoin_coreScopeRegistryCompanion, Core_sharedKtor_httpUrl, Core_sharedKtor_httpHttpMethod, Core_sharedKtor_httpOutgoingContent, Core_sharedKtor_httpHttpStatusCode, Core_sharedKtor_utilsGMTDate, Core_sharedKtor_httpHttpProtocolVersion, Core_sharedKtor_client_coreProxyConfig, Core_sharedKotlinAbstractCoroutineContextElement, Core_sharedKotlinx_coroutines_coreCoroutineDispatcherKey, Core_sharedKotlinx_serialization_jsonJsonElementCompanion, Core_sharedKtor_utilsAttributeKey<T>, Core_sharedKtor_eventsEventDefinition<T>, Core_sharedKtor_utilsPipelinePhase, Core_sharedKtor_utilsPipeline<TSubject, TContext>, Core_sharedKtor_client_coreHttpReceivePipelinePhases, Core_sharedKtor_client_coreHttpResponse, Core_sharedKotlinUnit, Core_sharedKtor_client_coreHttpRequestPipelinePhases, Core_sharedKtor_client_coreHttpRequestBuilder, Core_sharedKtor_client_coreHttpResponsePipelinePhases, Core_sharedKtor_client_coreHttpResponseContainer, Core_sharedKtor_client_coreHttpClientCall, Core_sharedKtor_client_coreHttpSendPipelinePhases, Core_sharedKoin_coreBeanDefinition<T>, Core_sharedKoin_coreInstanceFactoryCompanion, Core_sharedKoin_coreInstanceContext, Core_sharedKtor_httpUrlCompanion, Core_sharedKtor_httpHttpMethodCompanion, Core_sharedKtor_httpContentType, Core_sharedKotlinCancellationException, Core_sharedKtor_httpHttpStatusCodeCompanion, Core_sharedKtor_utilsGMTDateCompanion, Core_sharedKtor_utilsWeekDay, Core_sharedKtor_utilsMonth, Core_sharedKtor_httpHttpProtocolVersionCompanion, Core_sharedKotlinAbstractCoroutineContextKey<B, E>, Core_sharedKtor_httpHeadersBuilder, Core_sharedKtor_client_coreHttpRequestBuilderCompanion, Core_sharedKtor_httpURLBuilder, Core_sharedKtor_utilsTypeInfo, Core_sharedKtor_client_coreHttpClientCallCompanion, Core_sharedKoin_coreKind, Core_sharedKoin_coreCallbacks<T>, Core_sharedKtor_httpHeaderValueParam, Core_sharedKtor_httpHeaderValueWithParametersCompanion, Core_sharedKtor_httpHeaderValueWithParameters, Core_sharedKtor_httpContentTypeCompanion, Core_sharedKtor_utilsWeekDayCompanion, Core_sharedKtor_utilsMonthCompanion, Core_sharedKtor_ioMemory, Core_sharedKtor_ioChunkBuffer, Core_sharedKotlinByteArray, Core_sharedKtor_ioBuffer, Core_sharedKtor_ioByteReadPacket, Core_sharedKtor_utilsStringValuesBuilderImpl, Core_sharedKtor_httpURLBuilderCompanion, Core_sharedKotlinx_coroutines_coreAtomicDesc, Core_sharedKotlinx_coroutines_coreLockFreeLinkedListNodePrepareOp, Core_sharedKtor_ioMemoryCompanion, Core_sharedKtor_ioBufferCompanion, Core_sharedKtor_ioChunkBufferCompanion, Core_sharedKotlinByteIterator, Core_sharedKtor_ioInputCompanion, Core_sharedKtor_ioInput, Core_sharedKtor_ioByteReadPacketCompanion, Core_sharedKotlinKTypeProjection, Core_sharedKotlinx_coroutines_coreAtomicOp<__contravariant T>, Core_sharedKotlinx_coroutines_coreOpDescriptor, Core_sharedKotlinx_coroutines_coreLockFreeLinkedListNode, Core_sharedKotlinx_coroutines_coreLockFreeLinkedListNodeAbstractAtomicDesc, Core_sharedKotlinKVariance, Core_sharedKotlinKTypeProjectionCompanion, Core_sharedKotlinx_coroutines_coreLockFreeLinkedListNodeAddLastDesc<T>, Core_sharedKotlinx_coroutines_coreLockFreeLinkedListNodeRemoveFirstDesc<T>;
+@class Core_sharedTicket, Core_sharedCoreResponse<D>, Core_sharedErrorEnum, Core_sharedMetaCompanion, Core_sharedMeta, Core_sharedOtpCompanion, Core_sharedOtp, Core_sharedSessionCompanion, Core_sharedSession, Core_sharedTicketCompanion, Core_sharedKoin_coreKoin, Core_sharedKotlinException, Core_sharedCoreResponseCompanion, Core_sharedKotlinArray<T>, Core_sharedAppConstant, Core_sharedAppConstantOauth, Core_sharedContentTypeConstant, Core_sharedHttpHeaderConstant, Core_sharedMediaTypeConstant, Core_sharedTimeoutConstant, NSObject, Core_sharedRefreshTokenUseCase, Core_sharedKotlinx_serialization_jsonJson, Core_sharedKtor_httpURLProtocol, Core_sharedKtor_client_coreHttpClient, Core_sharedValidation, Core_sharedKotlinEnumCompanion, Core_sharedKotlinEnum<E>, Core_sharedKoin_coreKoinApplication, Core_sharedKoin_coreModule, Core_sharedKotlinThrowable, Core_sharedKotlinRuntimeException, Core_sharedKotlinIllegalStateException, Core_sharedKoin_coreScope, Core_sharedKoin_coreParametersHolder, Core_sharedKotlinLazyThreadSafetyMode, Core_sharedKoin_coreLogger, Core_sharedKoin_coreInstanceRegistry, Core_sharedKoin_corePropertyRegistry, Core_sharedKoin_coreScopeRegistry, Core_sharedKtor_client_coreHttpRequestData, Core_sharedKtor_client_coreHttpResponseData, Core_sharedKtor_client_coreHttpClientEngineConfig, Core_sharedKotlinx_coroutines_coreCoroutineDispatcher, Core_sharedKotlinx_serialization_coreSerializersModule, Core_sharedKotlinx_serialization_jsonJsonDefault, Core_sharedKotlinx_serialization_jsonJsonElement, Core_sharedKotlinx_serialization_jsonJsonConfiguration, Core_sharedKtor_httpURLProtocolCompanion, Core_sharedKtor_client_coreHttpClientConfig<T>, Core_sharedKtor_eventsEvents, Core_sharedKtor_client_coreHttpReceivePipeline, Core_sharedKtor_client_coreHttpRequestPipeline, Core_sharedKtor_client_coreHttpResponsePipeline, Core_sharedKtor_client_coreHttpSendPipeline, Core_sharedKoin_coreKoinApplicationCompanion, Core_sharedKoin_coreLevel, Core_sharedKoin_coreInstanceFactory<T>, Core_sharedKotlinPair<__covariant A, __covariant B>, Core_sharedKoin_coreScopeDSL, Core_sharedKoin_coreSingleInstanceFactory<T>, Core_sharedKotlinx_serialization_coreSerialKind, Core_sharedKotlinNothing, Core_sharedKoin_coreLockable, Core_sharedKoin_coreParametersHolderCompanion, Core_sharedKoin_coreScopeRegistryCompanion, Core_sharedKtor_httpUrl, Core_sharedKtor_httpHttpMethod, Core_sharedKtor_httpOutgoingContent, Core_sharedKtor_httpHttpStatusCode, Core_sharedKtor_utilsGMTDate, Core_sharedKtor_httpHttpProtocolVersion, Core_sharedKtor_client_coreProxyConfig, Core_sharedKotlinAbstractCoroutineContextElement, Core_sharedKotlinx_coroutines_coreCoroutineDispatcherKey, Core_sharedKotlinx_serialization_jsonJsonElementCompanion, Core_sharedKtor_utilsAttributeKey<T>, Core_sharedKtor_eventsEventDefinition<T>, Core_sharedKtor_utilsPipelinePhase, Core_sharedKtor_utilsPipeline<TSubject, TContext>, Core_sharedKtor_client_coreHttpReceivePipelinePhases, Core_sharedKtor_client_coreHttpResponse, Core_sharedKotlinUnit, Core_sharedKtor_client_coreHttpRequestPipelinePhases, Core_sharedKtor_client_coreHttpRequestBuilder, Core_sharedKtor_client_coreHttpResponsePipelinePhases, Core_sharedKtor_client_coreHttpResponseContainer, Core_sharedKtor_client_coreHttpClientCall, Core_sharedKtor_client_coreHttpSendPipelinePhases, Core_sharedKoin_coreBeanDefinition<T>, Core_sharedKoin_coreInstanceFactoryCompanion, Core_sharedKoin_coreInstanceContext, Core_sharedKtor_httpUrlCompanion, Core_sharedKtor_httpHttpMethodCompanion, Core_sharedKtor_httpContentType, Core_sharedKotlinCancellationException, Core_sharedKtor_httpHttpStatusCodeCompanion, Core_sharedKtor_utilsGMTDateCompanion, Core_sharedKtor_utilsWeekDay, Core_sharedKtor_utilsMonth, Core_sharedKtor_httpHttpProtocolVersionCompanion, Core_sharedKotlinAbstractCoroutineContextKey<B, E>, Core_sharedKtor_httpHeadersBuilder, Core_sharedKtor_client_coreHttpRequestBuilderCompanion, Core_sharedKtor_httpURLBuilder, Core_sharedKtor_utilsTypeInfo, Core_sharedKtor_client_coreHttpClientCallCompanion, Core_sharedKoin_coreKind, Core_sharedKoin_coreCallbacks<T>, Core_sharedKtor_httpHeaderValueParam, Core_sharedKtor_httpHeaderValueWithParametersCompanion, Core_sharedKtor_httpHeaderValueWithParameters, Core_sharedKtor_httpContentTypeCompanion, Core_sharedKtor_utilsWeekDayCompanion, Core_sharedKtor_utilsMonthCompanion, Core_sharedKtor_ioMemory, Core_sharedKtor_ioChunkBuffer, Core_sharedKotlinByteArray, Core_sharedKtor_ioBuffer, Core_sharedKtor_ioByteReadPacket, Core_sharedKtor_utilsStringValuesBuilderImpl, Core_sharedKtor_httpURLBuilderCompanion, Core_sharedKotlinx_coroutines_coreAtomicDesc, Core_sharedKotlinx_coroutines_coreLockFreeLinkedListNodePrepareOp, Core_sharedKtor_ioMemoryCompanion, Core_sharedKtor_ioBufferCompanion, Core_sharedKtor_ioChunkBufferCompanion, Core_sharedKotlinByteIterator, Core_sharedKtor_ioInputCompanion, Core_sharedKtor_ioInput, Core_sharedKtor_ioByteReadPacketCompanion, Core_sharedKotlinKTypeProjection, Core_sharedKotlinx_coroutines_coreAtomicOp<__contravariant T>, Core_sharedKotlinx_coroutines_coreOpDescriptor, Core_sharedKotlinx_coroutines_coreLockFreeLinkedListNode, Core_sharedKotlinx_coroutines_coreLockFreeLinkedListNodeAbstractAtomicDesc, Core_sharedKotlinKVariance, Core_sharedKotlinKTypeProjectionCompanion, Core_sharedKotlinx_coroutines_coreLockFreeLinkedListNodeAddLastDesc<T>, Core_sharedKotlinx_coroutines_coreLockFreeLinkedListNodeRemoveFirstDesc<T>;
 
-@protocol Core_sharedPlatform, Core_sharedKotlinx_serialization_coreKSerializer, Core_sharedKoin_coreKoinComponent, Core_sharedKotlinx_coroutines_coreMutableStateFlow, Core_sharedKotlinx_coroutines_coreCoroutineScope, Core_sharedCommonRepository, Core_sharedKtor_client_coreHttpClientEngine, Core_sharedKotlinComparable, Core_sharedKotlinx_serialization_coreEncoder, Core_sharedKotlinx_serialization_coreSerialDescriptor, Core_sharedKotlinx_serialization_coreSerializationStrategy, Core_sharedKotlinx_serialization_coreDecoder, Core_sharedKotlinx_serialization_coreDeserializationStrategy, Core_sharedKoin_coreKoinScopeComponent, Core_sharedKoin_coreQualifier, Core_sharedKotlinKClass, Core_sharedKotlinLazy, Core_sharedKotlinx_coroutines_coreFlowCollector, Core_sharedKotlinx_coroutines_coreFlow, Core_sharedKotlinx_coroutines_coreSharedFlow, Core_sharedKotlinx_coroutines_coreStateFlow, Core_sharedKotlinx_coroutines_coreMutableSharedFlow, Core_sharedKotlinCoroutineContext, Core_sharedKotlinIterator, Core_sharedKtor_client_coreHttpClientEngineCapability, Core_sharedKtor_ioCloseable, Core_sharedKotlinx_serialization_coreSerialFormat, Core_sharedKotlinx_serialization_coreStringFormat, Core_sharedKtor_utilsAttributes, Core_sharedKotlinx_serialization_coreCompositeEncoder, Core_sharedKotlinAnnotation, Core_sharedKotlinx_serialization_coreCompositeDecoder, Core_sharedKoin_coreScopeCallback, Core_sharedKotlinKDeclarationContainer, Core_sharedKotlinKAnnotatedElement, Core_sharedKotlinKClassifier, Core_sharedKotlinCoroutineContextElement, Core_sharedKotlinCoroutineContextKey, Core_sharedKtor_httpHeaders, Core_sharedKotlinx_coroutines_coreJob, Core_sharedKotlinContinuation, Core_sharedKotlinContinuationInterceptor, Core_sharedKotlinx_coroutines_coreRunnable, Core_sharedKotlinx_serialization_coreSerializersModuleCollector, Core_sharedKtor_client_coreHttpClientPlugin, Core_sharedKotlinx_coroutines_coreDisposableHandle, Core_sharedKotlinSuspendFunction2, Core_sharedKtor_httpParameters, Core_sharedKotlinMapEntry, Core_sharedKtor_utilsStringValues, Core_sharedKotlinx_coroutines_coreChildHandle, Core_sharedKotlinx_coroutines_coreChildJob, Core_sharedKotlinSequence, Core_sharedKotlinx_coroutines_coreSelectClause0, Core_sharedKotlinFunction, Core_sharedKtor_httpHttpMessage, Core_sharedKtor_ioByteReadChannel, Core_sharedKtor_httpHttpMessageBuilder, Core_sharedKtor_client_coreHttpRequest, Core_sharedKotlinx_coroutines_coreParentJob, Core_sharedKotlinx_coroutines_coreSelectInstance, Core_sharedKotlinSuspendFunction0, Core_sharedKtor_ioReadSession, Core_sharedKotlinSuspendFunction1, Core_sharedKotlinAppendable, Core_sharedKtor_utilsStringValuesBuilder, Core_sharedKtor_httpParametersBuilder, Core_sharedKotlinKType, Core_sharedKtor_ioObjectPool;
+@protocol Core_sharedPlatform, Core_sharedKotlinx_serialization_coreKSerializer, Core_sharedKoin_coreKoinComponent, Core_sharedKotlinx_coroutines_coreMutableStateFlow, Core_sharedKotlinx_coroutines_coreCoroutineScope, Core_sharedKtor_client_coreHttpClientEngine, Core_sharedKotlinComparable, Core_sharedKotlinx_serialization_coreEncoder, Core_sharedKotlinx_serialization_coreSerialDescriptor, Core_sharedKotlinx_serialization_coreSerializationStrategy, Core_sharedKotlinx_serialization_coreDecoder, Core_sharedKotlinx_serialization_coreDeserializationStrategy, Core_sharedKoin_coreKoinScopeComponent, Core_sharedKoin_coreQualifier, Core_sharedKotlinKClass, Core_sharedKotlinLazy, Core_sharedKotlinx_coroutines_coreFlowCollector, Core_sharedKotlinx_coroutines_coreFlow, Core_sharedKotlinx_coroutines_coreSharedFlow, Core_sharedKotlinx_coroutines_coreStateFlow, Core_sharedKotlinx_coroutines_coreMutableSharedFlow, Core_sharedKotlinCoroutineContext, Core_sharedKotlinIterator, Core_sharedKtor_client_coreHttpClientEngineCapability, Core_sharedKtor_ioCloseable, Core_sharedKotlinx_serialization_coreSerialFormat, Core_sharedKotlinx_serialization_coreStringFormat, Core_sharedKtor_utilsAttributes, Core_sharedKotlinx_serialization_coreCompositeEncoder, Core_sharedKotlinAnnotation, Core_sharedKotlinx_serialization_coreCompositeDecoder, Core_sharedKoin_coreScopeCallback, Core_sharedKotlinKDeclarationContainer, Core_sharedKotlinKAnnotatedElement, Core_sharedKotlinKClassifier, Core_sharedKotlinCoroutineContextElement, Core_sharedKotlinCoroutineContextKey, Core_sharedKtor_httpHeaders, Core_sharedKotlinx_coroutines_coreJob, Core_sharedKotlinContinuation, Core_sharedKotlinContinuationInterceptor, Core_sharedKotlinx_coroutines_coreRunnable, Core_sharedKotlinx_serialization_coreSerializersModuleCollector, Core_sharedKtor_client_coreHttpClientPlugin, Core_sharedKotlinx_coroutines_coreDisposableHandle, Core_sharedKotlinSuspendFunction2, Core_sharedKtor_httpParameters, Core_sharedKotlinMapEntry, Core_sharedKtor_utilsStringValues, Core_sharedKotlinx_coroutines_coreChildHandle, Core_sharedKotlinx_coroutines_coreChildJob, Core_sharedKotlinSequence, Core_sharedKotlinx_coroutines_coreSelectClause0, Core_sharedKotlinFunction, Core_sharedKtor_httpHttpMessage, Core_sharedKtor_ioByteReadChannel, Core_sharedKtor_httpHttpMessageBuilder, Core_sharedKtor_client_coreHttpRequest, Core_sharedKotlinx_coroutines_coreParentJob, Core_sharedKotlinx_coroutines_coreSelectInstance, Core_sharedKotlinSuspendFunction0, Core_sharedKtor_ioReadSession, Core_sharedKotlinSuspendFunction1, Core_sharedKotlinAppendable, Core_sharedKtor_utilsStringValuesBuilder, Core_sharedKtor_httpParametersBuilder, Core_sharedKotlinKType, Core_sharedKtor_ioObjectPool;
 
 NS_ASSUME_NONNULL_BEGIN
 #pragma clang diagnostic push
@@ -179,63 +179,7 @@ __attribute__((swift_name("CommonRepository")))
  * @note This method converts instances of CancellationException to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
-- (void)refreshTokenRefreshToken:(NSString *)refreshToken phone:(NSString *)phone completionHandler:(void (^)(Core_sharedApiResponse<Core_sharedTicket *> * _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("refreshToken(refreshToken:phone:completionHandler:)")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("GenericItem")))
-@interface Core_sharedGenericItem : Core_sharedBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (instancetype)initWith_id:(Core_sharedInt * _Nullable)_id _title:(NSString * _Nullable)_title _subtitle:(NSString * _Nullable)_subtitle __attribute__((swift_name("init(_id:_title:_subtitle:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWith_id:(Core_sharedInt * _Nullable)_id _fullImage:(NSString * _Nullable)_fullImage _titleOverlay:(NSString * _Nullable)_titleOverlay _subtitleOverlay:(NSString * _Nullable)_subtitleOverlay __attribute__((swift_name("init(_id:_fullImage:_titleOverlay:_subtitleOverlay:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWith_id:(Core_sharedInt * _Nullable)_id _topImage:(NSString * _Nullable)_topImage _title:(NSString * _Nullable)_title _subtitle:(NSString * _Nullable)_subtitle _rightDiscount:(NSString * _Nullable)_rightDiscount _rightPrice:(NSString * _Nullable)_rightPrice __attribute__((swift_name("init(_id:_topImage:_title:_subtitle:_rightDiscount:_rightPrice:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWith_id:(Core_sharedInt * _Nullable)_id _leftImage:(NSString * _Nullable)_leftImage _title:(NSString * _Nullable)_title _subtitle:(NSString * _Nullable)_subtitle _middleDiscount:(NSString * _Nullable)_middleDiscount _middlePrice:(NSString * _Nullable)_middlePrice _middlePriceUnit:(NSString * _Nullable)_middlePriceUnit __attribute__((swift_name("init(_id:_leftImage:_title:_subtitle:_middleDiscount:_middlePrice:_middlePriceUnit:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithId:(Core_sharedInt * _Nullable)id fullImage:(NSString * _Nullable)fullImage topImage:(NSString * _Nullable)topImage leftImage:(NSString * _Nullable)leftImage name:(NSString * _Nullable)name title:(NSString * _Nullable)title titleOverlay:(NSString * _Nullable)titleOverlay subtitle:(NSString * _Nullable)subtitle subtitleOverlay:(NSString * _Nullable)subtitleOverlay subtitleIconRes:(Core_sharedInt * _Nullable)subtitleIconRes description:(NSString * _Nullable)description descriptionIconRes:(Core_sharedInt * _Nullable)descriptionIconRes moreInfo:(NSString * _Nullable)moreInfo topTags:(NSMutableArray<NSString *> * _Nullable)topTags bottomTags:(NSMutableArray<NSString *> * _Nullable)bottomTags middleDiscount:(NSString * _Nullable)middleDiscount middlePrice:(NSString * _Nullable)middlePrice middlePriceUnit:(NSString * _Nullable)middlePriceUnit rightDiscount:(NSString * _Nullable)rightDiscount rightPrice:(NSString * _Nullable)rightPrice __attribute__((swift_name("init(id:fullImage:topImage:leftImage:name:title:titleOverlay:subtitle:subtitleOverlay:subtitleIconRes:description:descriptionIconRes:moreInfo:topTags:bottomTags:middleDiscount:middlePrice:middlePriceUnit:rightDiscount:rightPrice:)"))) __attribute__((objc_designated_initializer));
-- (Core_sharedInt * _Nullable)component1 __attribute__((swift_name("component1()"))) __attribute__((deprecated("use corresponding property instead")));
-- (Core_sharedInt * _Nullable)component10 __attribute__((swift_name("component10()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString * _Nullable)component11 __attribute__((swift_name("component11()"))) __attribute__((deprecated("use corresponding property instead")));
-- (Core_sharedInt * _Nullable)component12 __attribute__((swift_name("component12()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString * _Nullable)component13 __attribute__((swift_name("component13()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSMutableArray<NSString *> * _Nullable)component14 __attribute__((swift_name("component14()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSMutableArray<NSString *> * _Nullable)component15 __attribute__((swift_name("component15()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString * _Nullable)component16 __attribute__((swift_name("component16()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString * _Nullable)component17 __attribute__((swift_name("component17()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString * _Nullable)component18 __attribute__((swift_name("component18()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString * _Nullable)component19 __attribute__((swift_name("component19()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString * _Nullable)component2 __attribute__((swift_name("component2()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString * _Nullable)component20 __attribute__((swift_name("component20()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString * _Nullable)component3 __attribute__((swift_name("component3()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString * _Nullable)component4 __attribute__((swift_name("component4()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString * _Nullable)component5 __attribute__((swift_name("component5()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString * _Nullable)component6 __attribute__((swift_name("component6()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString * _Nullable)component7 __attribute__((swift_name("component7()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString * _Nullable)component8 __attribute__((swift_name("component8()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString * _Nullable)component9 __attribute__((swift_name("component9()"))) __attribute__((deprecated("use corresponding property instead")));
-- (Core_sharedGenericItem *)doCopyId:(Core_sharedInt * _Nullable)id fullImage:(NSString * _Nullable)fullImage topImage:(NSString * _Nullable)topImage leftImage:(NSString * _Nullable)leftImage name:(NSString * _Nullable)name title:(NSString * _Nullable)title titleOverlay:(NSString * _Nullable)titleOverlay subtitle:(NSString * _Nullable)subtitle subtitleOverlay:(NSString * _Nullable)subtitleOverlay subtitleIconRes:(Core_sharedInt * _Nullable)subtitleIconRes description:(NSString * _Nullable)description descriptionIconRes:(Core_sharedInt * _Nullable)descriptionIconRes moreInfo:(NSString * _Nullable)moreInfo topTags:(NSMutableArray<NSString *> * _Nullable)topTags bottomTags:(NSMutableArray<NSString *> * _Nullable)bottomTags middleDiscount:(NSString * _Nullable)middleDiscount middlePrice:(NSString * _Nullable)middlePrice middlePriceUnit:(NSString * _Nullable)middlePriceUnit rightDiscount:(NSString * _Nullable)rightDiscount rightPrice:(NSString * _Nullable)rightPrice __attribute__((swift_name("doCopy(id:fullImage:topImage:leftImage:name:title:titleOverlay:subtitle:subtitleOverlay:subtitleIconRes:description:descriptionIconRes:moreInfo:topTags:bottomTags:middleDiscount:middlePrice:middlePriceUnit:rightDiscount:rightPrice:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property NSMutableArray<NSString *> * _Nullable bottomTags __attribute__((swift_name("bottomTags")));
-@property (setter=setDescription:) NSString * _Nullable description_ __attribute__((swift_name("description_")));
-@property Core_sharedInt * _Nullable descriptionIconRes __attribute__((swift_name("descriptionIconRes")));
-@property NSString * _Nullable fullImage __attribute__((swift_name("fullImage")));
-@property Core_sharedInt * _Nullable id __attribute__((swift_name("id")));
-@property NSString * _Nullable leftImage __attribute__((swift_name("leftImage")));
-@property NSString * _Nullable middleDiscount __attribute__((swift_name("middleDiscount")));
-@property NSString * _Nullable middlePrice __attribute__((swift_name("middlePrice")));
-@property NSString * _Nullable middlePriceUnit __attribute__((swift_name("middlePriceUnit")));
-@property NSString * _Nullable moreInfo __attribute__((swift_name("moreInfo")));
-@property NSString * _Nullable name __attribute__((swift_name("name")));
-@property NSString * _Nullable rightDiscount __attribute__((swift_name("rightDiscount")));
-@property NSString * _Nullable rightPrice __attribute__((swift_name("rightPrice")));
-@property NSString * _Nullable subtitle __attribute__((swift_name("subtitle")));
-@property Core_sharedInt * _Nullable subtitleIconRes __attribute__((swift_name("subtitleIconRes")));
-@property NSString * _Nullable subtitleOverlay __attribute__((swift_name("subtitleOverlay")));
-@property NSString * _Nullable title __attribute__((swift_name("title")));
-@property NSString * _Nullable titleOverlay __attribute__((swift_name("titleOverlay")));
-@property NSString * _Nullable topImage __attribute__((swift_name("topImage")));
-@property NSMutableArray<NSString *> * _Nullable topTags __attribute__((swift_name("topTags")));
+- (void)refreshTokenRefreshToken:(NSString *)refreshToken phone:(NSString *)phone completionHandler:(void (^)(Core_sharedCoreResponse<Core_sharedTicket *> * _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("refreshToken(refreshToken:phone:completionHandler:)")));
 @end
 
 
@@ -408,11 +352,11 @@ __attribute__((swift_name("RefreshTokenUseCase")))
  * @note This method converts instances of CancellationException to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
-- (void)invokeRefreshToken:(NSString *)refreshToken phone:(NSString *)phone completionHandler:(void (^)(Core_sharedApiResponse<Core_sharedTicket *> * _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("invoke(refreshToken:phone:completionHandler:)")));
+- (void)invokeRefreshToken:(NSString *)refreshToken phone:(NSString *)phone completionHandler:(void (^)(Core_sharedCoreResponse<Core_sharedTicket *> * _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("invoke(refreshToken:phone:completionHandler:)")));
 @end
 
-__attribute__((swift_name("BaseViewModel")))
-@interface Core_sharedBaseViewModel : Core_sharedBase
+__attribute__((swift_name("CoreViewModel")))
+@interface Core_sharedCoreViewModel : Core_sharedBase
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (void)onServerErrorE:(Core_sharedKotlinException *)e __attribute__((swift_name("onServerError(e:)")));
@@ -436,31 +380,19 @@ __attribute__((swift_name("BaseViewModel")))
 @property (readonly) id<Core_sharedKotlinx_coroutines_coreMutableStateFlow> toastMessage __attribute__((swift_name("toastMessage")));
 @end
 
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("CommonRepositoryImpl")))
-@interface Core_sharedCommonRepositoryImpl : Core_sharedBase <Core_sharedCommonRepository>
-- (instancetype)initWithApiClient:(Core_sharedApiClient *)apiClient __attribute__((swift_name("init(apiClient:)"))) __attribute__((objc_designated_initializer));
-
-/**
- * @note This method converts instances of CancellationException to errors.
- * Other uncaught Kotlin exceptions are fatal.
-*/
-- (void)refreshTokenRefreshToken:(NSString *)refreshToken phone:(NSString *)phone completionHandler:(void (^)(Core_sharedApiResponse<Core_sharedTicket *> * _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("refreshToken(refreshToken:phone:completionHandler:)")));
-@end
-
 
 /**
  * @note annotations
  *   kotlinx.serialization.Serializable
 */
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ApiResponse")))
-@interface Core_sharedApiResponse<D> : Core_sharedBase
+__attribute__((swift_name("CoreResponse")))
+@interface Core_sharedCoreResponse<D> : Core_sharedBase
 - (instancetype)initWithMeta:(Core_sharedMeta * _Nullable)meta data:(D _Nullable)data __attribute__((swift_name("init(meta:data:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) Core_sharedApiResponseCompanion *companion __attribute__((swift_name("companion")));
+@property (class, readonly, getter=companion) Core_sharedCoreResponseCompanion *companion __attribute__((swift_name("companion")));
 - (Core_sharedMeta * _Nullable)component1 __attribute__((swift_name("component1()"))) __attribute__((deprecated("use corresponding property instead")));
 - (D _Nullable)component2 __attribute__((swift_name("component2()"))) __attribute__((deprecated("use corresponding property instead")));
-- (Core_sharedApiResponse<D> *)doCopyMeta:(Core_sharedMeta * _Nullable)meta data:(D _Nullable)data __attribute__((swift_name("doCopy(meta:data:)")));
+- (Core_sharedCoreResponse<D> *)doCopyMeta:(Core_sharedMeta * _Nullable)meta data:(D _Nullable)data __attribute__((swift_name("doCopy(meta:data:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
@@ -469,42 +401,14 @@ __attribute__((swift_name("ApiResponse")))
 @end
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ApiResponseCompanion")))
-@interface Core_sharedApiResponseCompanion : Core_sharedBase
+__attribute__((swift_name("CoreResponseCompanion")))
+@interface Core_sharedCoreResponseCompanion : Core_sharedBase
 + (instancetype)alloc __attribute__((unavailable));
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) Core_sharedApiResponseCompanion *shared __attribute__((swift_name("shared")));
+@property (class, readonly, getter=shared) Core_sharedCoreResponseCompanion *shared __attribute__((swift_name("shared")));
 - (id<Core_sharedKotlinx_serialization_coreKSerializer>)serializerTypeParamsSerializers:(Core_sharedKotlinArray<id<Core_sharedKotlinx_serialization_coreKSerializer>> *)typeParamsSerializers __attribute__((swift_name("serializer(typeParamsSerializers:)")));
 - (id<Core_sharedKotlinx_serialization_coreKSerializer>)serializerTypeSerial0:(id<Core_sharedKotlinx_serialization_coreKSerializer>)typeSerial0 __attribute__((swift_name("serializer(typeSerial0:)")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("PhoneReq")))
-@interface Core_sharedPhoneReq : Core_sharedBase
-- (instancetype)initWithMsisdn:(NSString * _Nullable)msisdn __attribute__((swift_name("init(msisdn:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) Core_sharedPhoneReqCompanion *companion __attribute__((swift_name("companion")));
-- (NSString * _Nullable)component1 __attribute__((swift_name("component1()"))) __attribute__((deprecated("use corresponding property instead")));
-- (Core_sharedPhoneReq *)doCopyMsisdn:(NSString * _Nullable)msisdn __attribute__((swift_name("doCopy(msisdn:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSString * _Nullable msisdn __attribute__((swift_name("msisdn")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("PhoneReq.Companion")))
-@interface Core_sharedPhoneReqCompanion : Core_sharedBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) Core_sharedPhoneReqCompanion *shared __attribute__((swift_name("shared")));
-- (id<Core_sharedKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -528,6 +432,17 @@ __attribute__((swift_name("AppConstant")))
 @property (readonly) NSString *REFRESH_TOKEN_KEY __attribute__((swift_name("REFRESH_TOKEN_KEY")));
 @property (readonly) NSString *RETRY_KEY __attribute__((swift_name("RETRY_KEY")));
 @property (readonly) NSString *SELECT_DATE_KEY __attribute__((swift_name("SELECT_DATE_KEY")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("AppConstant.Oauth")))
+@interface Core_sharedAppConstantOauth : Core_sharedBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)oauth __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) Core_sharedAppConstantOauth *shared __attribute__((swift_name("shared")));
+@property NSString *API_AUTH __attribute__((swift_name("API_AUTH")));
+@property NSString *API_REFRESH __attribute__((swift_name("API_REFRESH")));
 @end
 
 __attribute__((objc_subclassing_restricted))

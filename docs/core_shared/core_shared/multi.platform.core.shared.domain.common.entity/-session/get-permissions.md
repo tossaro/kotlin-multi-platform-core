@@ -4,4 +4,4 @@
 
 [common]\
 
-public final [List](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)&lt;[String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)&gt;[getPermissions](get-permissions.md)()
+public final [List](https://developer.android.com/reference/kotlin/java/util/List.html)&lt;[String](https://developer.android.com/reference/kotlin/java/lang/String.html)&gt;[getPermissions](get-permissions.md)()

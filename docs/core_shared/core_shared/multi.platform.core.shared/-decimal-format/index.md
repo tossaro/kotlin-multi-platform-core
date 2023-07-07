@@ -15,4 +15,4 @@ public final class [DecimalFormat](index.md)
 
 | Name | Summary |
 |---|---|
-| [format](format.md) | [common, android, ios]<br>[common, android, ios]<br>public final [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[format](format.md)([Double](https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html)double, [Integer](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html)maximumFractionDigits) |
+| [format](format.md) | [common, android, ios]<br>[common, android, ios]<br>public final [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[format](format.md)([Double](https://developer.android.com/reference/kotlin/java/lang/Double.html)double, [Integer](https://developer.android.com/reference/kotlin/java/lang/Integer.html)maximumFractionDigits) |

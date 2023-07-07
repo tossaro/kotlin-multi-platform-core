@@ -4,6 +4,6 @@
 
 [android]\
 
-public final static [Integer](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html)[dpToPx](dp-to-px.md)([Fragment](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html)$self, [Float](https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html)dp)
+public final static [Integer](https://developer.android.com/reference/kotlin/java/lang/Integer.html)[dpToPx](dp-to-px.md)([Fragment](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html)$self, [Float](https://developer.android.com/reference/kotlin/java/lang/Float.html)dp)
 
 Extension for show converting dp to px

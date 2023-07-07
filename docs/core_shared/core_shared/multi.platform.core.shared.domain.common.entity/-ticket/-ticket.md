@@ -4,4 +4,4 @@
 
 [common]\
 
-public [Ticket](index.md)[Ticket](-ticket.md)([Long](https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html)timestamp, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)state, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)transactionId, [Otp](../-otp/index.md)otp, [Session](../-session/index.md)session)
+public [Ticket](index.md)[Ticket](-ticket.md)([Long](https://developer.android.com/reference/kotlin/java/lang/Long.html)timestamp, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)state, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)transactionId, [Otp](../-otp/index.md)otp, [Session](../-session/index.md)session)

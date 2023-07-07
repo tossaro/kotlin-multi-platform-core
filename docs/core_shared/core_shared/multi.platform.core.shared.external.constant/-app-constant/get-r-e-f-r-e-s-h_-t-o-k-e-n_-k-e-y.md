@@ -4,4 +4,4 @@
 
 [common]\
 
-public final [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[getREFRESH_TOKEN_KEY](get-r-e-f-r-e-s-h_-t-o-k-e-n_-k-e-y.md)()
+public final [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[getREFRESH_TOKEN_KEY](get-r-e-f-r-e-s-h_-t-o-k-e-n_-k-e-y.md)()

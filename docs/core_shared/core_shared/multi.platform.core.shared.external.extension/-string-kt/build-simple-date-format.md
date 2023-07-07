@@ -4,4 +4,4 @@
 
 [android]\
 
-public final static [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)[buildSimpleDateFormat](build-simple-date-format.md)([String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)$self)
+public final static [SimpleDateFormat](https://developer.android.com/reference/kotlin/java/text/SimpleDateFormat.html)[buildSimpleDateFormat](build-simple-date-format.md)([String](https://developer.android.com/reference/kotlin/java/lang/String.html)$self)

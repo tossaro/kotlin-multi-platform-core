@@ -4,4 +4,4 @@
 
 [common]\
 
-public final [Boolean](https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html)[phoneFormat](phone-format.md)([CharSequence](https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html)data)
+public final [Boolean](https://developer.android.com/reference/kotlin/java/lang/Boolean.html)[phoneFormat](phone-format.md)([CharSequence](https://developer.android.com/reference/kotlin/java/lang/CharSequence.html)data)

@@ -4,4 +4,4 @@
 
 [common]\
 
-public final [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)[getCURRENCY](get-c-u-r-r-e-n-c-y.md)()
+public final [String](https://developer.android.com/reference/kotlin/java/lang/String.html)[getCURRENCY](get-c-u-r-r-e-n-c-y.md)()

@@ -4,4 +4,4 @@
 
 [common]\
 
-public final [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)[setAccountVerified](set-account-verified.md)([Boolean](https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html)isAccountVerified)
+public final [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)[setAccountVerified](set-account-verified.md)([Boolean](https://developer.android.com/reference/kotlin/java/lang/Boolean.html)isAccountVerified)

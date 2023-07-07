@@ -1,3 +1,4 @@
+@file:Suppress("UnUsed")
 package multi.platform.core.shared.external.extension
 
 import android.app.Activity
@@ -11,17 +12,20 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
-import multi.platform.core.shared.app.common.BaseActivity
 
 
-@Suppress("UNUSED")
+/**
+ * Extension for hide soft keyboard
+ */
 fun Fragment.hideKeyboard() {
     val currentFocus = if (this is DialogFragment) dialog?.currentFocus else activity?.currentFocus
     val imm = requireContext().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
 }
 
-@Suppress("UNUSED")
+/**
+ * Extension for show soft keyboard
+ */
 fun Fragment.showKeyboard(focusView: View) {
     if (focusView.isEnabled) {
         focusView.requestFocus()
@@ -31,7 +35,9 @@ fun Fragment.showKeyboard(focusView: View) {
     }
 }
 
-@Suppress("UNUSED")
+/**
+ * Extension for safely modify ui
+ */
 fun Fragment.isSafe(): Boolean {
     return !(this.isRemoving || this.activity == null || this.isDetached || !this.isAdded || this.view == null)
 }
@@ -53,28 +59,6 @@ fun Fragment.showToast(messageString: String?) {
 }
 
 /**
- * Extension for show success snackbar
- */
-fun Fragment.showSuccessSnackbar(messageString: String?) = showSnackbar(messageString, false)
-
-/**
- * Extension for show error snackbar
- */
-fun Fragment.showErrorSnackbar(messageString: String?) = showSnackbar(messageString, true)
-
-/**
- * Extension for show snackbar
- */
-@Suppress("kotlin:S1871")
-fun Fragment.showSnackbar(messageString: String?, isError: Boolean) {
-    hideKeyboard()
-    messageString?.let {
-        val anchor: View? = if (this is DialogFragment) dialog?.window?.decorView else null
-        (requireActivity() as BaseActivity).showSnackbar(it, isError, anchor)
-    }
-}
-
-/**
  * Extension for show converting dp to px
  */
 fun Fragment.dpToPx(dp: Float): Int {
@@ -88,7 +72,6 @@ fun Fragment.dpToPx(dp: Float): Int {
 /**
  * Extension for show converting sp to px
  */
-@Suppress("UnUsed")
 fun Fragment.spToPx(dp: Float): Int {
     return TypedValue.applyDimension(
         TypedValue.COMPLEX_UNIT_SP,
@@ -100,7 +83,6 @@ fun Fragment.spToPx(dp: Float): Int {
 /**
  * Extension for show converting dp to sp
  */
-@Suppress("UnUsed")
 fun Fragment.dpToSp(dp: Float): Int {
     val d: Float = context?.resources?.displayMetrics?.scaledDensity ?: 1f
     return (dpToPx(dp) / d).toInt()
@@ -109,7 +91,6 @@ fun Fragment.dpToSp(dp: Float): Int {
 /**
  * Extension for get path file from URI
  */
-@Suppress("UnUsed")
 fun Fragment.getPathFromURI(contentUri: Uri?): String? {
     var res: String? = null
     contentUri?.let { u ->
@@ -129,7 +110,6 @@ fun Fragment.getPathFromURI(contentUri: Uri?): String? {
 /**
  * Extension for check route id in back stack
  */
-@Suppress("UnUsed")
 fun Fragment.isInBackStack(destinationId: Int) =
     try {
         findNavController().getBackStackEntry(destinationId)

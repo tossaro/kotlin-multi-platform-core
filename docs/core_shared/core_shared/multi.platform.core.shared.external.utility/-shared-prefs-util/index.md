@@ -9,7 +9,7 @@ public class [SharedPrefsUtil](index.md)
 
 | Name | Summary |
 |---|---|
-| [build](build.md) | [android]<br>public final [SharedPreferences](https://developer.android.com/reference/kotlin/android/content/SharedPreferences.html)[build](build.md)([Context](https://developer.android.com/reference/kotlin/android/content/Context.html)context, [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)name) |
+| [build](build.md) | [android]<br>public final [SharedPreferences](https://developer.android.com/reference/kotlin/android/content/SharedPreferences.html)[build](build.md)([Context](https://developer.android.com/reference/kotlin/android/content/Context.html)context, [String](https://developer.android.com/reference/kotlin/java/lang/String.html)name) |
 
 ## Properties
 

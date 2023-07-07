@@ -6,4 +6,4 @@
 
 | Name | Summary |
 |---|---|
-| [ApiResponse](-api-response/index.md) | [common]<br>@Serializable()<br>public final class [ApiResponse](-api-response/index.md)&lt;D extends [Object](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html)&gt; |
+| [CoreResponse](-core-response/index.md) | [common]<br>@Serializable()<br>public final class [CoreResponse](-core-response/index.md)&lt;D extends [Object](https://developer.android.com/reference/kotlin/java/lang/Object.html)&gt; |

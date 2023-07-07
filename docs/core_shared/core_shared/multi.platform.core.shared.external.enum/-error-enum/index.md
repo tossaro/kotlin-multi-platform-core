@@ -3,7 +3,7 @@
 # ErrorEnum
 
 [common]\
-public enum [ErrorEnum](index.md) extends [Enum](https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html)&lt;[ErrorEnum](index.md)&gt;
+public enum [ErrorEnum](index.md) extends [Enum](https://developer.android.com/reference/kotlin/java/lang/Enum.html)&lt;[ErrorEnum](index.md)&gt;
 
 ## Entries
 
@@ -24,5 +24,5 @@ public enum [ErrorEnum](index.md) extends [Enum](https://docs.oracle.com/javase/
 
 | Name | Summary |
 |---|---|
-| [valueOf](value-of.md) | [common]<br>public final [ErrorEnum](index.md)[valueOf](value-of.md)([String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)value)<br>Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.) |
+| [valueOf](value-of.md) | [common]<br>public final [ErrorEnum](index.md)[valueOf](value-of.md)([String](https://developer.android.com/reference/kotlin/java/lang/String.html)value)<br>Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.) |
 | [values](values.md) | [common]<br>public final [Array](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)&lt;[ErrorEnum](index.md)&gt;[values](values.md)()<br>Returns an array containing the constants of this enum type, in the order they're declared. |

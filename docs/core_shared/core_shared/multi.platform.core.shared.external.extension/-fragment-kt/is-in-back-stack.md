@@ -4,6 +4,6 @@
 
 [android]\
 
-public final static [Boolean](https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html)[isInBackStack](is-in-back-stack.md)([Fragment](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html)$self, [Integer](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html)destinationId)
+public final static [Boolean](https://developer.android.com/reference/kotlin/java/lang/Boolean.html)[isInBackStack](is-in-back-stack.md)([Fragment](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html)$self, [Integer](https://developer.android.com/reference/kotlin/java/lang/Integer.html)destinationId)
 
 Extension for check route id in back stack
