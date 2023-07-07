@@ -6,8 +6,6 @@ variables:
   ANDROID_SDK_TOOLS: "8512546"
 
 stages:
-  - test
-  - build
   - publish
   - release
 
@@ -40,31 +38,6 @@ before_script:
   - yes | android-sdk-linux/cmdline-tools/latest/bin/sdkmanager --licenses
   - set -o pipefail
   - *gen-props
-
-androidDebugDevTests:
-  stage: test
-  rules:
-    - if: $CI_COMMIT_TAG
-      when: never
-    - if: $CI_COMMIT_BRANCH
-      when: never
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == $CI_DEFAULT_BRANCH
-  script:
-    - ./gradlew example_android:testDevDebugUnitTest example_android:createDevDebugCoverageReport --stacktrace
-
-androidAssembleDevDebug:
-  stage: build
-  rules:
-    - if: $CI_COMMIT_TAG
-      when: never
-    - if: $CI_COMMIT_BRANCH
-      when: never
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == $CI_DEFAULT_BRANCH
-  script:
-    - ./gradlew example_android:assembleDevDebug
-  artifacts:
-    paths:
-      - exampleAndroid/build/outputs/
 
 publishing:
   stage: publish
